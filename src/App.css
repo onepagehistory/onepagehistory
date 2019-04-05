@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.App__Header {
+    margin-top: 1rem;
+}
+
+.App__Body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}

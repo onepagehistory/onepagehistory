@@ -1,0 +1,11 @@
+.Search {
+}
+
+.Search__Input {
+    width: 30rem;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    vertical-align: middle;
+    border: 2px solid white;
+}
