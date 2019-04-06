@@ -1,20 +1,37 @@
 import React, { Component } from 'react';
-import './App.css';
-import { Card } from './Card/Card';
-import { Search } from './Search/Search';
+import Card from './Card/Card';
+import Search from './Search/Search';
+import injectSheet from 'react-jss';
+import { data } from './data';
 
-class App extends Component {
+const styles = (theme:any) => ({
+    App: {
+        textAlign: 'center',
+        padding: '0.5rem',
+    },
+    Header: {
+        marginTop: '1rem'
+    },
+    Body: {
+        position: 'relative'
+    }
+});
+
+class App extends Component<any> {
   render() {
     return (
-      <div className="App">
-        <header className="App__Header">
+      <div className={this.props.classes.App}>
+        <header className={this.props.classes.Header}>
             <Search />
         </header>
-        <section className="App__Body">
-            { (new Array(100).fill(undefined)).map((_, v)=>(
-                <Card
-                    key={v}
-                />
+        <section className={this.props.classes.Body}>
+            { data.entries.filter(entry=>entry.name).map(entry=>(
+                <div
+                    key={entry.name}
+                    style={{ position: 'absolute', ...entry.position, }}
+                ><Card
+                    entry={entry}
+                /></div>
             ))
             }
         </section>
@@ -23,4 +40,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default injectSheet(styles)(App);
