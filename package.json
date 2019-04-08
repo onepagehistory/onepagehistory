@@ -18,7 +18,8 @@
     "dev": "next",
     "start": "next start",
     "build": "next build",
-    "export": "npm run build && next export"
+    "export": "npm run build && next export",
+    "publish": "echo 1 > out/.nojekyll && gh-pages -d out -r https://github.com/onepagehistory/onepagehistory.github.io.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\""
   },
   "eslintConfig": {
     "extends": "react-app"
