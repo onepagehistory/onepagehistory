@@ -1,0 +1,19 @@
+.Scales {
+    &__Century {
+        display: block;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+
+        & > a, & > a:link {
+            display: inline-block;
+            padding: 0.25rem;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.25);
+
+            &:hover{
+                color: white;
+            }
+        }
+    }
+}
