@@ -1,6 +1,6 @@
 import React from 'react';
 import './Scales.scss';
-import { toRoman } from '../shared/toRoman';
+import { centuryToRoman } from '../shared/toRoman';
 
 export const Scales = ({ from, to }: { from: number, to: number }) => {
     const toCentury = Math.floor(to / 100);
@@ -12,7 +12,7 @@ export const Scales = ({ from, to }: { from: number, to: number }) => {
             century: toCentury - i,
             years: 100,
         }));
-    
+
     if (from % 100) {
         centuries.push({
             century: fromCentury - 1,
@@ -29,7 +29,7 @@ export const Scales = ({ from, to }: { from: number, to: number }) => {
 
     return (<div className="Scales">{
         centuries.map(entry => {
-            const centName = toRoman(entry.century);
+            const centName = centuryToRoman(entry.century);
             const centId = centName;
             return (
                 <div
