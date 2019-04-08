@@ -1,31 +1,18 @@
 import React, { Component } from 'react';
-import Card from './Card/Card';
-import Search from './Search/Search';
-import injectSheet from 'react-jss';
+import { Card } from './Card/Card';
+import { Search } from './Search/Search';
 import { data } from './data';
+import './App.scss';
 
-const styles = (theme:any) => ({
-    App: {
-        textAlign: 'center',
-        padding: '0.5rem',
-    },
-    Header: {
-        marginTop: '1rem'
-    },
-    Body: {
-        position: 'relative'
-    }
-});
-
-class App extends Component<any> {
+class App extends Component<any, any> {
   render() {
     return (
-      <div className={this.props.classes.App}>
-        <header className={this.props.classes.Header}>
+      <div className="App">
+        <header className="App__Header">
             <Search />
         </header>
-        <section className={this.props.classes.Body}>
-            { data.entries.filter(entry=>entry.name).map(entry=>(
+        <section className="App__Body">{
+            data.entries.filter(entry=>entry.name).map(entry=>(
                 <div
                     key={entry.name}
                     style={{ position: 'absolute', ...entry.position, }}
@@ -33,11 +20,10 @@ class App extends Component<any> {
                     entry={entry}
                 /></div>
             ))
-            }
-        </section>
+        }</section>
       </div>
     );
   }
 }
 
-export default injectSheet(styles)(App);
+export default App;
