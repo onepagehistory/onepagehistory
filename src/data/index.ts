@@ -158,6 +158,30 @@ export const data: HistoryData = {
               }
           }
 
+        , { name: 'Gilgamesh'
+          , type: HistoryEntryType.Event
+          , title: 'Gilgamesh'
+          , date: 'probably between 2800 and 2500 BC'
+          , shortDescription: 'Was a historical king of the Sumerian city-state of Uruk, a major hero in ancient Mesopotamian mythology, and the protagonist of the Epic of Gilgamesh, an epic poem written in Akkadian during the late second millennium BC'
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Hero_lion_Dur-Sharrukin_Louvre_AO19862.jpg'
+          , position:
+              { left: '50%'
+              , top: getTopPos(-2800)
+              }
+          }
+
+        , { name: 'Lion-man'
+          , type: HistoryEntryType.Event
+          , title: 'Lion-man'
+          , date: '~ 33,000 – 38,000'
+          , shortDescription: 'The lion-headed figurine is the oldest-known zoomorphic (animal-shaped) sculpture in the world, and the oldest-known uncontested example of figurative art. It has been determined by carbon dating of the layer in which it was found to be between 35,000 and 40,000 years old, and therefore is associated with the archaeological Aurignacian culture of the Upper Paleolithic. It was carved out of mammoth ivory using a flint stone knife. Seven parallel, transverse, carved gouges are on the left arm.'
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Loewenmensch1.jpg'
+          , position:
+              { left: '33%'
+              , top: getTopPos(-33000)
+              }
+          }
+
 
         , { name: ''
           , type: HistoryEntryType.Event

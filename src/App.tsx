@@ -22,7 +22,7 @@ class App extends Component<any, any> {
                 )
             }</div>
             <div className="App__Scales">
-                <Scales from={1000} to={2019}/>
+                <Scales from={-33100} to={2019}/>
             </div>
         </section>
       </div>
