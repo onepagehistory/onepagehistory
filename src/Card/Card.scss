@@ -1,0 +1,46 @@
+.Card {
+    max-width: 20rem;
+    display: flex;
+    flex-direction: row-reverse;
+    background: white;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+    text-align: left;
+    max-height: 128px;
+    &:hover {
+        z-index: 999;
+        max-height: none;
+    }
+
+    &__Body {
+        padding-left: 1rem
+    }
+    &__Title {
+        color: #222;
+        margin: 0.25rem 0 0;
+        & a, a:visited {
+            color: #222;
+            text-decoration: none;
+        }
+    }
+    &__Date {
+        font-size: 0.6rem;
+        color: #666
+    }
+    &__ShortDescription {
+        padding-top: 0.5rem;
+        font-size: 0.8rem;
+        color: #333;
+    }
+    &__ImgWrapper {
+        width: 128px;
+        height: 128px;
+
+        & img {
+            max-width: 128px;
+            max-height: 128px
+        }
+    }
+}
