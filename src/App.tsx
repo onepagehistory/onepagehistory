@@ -49,7 +49,10 @@ class App extends Component<any, any> {
                 )
             }</div>
             <div className="App__Scales">
-                <Scales from={-33100} to={2020}/>
+                <Scales
+                    from={ -33100 }
+                    to={ (new Date()).getFullYear() }
+                    />
             </div>
         </section>
       </div>

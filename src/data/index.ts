@@ -26,18 +26,53 @@ const getTopPos = (year: number) => (2019 - year) * 1.5;
 
 export const data: HistoryData = {
     entries:
-        [ { name: 'Leonardo_da_Vinci'
+        [ { name: 'Soviet_Union'
           , type: HistoryEntryType.Event
-          , title: 'Leonardo da Vinci'
-          , date: '15 April 1452 – 2 May 1519'
-          , shortDescription: 'Italian polymath of the Renaissance whose areas of interest included invention, drawing, painting, sculpting, architecture, science, music, mathematics, engineering, literature, anatomy, geology, astronomy, botany, writing, history, and cartography'
-          , imageUrl: 'https://www.wga.hu/art/m/melzi/port_leo.jpg'
+          , title: 'USSR'
+          , date: '1922–1991'
+          , shortDescription: ''
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_Soviet_Union.svg'
           , position:
-              { left: '40%'
-              , top: getTopPos(1452)
+              { right: '11%'
+              , top: getTopPos(1922)
               }
           }
 
+        , { name: 'United_States'
+          , type: HistoryEntryType.Event
+          , title: 'USA'
+          , date: 'July 4, 1776'
+          , shortDescription: ''
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg'
+          , position:
+              { left: '5%'
+              , top: getTopPos(1776)
+              }
+          }
+
+        , { name: 'World_War_I'
+          , type: HistoryEntryType.Event
+          , title: 'World War I'
+          , date: '28 July 1914 – 11 November 1918'
+          , shortDescription: 'Also known as the First World War or the Great War, was a global war originating in Europe that lasted from 28 July 1914 to 11 November 1918. Contemporaneously described as "the war to end all wars", it led to the mobilisation of more than 70 million military personnel, including 60 million Europeans, making it one of the largest wars in history. It is also one of the deadliest conflicts in history, with an estimated nine million combatants and seven million civilian deaths as a direct result of the war, while resulting genocides and the 1918 influenza pandemic caused another 50 to 100 million deaths worldwide.'
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/20/WWImontage.jpg'
+          , position:
+              { left: '5%'
+              , top: getTopPos(1914)
+              }
+          }
+
+        , { name: 'World_War_II'
+          , type: HistoryEntryType.Event
+          , title: 'World War II'
+          , date: '1 September 1939 – 2 September 1945'
+          , shortDescription: `also known as the Second World War, was a global war that lasted from 1939 to 1945. The vast majority of the world's countries—including all the great powers—eventually formed two opposing military alliances: the Allies and the Axis. A state of total war emerged, directly involving more than 100 million people from over 30 countries. The major participants threw their entire economic, industrial, and scientific capabilities behind the war effort, blurring the distinction between civilian and military resources. World War II was the deadliest conflict in human history, marked by 50 to 85 million fatalities, most of whom were civilians in the Soviet Union and China. It included massacres, the genocide of the Holocaust, strategic bombing, premeditated death from starvation and disease, and the only use of nuclear weapons in war`
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Infobox_collage_for_WWII.PNG'
+          , position:
+              { left: '25%'
+              , top: getTopPos(1939)
+              }
+          }
         , { name: 'Omar_Khayyam'
           , type: HistoryEntryType.Event
           , title: 'Omar Khayyam'
@@ -69,7 +104,7 @@ export const data: HistoryData = {
           , shortDescription: `English poet, playwright and actor, widely regarded as the greatest writer in the English language and the world's greatest dramatist`
           , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/375px-Shakespeare.jpg'
           , position:
-              { left: '25%'
+              { left: '28%'
               , top: getTopPos(1564)
               }
           }
@@ -83,6 +118,30 @@ export const data: HistoryData = {
           , position:
               { left: '40%'
               , top: getTopPos(1548)
+              }
+          }
+
+        , { name: 'Steam_engine'
+          , type: HistoryEntryType.Event
+          , title: 'Steam engine'
+          , date: '1712'
+          , shortDescription: ''
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/JamesWattEngine.jpg'
+          , position:
+              { left: '35%'
+              , top: getTopPos(1712)
+              }
+          }
+
+        , { name: 'Steam_locomotive'
+          , type: HistoryEntryType.Event
+          , title: 'Steam locomotive'
+          , date: '1802'
+          , shortDescription: ''
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Vintage_image_of_steam_train.jpg'
+          , position:
+              { left: '30%'
+              , top: getTopPos(1802)
               }
           }
 
@@ -122,30 +181,6 @@ export const data: HistoryData = {
               }
           }
 
-        , { name: 'World_War_I'
-          , type: HistoryEntryType.Event
-          , title: 'World War I'
-          , date: '28 July 1914 – 11 November 1918'
-          , shortDescription: 'Also known as the First World War or the Great War, was a global war originating in Europe that lasted from 28 July 1914 to 11 November 1918. Contemporaneously described as "the war to end all wars", it led to the mobilisation of more than 70 million military personnel, including 60 million Europeans, making it one of the largest wars in history. It is also one of the deadliest conflicts in history, with an estimated nine million combatants and seven million civilian deaths as a direct result of the war, while resulting genocides and the 1918 influenza pandemic caused another 50 to 100 million deaths worldwide.'
-          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/20/WWImontage.jpg'
-          , position:
-              { left: '5%'
-              , top: getTopPos(1914)
-              }
-          }
-
-        , { name: 'World_War_II'
-          , type: HistoryEntryType.Event
-          , title: 'World War II'
-          , date: '1 September 1939 – 2 September 1945'
-          , shortDescription: `also known as the Second World War, was a global war that lasted from 1939 to 1945. The vast majority of the world's countries—including all the great powers—eventually formed two opposing military alliances: the Allies and the Axis. A state of total war emerged, directly involving more than 100 million people from over 30 countries. The major participants threw their entire economic, industrial, and scientific capabilities behind the war effort, blurring the distinction between civilian and military resources. World War II was the deadliest conflict in human history, marked by 50 to 85 million fatalities, most of whom were civilians in the Soviet Union and China. It included massacres, the genocide of the Holocaust, strategic bombing, premeditated death from starvation and disease, and the only use of nuclear weapons in war`
-          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Infobox_collage_for_WWII.PNG'
-          , position:
-              { left: '25%'
-              , top: getTopPos(1939)
-              }
-          }
-
         , { name: 'Michael_Faraday'
           , type: HistoryEntryType.Event
           , title: 'Michael Faraday'
@@ -182,6 +217,30 @@ export const data: HistoryData = {
               }
           }
 
+        , { name: ''
+          , type: HistoryEntryType.Event
+          , title: ''
+          , date: ''
+          , shortDescription: ''
+          , imageUrl: ''
+          , position:
+              { left: 0
+              , top: getTopPos(0)
+              }
+          }
+
+
+        , { name: 'Incandescent_light_bulb'
+          , type: HistoryEntryType.Event
+          , title: 'Light bulb'
+          , date: 'Around 1880s'
+          , shortDescription: ''
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Livermore_Centennial_Light_Bulb.jpg'
+          , position:
+              { left: '40%'
+              , top: getTopPos(1880)
+              }
+          }
 
         , { name: ''
           , type: HistoryEntryType.Event
@@ -195,5 +254,17 @@ export const data: HistoryData = {
               }
           }
 
+        // on top of em all
+        , { name: 'Leonardo_da_Vinci'
+          , type: HistoryEntryType.Event
+          , title: 'Leonardo da Vinci'
+          , date: '15 April 1452 – 2 May 1519'
+          , shortDescription: 'Italian polymath of the Renaissance whose areas of interest included invention, drawing, painting, sculpting, architecture, science, music, mathematics, engineering, literature, anatomy, geology, astronomy, botany, writing, history, and cartography'
+          , imageUrl: 'https://www.wga.hu/art/m/melzi/port_leo.jpg'
+          , position:
+              { left: '40%'
+              , top: getTopPos(1452)
+              }
+          } 
         ]
 }
