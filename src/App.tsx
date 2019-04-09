@@ -19,6 +19,22 @@ class App extends Component<any, any> {
             homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/ */}
             <link rel="manifest" href="/static/manifest.json" />
             <link rel="shortcut icon" href="/static/favicon.ico"></link>
+
+            { /** GOOGLE ANALYTICS {{{
+                * NOTE: [kos] adding google analitics only for production
+                *     would be nice to:
+                *     - do not download ga script for dev at all
+                *     - remove % NODE_ENV % reference from here
+                */
+                // !siteData.dev &&
+                <React.Fragment>
+                    <script async={true} src='https://www.google-analytics.com/analytics.js'></script>
+                    <script async={true} src="/autotrack.js" />
+                    <script src="/GA.js" />
+                </React.Fragment>
+              /* GOOGLE ANALYTICS }}} */
+            }
+
         </Head>
         <header className="App__Header">
             <Search />
