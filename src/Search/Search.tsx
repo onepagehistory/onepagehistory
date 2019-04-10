@@ -6,7 +6,7 @@ export class Search extends Component<any> {
     return (
         <div className="Search">
             <input
-                placeholder="Search is not working yet"
+                placeholder="Sorry, search is not working yet"
                 />
         </div>
     );
