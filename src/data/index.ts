@@ -29,7 +29,7 @@ export const data: HistoryData = {
         [ { name: 'Soviet_Union'
           , type: HistoryEntryType.Event
           , title: 'USSR'
-          , date: '1922–1991'
+          , date: '1922 – 1991'
           , shortDescription: ''
           , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_Soviet_Union.svg'
           , position:
@@ -196,8 +196,8 @@ export const data: HistoryData = {
         , { name: 'Gilgamesh'
           , type: HistoryEntryType.Event
           , title: 'Gilgamesh'
-          , date: 'probably between 2800 and 2500 BC'
-          , shortDescription: 'Was a historical king of the Sumerian city-state of Uruk, a major hero in ancient Mesopotamian mythology, and the protagonist of the Epic of Gilgamesh, an epic poem written in Akkadian during the late second millennium BC'
+          , date: 'probably between 2800 and 2500 BCE'
+          , shortDescription: 'Was a historical king of the Sumerian city-state of Uruk, a major hero in ancient Mesopotamian mythology, and the protagonist of the Epic of Gilgamesh, an epic poem written in Akkadian during the late second millennium BCE'
           , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Hero_lion_Dur-Sharrukin_Louvre_AO19862.jpg'
           , position:
               { left: '50%'
@@ -239,6 +239,66 @@ export const data: HistoryData = {
           , position:
               { left: '40%'
               , top: getTopPos(1880)
+              }
+          }
+
+        , { name: 'Printing_press'
+          , type: HistoryEntryType.Event
+          , title: 'Printing press'
+          , date: '1440'
+          , shortDescription: `Johannes Gutenberg, a goldsmith by profession, developed, circa 1439, a printing system by adapting existing technologies to printing purposes, as well as making inventions of his own. His newly devised hand mould made possible the precise and rapid creation of metal movable type in large quantities. Movable type had been hitherto unknown in Europe. In Europe, the two inventions, the hand mould and the printing press, together drastically reduced the cost of printing books and other documents, particularly in short print runs.`
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Chodowiecki_Basedow_Tafel_21_c_Z.jpg/622px-Chodowiecki_Basedow_Tafel_21_c_Z.jpg'
+          , position:
+              { left: '24%'
+              , top: getTopPos(1440)
+              }
+          }
+
+        , { name: 'Alexander_the_Great'
+          , type: HistoryEntryType.Event
+          , title: 'Alexander the Great'
+          , date: '20/21 July 356 BCE – 10/11 June 323 BCE'
+          , shortDescription: `A king of the ancient Greek kingdom of Macedon and a member of the Argead dynasty. He was born in Pella in 356 BCE and succeeded his father Philip II to the throne at the age of 20. He spent most of his ruling years on an unprecedented military campaign through Asia and northeast Africa, and by the age of thirty he had created one of the largest empires of the ancient world, stretching from Greece to northwestern India. He was undefeated in battle and is widely considered one of history's most successful military commanders.`
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b0/AlexandreLouvre.jpg'
+          , position:
+              { left: '40%'
+              , top: getTopPos(-356)
+              }
+          }
+
+        , { name: 'Scientific_Revolution'
+          , type: HistoryEntryType.Event
+          , title: 'Scientific Revolution'
+          , date: '~ 1543'
+          , shortDescription: 'The Scientific Revolution was a series of events that marked the emergence of modern science during the early modern period, when developments in mathematics, physics, astronomy, biology (including human anatomy) and chemistry transformed the views of society about nature'
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/CMB_Timeline300_no_WMAP.jpg'
+          , position:
+              { left: '5%'
+              , top: getTopPos(1543)
+              }
+          }
+
+        , { name: 'Renaissance'
+          , type: HistoryEntryType.Event
+          , title: 'Renaissance'
+          , date: '~ 14th – 17th centuries'
+          , shortDescription: 'a period in European history, covering the span between the 14th and 17th centuries and marking the transition from the Middle Ages to modernity. The traditional view focuses more on the early modern aspects of the Renaissance and argues that it was a break from the past, but many historians today focus more on its medieval aspects and argue that it was an extension of the middle ages'
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg'
+          , position:
+              { left: '33%'
+              , top: getTopPos(1350)
+              }
+          }
+
+        , { name: 'Metropolitan_Railway'
+          , type: HistoryEntryType.Event
+          , title: 'Metropolitan Railway'
+          , date: '1863'
+          , shortDescription: `The Metropolitan Railway was a passenger and goods railway that served London from 1863 to 1933. It opened to the public on 10 January 1863 with gas-lit wooden carriages hauled by steam locomotives, the world's first passenger-carrying designated underground railway.`
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Metropolitan_Underground_Railway_stations.jpg'
+          , position:
+              { left: '26%'
+              , top: getTopPos(1863)
               }
           }
 

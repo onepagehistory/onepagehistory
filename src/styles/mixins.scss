@@ -1,0 +1,9 @@
+@import "./variables.scss";
+
+@mixin desktop-only {
+    @media (min-width: $min-desktop-screen-width) { @content; }
+}
+
+@mixin phone-only {
+    @media (max-width: $max-mobile-screen-width) { @content; }
+}
