@@ -12,7 +12,7 @@ class App extends Component<any, any> {
       <div className="App">
         <Head>
             <meta charSet="UTF-8" />
-            <title>One Page History</title>
+            <title>World History Page</title>
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
             <base  href="/" />
             {/* manifest.json provides metadata used when your web app is added to the
