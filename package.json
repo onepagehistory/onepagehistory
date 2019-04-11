@@ -15,7 +15,7 @@
     "react-dom": "^16.8.6"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 8080",
     "start": "next start",
     "build": "next build",
     "export": "npm run build && next export && cp -a ./static-root/. ./out/",
