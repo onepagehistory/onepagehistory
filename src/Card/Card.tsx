@@ -13,7 +13,7 @@ export const Card = ({ entry }: { entry: HistoryEntry }) => (
         }}
     >
         <div className="Card__Body">
-            <h3 className="Card__Title"><a href={'#' + entry.name }>{entry.title}</a></h3>
+            <h3 className="Card__Title"><a className="Card__TitleLink" href={'#' + entry.name }>{entry.title}</a> <a className="Card__WikiLink" target="_blank" href={'https://wikipedia.org/wiki/' + entry.name }>[W]</a></h3>
             <div className="Card__Date">{entry.date}</div>
             <div className="Card__ShortDescription">{entry.shortDescription}</div>
         </div>
