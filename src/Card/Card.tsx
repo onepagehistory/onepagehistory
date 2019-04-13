@@ -7,10 +7,7 @@ export const Card = ({ entry }: { entry: HistoryEntry }) => (
     <div
         id={entry.name}
         className="Card"
-        style={{
-            position: 'absolute', ...entry.position,
-            marginTop: '-128px'
-        }}
+        style={{ ...entry.position }}
     >
         <div className="Card__Body">
             <h3 className="Card__Title"><a className="Card__TitleLink" href={'#' + entry.name }>{entry.title}</a> <a className="Card__WikiLink" target="_blank" href={'https://wikipedia.org/wiki/' + entry.name }>[W]</a></h3>
@@ -19,6 +16,9 @@ export const Card = ({ entry }: { entry: HistoryEntry }) => (
         </div>
         <div
             className="Card__ImgWrapper"
-        ><img src={entry.imageUrl} /></div>
+        ><img
+            alt={entry.name + ' representation'}
+            src={entry.imageUrl}
+            /></div>
     </div>
 );
