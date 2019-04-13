@@ -1,14 +1,20 @@
 @import "../styles/mixins.scss";
 
+$image-size: 128px;
+$image-border-size: 2px;
+$card-size: $image-size + $image-border-size * 2;
+
 .Card {
+    position: absolute;
+    margin-top: -$card-size;
     max-width: 20rem;
     display: flex;
     flex-direction: row-reverse;
     border-radius: 0.25rem;
     overflow: hidden;
     text-align: left;
-    max-height: 132px;
-    min-height: 132px;
+    max-height: $card-size;
+    min-height: $card-size;
     transition-duration: 0.5s;
     box-sizing: border-box;
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -16,7 +22,7 @@
     &:hover {
         text-shadow: none;
         z-index: 999;
-        max-height: 100rem;
+        max-height: fit-content;
         background: white;
         box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 
@@ -81,14 +87,14 @@
     }
 
     &__ImgWrapper {
-        max-width: 132px;
-        max-height: 132px;
+        max-width: $card-size;
+        max-height: $card-size;
 
         & img {
-            border: 2px solid #fff;
+            border: $image-border-size solid #fff;
             border-radius: 0.25rem;
-            max-width: 128px;
-            max-height: 128px;
+            max-width: $image-size;
+            max-height: $image-size;
         }
     }
 }
