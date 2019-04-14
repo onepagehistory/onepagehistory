@@ -1,4 +1,3 @@
-import { getTopPos } from './../shared/yearToTopPos';
 import { IDating, Range } from './dating';
 
 enum HistoryEntryType {
@@ -10,14 +9,12 @@ export interface HistoryEntry {
     name: string;
     title: string;
     subtitle: string;
-    dating?: IDating;
+    dating: IDating;
     shortDescription: string;
     imageUrl: string;
     // NOTE: temporary we're setting location manually
     position: Partial<{
-        top: number | string;
         right: number | string;
-        bottom: number | string;
         left: number | string;
     }>
 };
@@ -40,7 +37,7 @@ export const data: HistoryData = {
           , shortDescription: ''
           , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_Soviet_Union.svg'
           , position:
-              { left: '80%'
+              { left: '60%'
               }
           }
 
@@ -276,11 +273,11 @@ export const data: HistoryData = {
           , type: HistoryEntryType.Event
           , title: 'Renaissance'
           , subtitle: '~ 14th – 17th centuries'
-          , dating: Range({ from: 1300, to: 1600 })
+          , dating: Range({ from: 1300, to: 1300 })
           , shortDescription: 'a period in European history, covering the span between the 14th and 17th centuries and marking the transition from the Middle Ages to modernity. The traditional view focuses more on the early modern aspects of the Renaissance and argues that it was a break from the past, but many historians today focus more on its medieval aspects and argue that it was an extension of the middle ages'
           , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/500px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg'
           , position:
-              { left: '33%'
+              { left: '23%'
               }
           }
 
@@ -312,11 +309,11 @@ export const data: HistoryData = {
           , type: HistoryEntryType.Event
           , title: ''
           , subtitle: ''
+          , dating: Range({ from: 0, to: 0 })
           , shortDescription: ''
           , imageUrl: ''
           , position:
               { left: 0
-              , top: getTopPos(0)
               }
           }
 

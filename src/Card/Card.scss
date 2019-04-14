@@ -6,24 +6,16 @@ $card-size: $image-size + $image-border-size * 2;
 
 .Card {
     position: absolute;
-    max-width: 20rem;
-    display: flex;
-    flex-direction: row-reverse;
-    border-radius: 0.25rem;
-    overflow: visible;
-    text-align: left;
-    max-height: $card-size;
-    min-height: $card-size;
-    transition-duration: 0.5s;
-    box-sizing: border-box;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 
     &:hover {
-        text-shadow: none;
         z-index: 999;
-        max-height: fit-content;
-        background: white;
-        box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+
+        .Card__Entry {
+            text-shadow: none;
+            max-height: fit-content;
+            background: white;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+        }
 
         .Card__Title {
             display: block;
@@ -46,17 +38,32 @@ $card-size: $image-size + $image-border-size * 2;
     }
 
     &__Range {
-        width: 5px;
+        position: absolute;
+        left: -0.75rem;
+        width: 0.5rem;
+        min-height: 0.5rem;
         background: rgba(255, 255, 255, 0.5);
         border: 1px solid white;
         border-width: 1px 0;
         box-sizing: border-box;
-        bottom: 0;
+    }
+
+    &__Entry {
+        max-width: 20rem;
+        display: flex;
+        flex-direction: row-reverse;
+        border-radius: 0.25rem;
+        overflow: visible;
+        text-align: left;
+        max-height: $card-size;
+        min-height: $card-size;
+        transition-duration: 0.5s;
+        box-sizing: border-box;
+        text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
     }
 
     &__Body {
         padding: 0 0.5rem;
-        margin-top: -$card-size;
     }
 
     &__Title {
