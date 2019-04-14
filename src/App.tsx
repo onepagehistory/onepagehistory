@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Card } from './Card/Card';
 import { Search } from './Search/Search';
 import { data } from './data';
 import { Scales } from './Scales/Scales';
 import Head from 'next/head';
 import './App.scss';
+import { CURRENT_YEAR } from './shared/currentYear';
 
 class App extends Component<any, any> {
   render() {
@@ -40,18 +40,11 @@ class App extends Component<any, any> {
             <Search />
         </header>
         <section className="App__Body">
-            <div className="App__Events">{
-                data.entries.filter(entry=>entry.name).map(entry=>
-                    <Card
-                        key={entry.name}
-                        entry={entry}
-                    />
-                )
-            }</div>
             <div className="App__Scales">
                 <Scales
+                    data={data}
                     from={ -33100 }
-                    to={ (new Date()).getFullYear() }
+                    to={ CURRENT_YEAR }
                     />
             </div>
 
