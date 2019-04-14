@@ -54,6 +54,19 @@ class App extends Component<any, any> {
                     to={ (new Date()).getFullYear() }
                     />
             </div>
+
+            {/* TODO: remove this when all rights will be resolved and before going public */}
+            <div className="App__Disclaimer">
+                <p>
+                    <b>THIS WEBSITE IS CURRENTLY WORKING IN TEST MODE</b>
+                </p>
+                <p>
+                    MOST OF THE DATA AND IMAGES REFLECT THOSE PRESENTED AT
+                    RELEVANT WIKIPEDIA.ORG PAGES AND MIGHT HAVE SPECIFIC
+                    DISTRIBUTION CONDITIONS. SEE RELEVANT WIKIPEDIA.ORG PAGE
+                    FOR DETAILS
+                </p>
+            </div>
         </section>
       </div>
     );
