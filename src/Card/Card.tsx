@@ -1,17 +1,23 @@
 import React from 'react';
 import { HistoryEntry } from '../data';
 import './Card.scss';
+import { getTopPos } from '../shared/yearToTopPos';
 
 
 export const Card = ({ entry }: { entry: HistoryEntry }) => (
     <div
         id={entry.name}
         className="Card"
-        style={{ ...entry.position }}
+        style={{
+            ...entry.position,
+            top: entry.dating
+                ? getTopPos(entry.dating.from)
+                : entry.position.top
+        }}
     >
         <div className="Card__Body">
             <h3 className="Card__Title"><a className="Card__TitleLink" href={'#' + entry.name }>{entry.title}</a> <a className="Card__WikiLink" target="_blank" href={'https://wikipedia.org/wiki/' + entry.name }>[W]</a></h3>
-            <div className="Card__Date">{entry.date}</div>
+            <div className="Card__Date">{entry.subtitle}</div>
             <div className="Card__ShortDescription">{entry.shortDescription}</div>
         </div>
         <div
