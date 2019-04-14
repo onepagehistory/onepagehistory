@@ -6,12 +6,11 @@ $card-size: $image-size + $image-border-size * 2;
 
 .Card {
     position: absolute;
-    margin-top: -$card-size;
     max-width: 20rem;
     display: flex;
     flex-direction: row-reverse;
     border-radius: 0.25rem;
-    overflow: hidden;
+    overflow: visible;
     text-align: left;
     max-height: $card-size;
     min-height: $card-size;
@@ -46,8 +45,18 @@ $card-size: $image-size + $image-border-size * 2;
         }
     }
 
+    &__Range {
+        width: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid white;
+        border-width: 1px 0;
+        box-sizing: border-box;
+        bottom: 0;
+    }
+
     &__Body {
         padding: 0 0.5rem;
+        margin-top: -$card-size;
     }
 
     &__Title {
