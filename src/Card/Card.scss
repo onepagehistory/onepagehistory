@@ -5,16 +5,19 @@ $image-border-size: 2px;
 $card-size: $image-size + $image-border-size * 2;
 
 .Card {
-    position: absolute;
-
     &:hover {
-        z-index: 999;
 
         .Card__Entry {
+            z-index: 999;
             text-shadow: none;
             max-height: fit-content;
             background: white;
             box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .Card__Range {
+            z-index: 999;
+            visibility: visible;
         }
 
         .Card__Title {
@@ -39,7 +42,8 @@ $card-size: $image-size + $image-border-size * 2;
 
     &__Range {
         position: absolute;
-        left: -0.75rem;
+        visibility: hidden;
+        left: 2rem;
         width: 0.5rem;
         min-height: 0.5rem;
         background: rgba(255, 255, 255, 0.5);
@@ -49,6 +53,7 @@ $card-size: $image-size + $image-border-size * 2;
     }
 
     &__Entry {
+        position: absolute;
         max-width: 20rem;
         display: flex;
         flex-direction: row-reverse;
