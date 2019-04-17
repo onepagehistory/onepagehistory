@@ -1,12 +1,6 @@
-import moment, { Moment } from 'moment';
+import moment from 'moment';
 
-export interface IDating {
-    type: 'range';
-    from: Moment;
-    to: Moment;
-}
-
-export const Range = ({ from, to }: { from: Date|number|string, to: Date|number|string }) : IDating => {
+export const range = ({ from, to }) => {
     let fromDate = typeof from == 'number'
                    ? moment({ year: from })
                    : moment(from);

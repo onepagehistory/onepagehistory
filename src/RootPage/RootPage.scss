@@ -1,0 +1,28 @@
+.RootPage {
+    display: flex;
+    flex-direction: row-reverse;
+
+    &__Contents{
+        flex-grow: 1;
+    }
+
+    &__Subpage {
+        width: 33%;
+        height: 100%;
+    }
+
+    &__Header {
+        text-align: center;
+        margin: 1rem;
+    }
+
+    &__Body {
+        margin-top: 2rem;
+    }
+
+    &__Disclaimer {
+        color: white;
+        margin: 0 auto;
+        max-width: 30rem;
+    }
+}
