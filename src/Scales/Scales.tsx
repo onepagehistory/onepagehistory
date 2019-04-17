@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '../Card/Card';
 import { centuryToRoman } from '../shared/toRoman';
-import './Scales.scss';
+import './Scales.css';
 import { HistoryData } from '../data';
 
 interface IScalesProps {

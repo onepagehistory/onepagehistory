@@ -1,12 +1,11 @@
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# tech
+dist
+node_modules
+tmp
+artifacts
 
-# production
-/build
-/out
-/.next
+# CSS ignore
+**.css
 
 # misc
 .DS_Store
