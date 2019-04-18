@@ -21,18 +21,20 @@ export const Card = ({ entry }: { entry: HistoryEntry }) => {
                 ...entry.position,
                 top: topPos
             }}>
-                <div className="Card__Body">
-                    <h3 className="Card__Title"><Link className="Card__TitleLink" to={`/p/${entry.name}/`}>{entry.title}</Link> <a className="Card__WikiLink" target="_blank" href={'https://wikipedia.org/wiki/' + entry.name}>[W]</a></h3>
-                    <div className="Card__Date">{entry.subtitle}</div>
-                    <div className="Card__ShortDescription">{entry.shortDescription}</div>
-                </div>
-
-                <div
-                    className="Card__ImgWrapper"
-                ><img
-                    alt={entry.name + ' representation'}
-                    src={entry.imageUrl}
+                <div className="Card__box">
+                    <div
+                        className="Card__ImgWrapper"
+                    ><img
+                        className="Card__image"
+                        alt={entry.name + ' representation'}
+                        src={entry.imageUrl}
                     /></div>
+                    <div className="Card__summary">
+                        <h3 className="Card__Title"><a className="Card__TitleLink" href={'#' + entry.name}>{entry.title}</a> <a className="Card__WikiLink" target="_blank" href={'https://wikipedia.org/wiki/' + entry.name}>[W]</a></h3>
+                        <div className="Card__Date">{entry.subtitle}</div>
+                    </div>
+                </div>
+                <div className="Card__Description">{entry.shortDescription}</div>
             </div>
         </div>
     );
