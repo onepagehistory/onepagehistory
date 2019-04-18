@@ -9,9 +9,6 @@ $card-size: $image-size + $image-border-size * 2;
 
         .Card__Entry {
             z-index: 999;
-            text-shadow: none;
-            background: white;
-            box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
         }
 
         .Card__Range {
@@ -20,17 +17,18 @@ $card-size: $image-size + $image-border-size * 2;
         }
 
         .Card__Title {
-            color: #222;
+            color: #fff;
         }
 
-        .Card__ShortDescription {
+        .Card__Description {
             color: #333;
+            opacity: 1;
             display: block;
         }
 
         .Card__Date {
             display: block;
-            color: #666;
+            color: #fff;
         }
 
         .Card__WikiLink {
@@ -52,9 +50,8 @@ $card-size: $image-size + $image-border-size * 2;
 
     &__Entry {
         position: absolute;
-        max-width: 20rem;
+        max-width: 12em;
         display: flex;
-        flex-direction: row-reverse;
         border-radius: 0.25rem;
         overflow: visible;
         text-align: left;
@@ -63,13 +60,9 @@ $card-size: $image-size + $image-border-size * 2;
         text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
     }
 
-    &__Body {
-        padding: 0 0.5rem;
-        flex: 3 0;
-    }
 
     &__Title {
-        color: #eee;
+        color: #fff;
         margin: 0.25rem 0 0;
 
         @include phone-only {    
@@ -98,19 +91,36 @@ $card-size: $image-size + $image-border-size * 2;
         }
     }
 
-    &__ShortDescription {
-        display: none;
-        padding: 0.5rem 0;
+    &__Description {
+        display: none;;
+        opacity: 0;
+        background-color: #fff;
         font-size: 0.8rem;
+        transition: opacity 500ms ease-in-out;
+        flex: 1 0 100%;
     }
 
-    &__ImgWrapper {
-        flex: 2 0;
+    &__box {
+        flex: 1 0 100%;
+        position: relative;
+        height: 100%;
+        z-index: 10;
+    }
 
-        & img {
-            width: 100%;
-            border: $image-border-size solid #fff;
-            border-radius: 0.25rem;
-        }
+    &__summary {
+        position: absolute;
+        padding: 0 5px 5px;
+        left: 2px;
+        right: 2px;
+        bottom: 4px;
+        background: rgba(0,0,0, .4);
+
+    }
+
+    &__image {
+        width: 100%;
+        border: $image-border-size solid #fff;
+        box-sizing: border-box;
+        border-radius: 0.25rem;
     }
 }
