@@ -30,7 +30,7 @@ export const Card = ({ entry }: { entry: HistoryEntry }) => {
                         src={entry.imageUrl}
                     /></div>
                     <div className="Card__summary">
-                        <h3 className="Card__Title"><a className="Card__TitleLink" href={'#' + entry.name}>{entry.title}</a> <a className="Card__WikiLink" target="_blank" href={'https://wikipedia.org/wiki/' + entry.name}>[W]</a></h3>
+                        <h3 className="Card__Title"><Link className="Card__TitleLink" to={'/p/' + entry.name}>{entry.title}</Link> </h3>
                         <div className="Card__Date">{entry.subtitle}</div>
                     </div>
                 </div>
