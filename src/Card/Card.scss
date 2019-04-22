@@ -23,7 +23,6 @@ $card-size: $image-size + $image-border-size * 2;
         .Card__Description {
             color: #333;
             left: 98%;
-            opacity: 1;
             visibility: visible;
             z-index: 11;
             box-shadow: 0 0 20px 3px;
@@ -99,10 +98,8 @@ $card-size: $image-size + $image-border-size * 2;
         top: 0;
         bottom: 0;
         left: 0;
-        opacity: 0;
         padding: 10px;
         border-radius: 2px;
-        border-left: 1px dashed grey;
         background-color: #fff;
         font-size: 0.8rem;
         width: max-content;
@@ -110,6 +107,10 @@ $card-size: $image-size + $image-border-size * 2;
         overflow-y: auto;
         visibility: hidden;
         transition: all 500ms ease-in-out;
+
+        &:empty {
+            display: none;
+        }
     }
 
     &__box {
