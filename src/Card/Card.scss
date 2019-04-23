@@ -9,6 +9,7 @@ $card-size: $image-size + $image-border-size * 2;
 
         .Card__Entry {
             z-index: 999;
+            transform: scale(1);
         }
 
         .Card__Range {
@@ -23,9 +24,10 @@ $card-size: $image-size + $image-border-size * 2;
         .Card__Description {
             color: #333;
             left: 98%;
-            visibility: visible;
             z-index: 11;
             box-shadow: 0 0 20px 3px;
+            visibility: visible;
+            opacity: 1;
         }
 
         .Card__Date {
@@ -55,11 +57,11 @@ $card-size: $image-size + $image-border-size * 2;
         max-width: 12em;
         display: flex;
         border-radius: 0.25rem;
-        overflow: visible;
         text-align: left;
-        transition-duration: 0.5s;
         box-sizing: border-box;
         text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+        transform: scale(.7);
+        transition: transform 500ms ease;
     }
 
 
@@ -99,6 +101,7 @@ $card-size: $image-size + $image-border-size * 2;
         bottom: 0;
         left: 0;
         padding: 10px;
+        opacity: 0;
         border-radius: 2px;
         background-color: #fff;
         font-size: 0.8rem;
@@ -106,7 +109,7 @@ $card-size: $image-size + $image-border-size * 2;
         max-width: 300px;
         overflow-y: auto;
         visibility: hidden;
-        transition: all 500ms ease-in-out;
+        transition: all 500ms ease;
 
         &:empty {
             display: none;
