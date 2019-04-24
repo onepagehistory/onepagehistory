@@ -13,9 +13,10 @@ export interface HistoryEntry {
     subtitle: string;
     dating: IDating;
     shortDescription: string;
+    longDescription?: string;
     imageUrl: string;
     // NOTE: temporary we're setting location manually
-    position: Partial<{
+    position?: Partial<{
         right: number | string;
         left: number | string;
     }>
