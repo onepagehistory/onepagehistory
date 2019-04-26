@@ -98,7 +98,7 @@ export const data = {
           , shortDescription: 'Italian Dominican friar, philosopher, mathematician, poet, cosmological theorist, and Hermetic occultist'
           , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Giordano_Bruno.jpg'
           , position:
-              { left: '40%'
+              { left: '44%'
               }
           }
 
@@ -123,18 +123,6 @@ export const data = {
           , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/California_Western_Railroad_Locomotive_45.jpg/440px-California_Western_Railroad_Locomotive_45.jpg'
           , position:
               { left: '30%'
-              }
-          }
-
-        , { name: 'Napoleon'
-          , type: HistoryEntryType.Event
-          , title: 'Napoléon Bonaparte'
-          , subtitle: '15 August 1769 – 5 May 1821'
-          , dating: range({ from: 1769, to: 1821 })
-          , shortDescription: 'French statesman and military leader who rose to prominence during the French Revolution and led several successful campaigns during the French Revolutionary Wars'
-          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg/288px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg'
-          , position:
-              { left: '33%'
               }
           }
 
@@ -279,6 +267,18 @@ export const data = {
           , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg/440px-LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg'
           , position:
               { left: '33%'
+              }
+          }
+
+        , { name: 'Napoleon'
+          , type: HistoryEntryType.Event
+          , title: 'Napoléon Bonaparte'
+          , subtitle: '15 August 1769 – 5 May 1821'
+          , dating: range({ from: 1769, to: 1821 })
+          , shortDescription: 'French statesman and military leader who rose to prominence during the French Revolution and led several successful campaigns during the French Revolutionary Wars'
+          , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg/288px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg'
+          , position:
+              { left: '38%'
               }
           }
 
