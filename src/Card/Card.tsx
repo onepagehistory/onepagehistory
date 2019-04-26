@@ -24,17 +24,24 @@ export const Card = ({ entry }: { entry: HistoryEntry }) => {
                 <div className="Card__box">
                     <div
                         className="Card__ImgWrapper"
-                    ><img
-                        className="Card__image"
-                        alt={entry.name + ' representation'}
-                        src={entry.imageUrl}
-                    /></div>
-                    <div className="Card__summary">
-                        <h3 className="Card__Title"><Link className="Card__TitleLink" to={'/p/' + entry.name}>{entry.title}</Link> </h3>
-                        <div className="Card__Date">{entry.subtitle}</div>
+                    >{
+                            <img
+                                className="Card__image"
+                                alt={entry.name + ' representation'}
+                                src={entry.imageUrl}
+                            />
+                        }{
+                            <Link className="Card__summary" to={'/p/' + entry.name}>
+                                <h3 className="Card__Title">{entry.title}</h3>
+                                <div className="Card__Date">{entry.subtitle}</div>
+                            </Link>
+                        }
                     </div>
+                    {
+                        entry.shortDescription &&
+                        <div className="Card__Description">{entry.shortDescription}</div>
+                    }
                 </div>
-                <div className="Card__Description">{entry.shortDescription}</div>
             </div>
         </div>
     );
