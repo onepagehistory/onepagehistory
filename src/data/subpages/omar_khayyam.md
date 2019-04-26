@@ -1,0 +1,1 @@
+Persian mathematician, astronomer, and poet

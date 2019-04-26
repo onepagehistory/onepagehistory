@@ -6,7 +6,7 @@ export class EventDescription extends Component<{value: string}> {
     render() {
         return (
             <ReactMarkdown source={this.props.value} />
-            )
+        );
     };
 }
 

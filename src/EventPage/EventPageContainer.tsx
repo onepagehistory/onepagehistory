@@ -1,15 +1,15 @@
 import React from 'react';
 import { useRouteData } from 'react-static'
-import { HistoryEntry } from '../data';
 import { RootPage } from '../RootPage/RootPage';
 import { EventPage } from './EventPage';
+import { IPageData } from './IPageData';
 
 export default ()=> {
-    const { entry }: { entry: HistoryEntry } = useRouteData()
+    const pageData: IPageData = useRouteData();
 
     return (
         <RootPage>
-            <EventPage entry={entry}/>
+            <EventPage pageData={pageData}/>
         </RootPage>
     );
 };

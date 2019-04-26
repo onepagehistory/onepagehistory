@@ -1,0 +1,1 @@
+Italian Dominican friar, philosopher, mathematician, poet, cosmological theorist, and Hermetic occultist

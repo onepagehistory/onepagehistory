@@ -1,19 +1,31 @@
 import React from 'react';
 import path from 'path'
-import { data } from './src/data/index.js';
+import { data as historyData } from './src/data/index.js';
+import * as fs from 'fs';
 
 export default {
     entry: 'index.tsx',
 
+    getSiteData: ()=>{
+        return {
+            historyData
+        }
+    },
+
     getRoutes: () => {
+        const SUBPAGES_FOLDER_PATH = './src/data/subpages';
+
         return [
-            ...data.entries.map((entry) => ({
-                path: `/p/${entry.name}`,
-                template: 'src/EventPage/EventPageContainer',
-                getData: () => ({
-                    entry,
-                }),
-            }))
+            ...historyData.entries
+                .filter(e => e.name)
+                .map(entry => ({
+                    path: `/p/${entry.name}`,
+                    template: 'src/EventPage/EventPageContainer',
+                    getData: () => ({ // () => IPageData
+                        entry,
+                        content: fs.readFileSync(path.resolve(SUBPAGES_FOLDER_PATH, entry.name.toLowerCase() + '.md'), 'utf8')
+                    }),
+                }))
         ];
     },
 
