@@ -1,0 +1,1 @@
+Italian poet during the Late Middle Ages. His Divine Comedy, originally called "Comedìa" and later christened Divina by Giovanni Boccaccio, is widely considered the most important poem of the Middle Ages and the greatest literary work in the Italian language.
