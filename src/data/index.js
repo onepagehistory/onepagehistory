@@ -143,7 +143,7 @@ export const data = {
           , title: 'Albert Einstein'
           , subtitle: '14 March 1879 – 18 April 1955'
           , dating: range({ from: 1879, to: 1955 })
-          , shortDescription: 'German-born theoretical physicist who developed the theory of relativity, one of the two pillars of modern physics (alongside quantum mechanics). His work is also known for its influence on the philosophy of science. He is best known to the general public for his mass–energy equivalence formula E = mc2'
+          , shortDescription: 'Theoretical physicist who developed the theory of relativity. E = mc2'
           , imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/440px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg'
           , position:
               { left: '11%'
