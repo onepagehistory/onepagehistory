@@ -11,7 +11,6 @@ function readMdFiles() {
         .map(p => {
             const fileName = path.basename(p, '.md');
             const fileContents = fs.readFileSync(p, 'utf-8');
-            const editUrl = `https://github.com/onepagehistory/onepagehistory/tree/master/src/data/entries/${fileName}.md`;
             const r = /(<!--\n)((.|\n)*?)(\n-->)/gm;
             const content = fileContents.replace(r, '');
             const meta =
@@ -26,7 +25,6 @@ function readMdFiles() {
             return {
                 ...meta,
                 name: fileName,
-                editUrl, 
                 content
             };
         });

@@ -7,7 +7,6 @@ export interface HistoryEntry {
     short: string;
     imageUrl: string;
     wikiUrl: string;
-    editUrl: string;
 };
 
 export interface HistoryData {
