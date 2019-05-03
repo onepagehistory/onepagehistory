@@ -10,10 +10,17 @@ export const EventPage = (props: { pageData: IPageData })=> {
     return (
         <div className="EventPage">
             <Link className="EventPage__Close" to="/">&times;</Link>
-            <h1>{entry.title}</h1>
+            <h1>
+                { entry.title }
+                &nbsp;
+                <a
+                    target="_blank"
+                    href={ `https://github.com/onepagehistory/onepagehistory/tree/dev/src/data/entries/${ entry.name }.md` }
+                >edit</a>
+            </h1>
             <h6>{entry.subtitle}</h6>
             <EventDescription value={content}/>
-            <a target="_blank" href={'https://wikipedia.org/wiki/' + entry.name}>[wikipedia]</a>
+            <a target="_blank" href={ entry.wikiUrl }>[wikipedia]</a>
         </div>
     )
 };
