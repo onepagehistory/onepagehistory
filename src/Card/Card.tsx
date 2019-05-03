@@ -1,5 +1,5 @@
 import React from 'react';
-import { HistoryEntry } from '../data';
+import { HistoryEntry } from '../data/History';
 import { getTopPos as getLeftPos } from '../shared/yearToTopPos';
 import './Card.css';
 import { Link } from '@reach/router';
@@ -7,11 +7,11 @@ import { SCALE } from '../shared/const';
 
 
 export const Card = ({ depth, bubble, entry, baseRowLength }: { depth: number, bubble: number, entry: HistoryEntry, baseRowLength: number }) => {
-    const eventWidth = Math.max(1, entry.dating.to.year() - entry.dating.from.year()) * SCALE;
+    const eventWidth = Math.max(1, entry.to - entry.from) * SCALE;
 
     const ROW_HEIGHT = 8;
 
-    const leftPos = getLeftPos(entry.dating.to.year());
+    const leftPos = getLeftPos(entry.to);
     const bottomBase = (0.5 + depth) * ROW_HEIGHT;
     const bubbleHeight = (baseRowLength - depth) * ROW_HEIGHT + 40 + (bubble * (80 + 10));
 
@@ -53,9 +53,9 @@ export const Card = ({ depth, bubble, entry, baseRowLength }: { depth: number, b
                         <h3 className="Card__Title">{entry.title}</h3>
                         <div className="Card__Date">{entry.subtitle}</div>
                         {
-                            entry.shortDescription &&
-                            <div className="Card__Description">{entry.shortDescription}</div>
-                    }
+                            entry.short &&
+                            <div className="Card__Description">{entry.short}</div>
+                        }
                     </Link>
                 </div>
             </div>

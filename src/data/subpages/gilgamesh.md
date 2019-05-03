@@ -1,1 +1,0 @@
-Was a historical king of the Sumerian city-state of Uruk, a major hero in ancient Mesopotamian mythology, and the protagonist of the Epic of Gilgamesh, an epic poem written in Akkadian during the late second millennium BCE

@@ -1,3 +1,14 @@
+<!--
+title:       Omar Khayyam
+subtitle:    18 May 1048 – 4 December 1131
+from:        1048
+to:          1131
+short:       Persian mathematician, astronomer, and poet
+imageUrl:    https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Omar_Khayyam2.JPG/440px-Omar_Khayyam2.JPG
+wikiUrl:     https://wikipedia.org/wiki/Omar_Khayyam
+-->
+
+
 Persian mathematician, astronomer, and poet.
 
 
