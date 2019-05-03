@@ -1,5 +1,4 @@
 import React from 'react'
-import { Search } from '../Search/Search';
 import { Scales } from '../Scales/Scales';
 import { data } from '../data';
 import { CURRENT_YEAR } from '../shared/currentYear';
@@ -14,20 +13,20 @@ export const RootPage = (props) => (
         ) }
 
         <div className="RootPage__Contents">
-            <header className="RootPage__Header">
+            {/* <header className="RootPage__Header">
                 <Search />
-            </header>
+            </header> */}
             <section className="RootPage__Body">
                 <div className="RootPage__Scales">
                     <Scales
                         data={data}
-                        from={-33100}
+                        from={ Math.min(...data.entries.map(e=>e.dating.to.year())) }
                         to={CURRENT_YEAR}
                     />
                 </div>
 
                 {/* TODO: remove this when all rights will be resolved and before going public */}
-                <div className="RootPage__Disclaimer">
+                {/* <div className="RootPage__Disclaimer">
                     <p>
                         <b>THIS WEBSITE IS CURRENTLY WORKING IN TEST MODE</b>
                     </p>
@@ -36,8 +35,8 @@ export const RootPage = (props) => (
                         RELEVANT WIKIPEDIA.ORG PAGES AND MIGHT HAVE SPECIFIC
                         DISTRIBUTION CONDITIONS. SEE RELEVANT WIKIPEDIA.ORG PAGE
                         FOR DETAILS
-                </p>
-                </div>
+                    </p>
+                </div> */}
             </section>
         </div>
     </section>

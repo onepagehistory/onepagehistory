@@ -1,7 +1,4 @@
 .RootPage {
-    display: flex;
-    flex-direction: row-reverse;
-
     &__Contents{
         flex-grow: 1;
     }
@@ -16,9 +13,7 @@
         margin: 1rem;
     }
 
-    &__Body {
-        margin-top: 2rem;
-    }
+    &__Body {}
 
     &__Disclaimer {
         color: white;
