@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card } from '../Card/Card';
-import { HistoryData, HistoryEntry } from '../data';
-import { IDating } from '../data/range';
+import { HistoryData, HistoryEntry } from '../data/History';
 import { SCALE } from '../shared/const';
 import './Scales.css';
 
@@ -16,8 +15,8 @@ function overlaps(aFrom: number, aTo: number, bFrom: number, bTo: number){
         || (aTo >= bFrom && aTo <= bTo)
 }
 
-function overlapsDating(a: IDating, b: IDating){
-    return overlaps(a.from.year(), a.to.year(), b.from.year(), b.to.year());
+function overlapsDating(a: HistoryEntry, b: HistoryEntry){
+    return overlaps(a.from, a.to, b.from, b.to);
 }
 
 function overlapsWidth(aTo: number, bTo: number, width: number){
@@ -26,11 +25,8 @@ function overlapsWidth(aTo: number, bTo: number, width: number){
 
 export const Scales = ({ from, to, data }: IScalesProps) => {
     const entries = data.entries;
-    // entries.forEach(entry => {
-    //     entry['duration'] = entry.dating.to.year() - entry.dating.from.year()
-    // });
 
-    entries.sort((a, b) => b.dating.to.year() - a.dating.to.year());
+    entries.sort((a, b) => b.to - a.to);
     console.log(...entries);
     const rows: HistoryEntry[][] = [];
     loop1:
@@ -41,7 +37,7 @@ export const Scales = ({ from, to, data }: IScalesProps) => {
             loop3:
             for(let colIndex = 0; colIndex < row.length; colIndex++) {
                 let rowEntry = row[colIndex];
-                if (!overlapsDating(entry.dating, rowEntry.dating)) {
+                if (!overlapsDating(entry, rowEntry)) {
                     continue;
                 }
 
@@ -66,7 +62,7 @@ export const Scales = ({ from, to, data }: IScalesProps) => {
         }
     }
 
-    entries.sort((a, b) => a.dating.to.year() - b.dating.to.year());
+    entries.sort((a, b) => a.to - b.to);
     console.log(...entries);
     const bubbleRows: HistoryEntry[][] = [];
     loop1:
@@ -77,11 +73,11 @@ export const Scales = ({ from, to, data }: IScalesProps) => {
             loop3:
             for(let colIndex = 0; colIndex < row.length; colIndex++) {
                 let rowEntry = row[colIndex];
-                if (overlapsWidth(entry.dating.to.year(), rowEntry.dating.to.year(), 50)) {
+                if (overlapsWidth(entry.to, rowEntry.to, 50)) {
                     continue loop2;
                 }
 
-                if (entry.dating.to.year() < rowEntry.dating.to.year()) {
+                if (entry.to < rowEntry.to) {
                     row.splice(colIndex+1, 0, entry);
                     entry['bubbleDepth'] = rowIndex;
                     entry['rightDepth'] = rowEntry['depth'];

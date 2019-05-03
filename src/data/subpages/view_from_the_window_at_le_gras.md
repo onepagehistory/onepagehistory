@@ -1,1 +1,0 @@
-Nicéphore Niépce — French inventor, usually credited as the inventor of photography and a pioneer in that field
