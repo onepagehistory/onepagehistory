@@ -1,8 +1,6 @@
 @import "../styles/mixins.scss";
 
-$image-size: 150px;
-$image-border-size: 2px;
-$card-size: $image-size + $image-border-size * 2;
+$card-size: 80px;
 
 .Card {
     &:hover {
@@ -13,7 +11,7 @@ $card-size: $image-size + $image-border-size * 2;
 
         .Card__Range {
             z-index: 999;
-            visibility: visible;
+            opacity: 1;
         }
 
         .Card__Title {
@@ -21,33 +19,32 @@ $card-size: $image-size + $image-border-size * 2;
         }
 
         .Card__Description {
-            color: #333;
-            left: 98%;
-            z-index: 11;
-            display: block;
+            color: #fff;
             opacity: 1;
         }
 
         .Card__Date {
-            display: block;
             color: #fff;
         }
 
-        .Card__box {
-            box-shadow: 0 0 0.125rem rgba(0,0,0, 0.6);
-        }
+        .Card__box { }
     }
 
     &__Range {
         position: absolute;
-        visibility: hidden;
-        left: 2rem;
-        width: 0.5rem;
-        min-height: 0.5rem;
+        height: 3px;
+        min-width: 0.25rem;
         background: rgba(255, 255, 255, 0.5);
         border: 1px solid white;
-        border-width: 1px 0;
+        border-width: 0 3px;
         box-sizing: border-box;
+        opacity: 0.5;
+    }
+
+    &__DashedLine {
+        border-left: 1px dashed #666;
+        display: inline-block;
+        position: absolute;
     }
 
     &__Entry {
@@ -58,12 +55,12 @@ $card-size: $image-size + $image-border-size * 2;
         box-sizing: border-box;
     }
 
-
     &__Title {
         color: #fff;
         margin: 0.25rem 0 0;
         font-size: 0.9rem;
         text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
 
         @include phone-only {    
             display: none;
@@ -73,50 +70,49 @@ $card-size: $image-size + $image-border-size * 2;
     &__Date {
         font-size: 0.5rem;
         color: #eee;
+        white-space: nowrap;
+
         @include phone-only {    
             display: none;
         }
     }
 
-    &__Description {
-        display: none;
-        max-width: 300px;
-        max-height: $image-size;
-        box-sizing: border-box;
-        padding: 10px;
-        opacity: 0;
-        background-color: #fff;
-        font-size: 0.8rem;
-        width: max-content;
-        overflow-y: auto;
-    }
-
-    &__box {
-        height: $image-size;
+    &__Box {
+        height: $card-size;
         display: flex;
         flex: 1 0 100%;
-        height: 100%;
+        height: $card-size;
         z-index: 10;
-        border: $image-border-size solid #fff;
         box-sizing: border-box;
         border-radius: 0.25rem;
     }
 
     &__ImgWrapper {
+        box-sizing: border-box;
         position: relative;
-        width: $image-size;
-        height: $image-size;
+        width: $card-size;
+        height: $card-size;
         overflow: hidden;
         background: #fff;
     }
 
-    &__summary {
-        position: absolute;
-        padding: 0.1rem 0.3rem 0.3rem;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0, 0.6);
+    &__Description {
+        display: inline-block;
+        width: 10rem;
+        height: 2.5em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        box-sizing: border-box;
+        opacity: 0;
+        font-size: 0.8rem;
+    }
+
+
+    &__Summary {
+        overflow-y: visible;
+        height: 100%;
+        padding-left: 0.3rem;
+        box-sizing: border-box;
         color: inherit;
         text-decoration: none;
     }

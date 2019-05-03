@@ -1,6 +1,6 @@
-import moment from 'moment';
+const moment = require('moment');
 
-export const range = ({ from, to }) => {
+module.exports.range = ({ from, to }) => {
     let fromDate = typeof from == 'number'
                    ? moment({ year: from })
                    : moment(from);
