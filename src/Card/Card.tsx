@@ -40,7 +40,8 @@ export const Card = ({ depth, bubble, entry, baseRowLength }: { depth: number, b
                 }
             }>
                 <div className="Card__Box">
-                    <div
+                    <Link
+                        to={'/p/' + entry.name}
                         className="Card__ImgWrapper"
                     >{
                             <img
@@ -48,15 +49,19 @@ export const Card = ({ depth, bubble, entry, baseRowLength }: { depth: number, b
                                 alt={entry.name + ' representation'}
                                 src={entry.imageUrl}
                             />
-                    }</div>
-                    <Link className="Card__Summary" to={'/p/' + entry.name}>
-                        <h3 className="Card__Title">{entry.title}</h3>
+                    }</Link>
+                    <div className="Card__Summary">
+                        <h2 className="Card__Title">
+                            <Link to={'/p/' + entry.name}>{
+                                entry.title
+                            }</Link>
+                        </h2>
                         <div className="Card__Date">{entry.subtitle}</div>
                         {
                             entry.short &&
                             <div className="Card__Description">{entry.short}</div>
                         }
-                    </Link>
+                    </div>
                 </div>
             </div>
         </div>

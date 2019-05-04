@@ -4,7 +4,6 @@ $card-size: 80px;
 
 .Card {
     &:hover {
-
         .Card__Entry {
             z-index: 999;
         }
@@ -13,21 +12,6 @@ $card-size: 80px;
             z-index: 999;
             opacity: 1;
         }
-
-        .Card__Title {
-            color: #fff;
-        }
-
-        .Card__Description {
-            color: #fff;
-            opacity: 1;
-        }
-
-        .Card__Date {
-            color: #fff;
-        }
-
-        .Card__box { }
     }
 
     &__Range {
@@ -62,19 +46,19 @@ $card-size: 80px;
         text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
         white-space: nowrap;
 
-        @include phone-only {    
-            display: none;
+        & > a {
+            color: inherit;
+            text-decoration: none;
+            &:active, &:visited {
+                color: inherit;
+            }
         }
     }
 
     &__Date {
-        font-size: 0.5rem;
         color: #eee;
+        font-size: 0.5rem;
         white-space: nowrap;
-
-        @include phone-only {    
-            display: none;
-        }
     }
 
     &__Box {
@@ -97,6 +81,7 @@ $card-size: 80px;
     }
 
     &__Description {
+        color: #fff;
         display: inline-block;
         width: 10rem;
         height: 2.5em;
