@@ -12,6 +12,10 @@ $card-size: 80px;
             z-index: 999;
             opacity: 1;
         }
+
+        .Card__Description {
+            opacity: 1;
+        }
     }
 
     &__Range {
