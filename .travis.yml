@@ -1,0 +1,32 @@
+language: node_js
+node_js:
+  - "10"
+dist: trusty
+sudo: false
+
+branches:
+  only:
+  - dev
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+script:
+  - npm run stage
+
+deploy:
+  provider: pages
+  repo: https://github.com/onepagehistory/staging-1
+  target_branch: master
+  keep_history: true
+  allow_empty_commit: true
+  verbose: true
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist
+  on:
+    branch: dev
