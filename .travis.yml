@@ -17,6 +17,7 @@ install:
 
 script:
   - npm run stage
+  - npm run prepare-staging-publish
 
 deploy:
   provider: pages

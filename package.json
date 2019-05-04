@@ -10,7 +10,8 @@
     "build": "npm run build-css && react-static build",
     "serve": "serve dist -p 8080 -s",
     "publish": "gh-pages -d dist -t -r https://github.com/onepagehistory/onepagehistory.github.io.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\"",
-    "staging-publish": "echo \"stg1.worldhistory.page\" > ./dist/CNAME && echo \"\" > ./dist/GA.js && gh-pages -d dist -t -r https://github.com/onepagehistory/staging-1.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\""
+    "prepare-staging-publish": "echo \"stg1.worldhistory.page\" > ./dist/CNAME && echo \"\" > ./dist/GA.js",
+    "staging-publish": "npm run prepare-staging-publish && gh-pages -d dist -t -r https://github.com/onepagehistory/staging-1.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\""
   },
   "dependencies": {
     "@reach/router": "1.2.1",
