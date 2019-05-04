@@ -31,7 +31,7 @@ export default {
                 <Head>
                     <meta charSet="UTF-8" />
                     <title>World History Page</title>
-                    <meta name="description" content="See the most famous historic events on a single page: invention of a steam engine, lightbulb, printing press, writing, atomic energy, Darwin, Napoleon, Newton, Da Vinci - everything you ever heard about on one page:" />
+                    <meta name="description" content="See the most significant historic events on a single page: groundbreaking inventions, famous people, and matters that changed our culture" />
                     <link rel="icon" href="favicon.ico" type="image/x-icon" />
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
                     <base href="/" />
