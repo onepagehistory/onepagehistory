@@ -4,13 +4,15 @@ const { data } = require('../src/data/index.js');
 const csv = data.entries.map(entry =>
     // title  |  wiki link | img_url   | dates                         | description    
     //        |            |           | text    year from    year to  | short    long
-    [ entry.title
-    , `https://wikipedia.org/wiki/${entry.name}`
+    [ entry.name,
+    , entry.title
+    , entry.wikiUrl 
     , entry.imageUrl
     , entry.subtitle
-    , entry.dating.from.year()
-    , entry.dating.to.year()
-    , entry.shortDescription
+    , entry.from
+    , entry.to
+    , entry.short
+    // , entry.content
     ].join('\t')
 )
 .join('\n');
