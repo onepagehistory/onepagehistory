@@ -1,5 +1,5 @@
 <!--
-title:       Dark Ages & Crusades
+title:       Dark Ages
 subtitle:    from the 5th to the 15th century
 from:        500
 to:          1500 
