@@ -1,0 +1,37 @@
+.Layout {
+    position: relative;
+    height: 100vh;
+}
+
+.Default {
+    z-index: 100;
+}
+
+.Decade-wrap {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.Decade {
+    width: 100px;
+    height: 100%;
+    flex: 1 0 100px;
+
+    &:nth-child(odd) {
+    }
+}
+
+.TimeLine {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    display: flex;
+
+    &__item {
+        flex: 1 0 100px;
+    }
+}
