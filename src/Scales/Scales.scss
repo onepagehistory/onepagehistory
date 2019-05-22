@@ -1,23 +1,23 @@
 .Scales {
     position: relative;
     height: 100vh;
-    padding: 1rem 0 3rem;
+    padding: 1rem 0;
     box-sizing: border-box;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     &__Events {
         margin-bottom: 1rem;
         position: relative;
-        height: 100%;
+        flex-grow: 1;
         box-sizing: border-box;
     }
 
     &__Centuries {
+        flex-basis: 20px;
         display: flex;
         flex-wrap: nowrap;
-        position: absolute;
-        bottom: 0;
-        padding-bottom: 1rem;
     }
 
     &__Century {

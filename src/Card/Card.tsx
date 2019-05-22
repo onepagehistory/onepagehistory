@@ -1,19 +1,13 @@
+import { Link } from '@reach/router';
 import React from 'react';
 import { HistoryEntry } from '../data/History';
-import { getTopPos as getLeftPos } from '../shared/yearToTopPos';
+import { Rectangle } from '../shared/types';
 import './Card.css';
-import { Link } from '@reach/router';
-import { SCALE } from '../shared/const';
 
 
-export const Card = ({ depth, bubble, entry, baseRowLength }: { depth: number, bubble: number, entry: HistoryEntry, baseRowLength: number }) => {
-    const eventWidth = Math.max(1, entry.to - entry.from) * SCALE;
-
-    const ROW_HEIGHT = 8;
-
-    const leftPos = getLeftPos(entry.to);
-    const bottomBase = (0.5 + depth) * ROW_HEIGHT;
-    const bubbleHeight = (baseRowLength - depth) * ROW_HEIGHT + 40 + (bubble * (80 + 10));
+export const Card = ({ entry }: { entry: HistoryEntry }) => {
+    const cardPosition: Rectangle = entry['cardPosition'];
+    const rangePosition: Rectangle = entry['yearPosition'];
 
     return (
         <div
@@ -21,22 +15,18 @@ export const Card = ({ depth, bubble, entry, baseRowLength }: { depth: number, b
             className="Card"
         >
             <div className="Card__Range" style={
-                { left: leftPos
-                , bottom: bottomBase 
-                , width: eventWidth
-                }
-            }></div>
-
-            <div className="Card__DashedLine" style={
-                { height: bubbleHeight
-                , left: leftPos
-                , bottom: bottomBase 
+                { left: rangePosition.x
+                , bottom: rangePosition.y
+                , width: rangePosition.width
+                , height: rangePosition.height
                 }
             }></div>
 
             <div className="Card__Entry" style={
-                { bottom: bottomBase + bubbleHeight
-                , left: leftPos
+                { left: cardPosition.x
+                , bottom: cardPosition.y
+                , width: cardPosition.width
+                , height: cardPosition.height
                 }
             }>
                 <div className="Card__Box">
