@@ -1,18 +1,18 @@
-import { Link } from '@reach/router';
+import { Link } from "react-router-dom";
 import React from 'react';
 import { HistoryEntry } from '../data/History';
 import { Rectangle } from '../shared/types';
 import './Card.css';
 
 
-export const Card = ({ entry }: { entry: HistoryEntry }) => {
+export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: boolean }) => {
     const cardPosition: Rectangle = entry['cardPosition'];
     const rangePosition: Rectangle = entry['yearPosition'];
 
     return (
         <div
             id={entry.name}
-            className="Card"
+            className={ 'Card' + (isSelected ? ' Card-selected' : '' ) }
         >
             <div className="Card__Range" style={
                 { left: rangePosition.x

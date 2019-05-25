@@ -9,9 +9,10 @@ export interface IScalesProps {
     upperEntries: HistoryEntry[];
     lowerEntries: HistoryEntry[];
     centuries: any[];
+    selectedId: string;
 }
 
-export const Scales = ({ upperEntries, lowerEntries, centuries }: IScalesProps) => {
+export const Scales = ({ upperEntries, lowerEntries, centuries, selectedId }: IScalesProps) => {
 
     return (
         <div className="Scales">
@@ -20,6 +21,7 @@ export const Scales = ({ upperEntries, lowerEntries, centuries }: IScalesProps) 
                     return <Card
                         key={entry.name}
                         entry={entry}
+                        isSelected={selectedId == entry.name}
                         />
                 })
             }</div>
@@ -44,6 +46,7 @@ export const Scales = ({ upperEntries, lowerEntries, centuries }: IScalesProps) 
                     return <Card
                         key={entry.name}
                         entry={entry}
+                        isSelected={selectedId == entry.name}
                         />
                 })
             }</div>
