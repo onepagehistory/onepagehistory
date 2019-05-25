@@ -27,12 +27,12 @@ for (let entry of entries) {
         width: CARD_WIDTH,
         height: CARD_HEIGHT,
         x,
-        y: STEP_HEIGHT
+        y: 0
     };
 
     const yearsBlock = {
         width: (entry.to - entry.from) * YEAR_LENGTH,
-        height: 2 * STEP_HEIGHT,
+        height: 2,
         x,
         y: 0
     };

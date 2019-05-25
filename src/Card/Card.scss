@@ -26,12 +26,29 @@ $card-size: 80px;
 
     &__Range {
         position: absolute;
-        min-width: 0.25rem;
-        background: rgba(255, 255, 255, 0.5);
-        border: 1px solid white;
-        border-width: 0 3px;
+        min-width: 0.15rem;
+        border-bottom: 2px solid #fff;
+        z-index: 100;
         box-sizing: border-box;
-        opacity: 0.5;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            top: -2px;
+            position: absolute;
+            background: #fff;
+            border-radius: 100%;
+        }
+
+        &:before {
+            left: -2px;
+        }
+
+        &:after {
+            right: -2px;
+        }
     }
 
     &__Entry {
@@ -67,7 +84,6 @@ $card-size: 80px;
         height: $card-size;
         display: flex;
         flex: 1 0 100%;
-        height: $card-size;
         z-index: 10;
         box-sizing: border-box;
         border-radius: 0.25rem;
@@ -105,8 +121,10 @@ $card-size: 80px;
     }
 
     &__image {
-        max-width: 100%;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: left 25%;
         display: block;
-        margin: auto;
     }
 }
