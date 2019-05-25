@@ -1,5 +1,4 @@
 import React from 'react'
-import { CURRENT_YEAR } from '../shared/currentYear';
 import { useSiteData } from 'react-static';
 import { ScalesContainer } from '../Scales/ScalesContainer';
 import './RootPage.css'
@@ -20,8 +19,6 @@ export const RootPage = (props) => {
                     <div className="RootPage__Scales">
                         <ScalesContainer
                             data={historyData}
-                            from={ Math.min(...historyData.entries.map(e=>e.to)) }
-                            to={CURRENT_YEAR}
                         />
                     </div>
 
