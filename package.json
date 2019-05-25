@@ -6,7 +6,7 @@
     "watch-css": "node-sass-chokidar src/ -o src/ --watch --skip-initial --recursive",
     "start": "npm-run-all build-css --parallel watch-css rs-start",
     "rs-start": "react-static start",
-    "stage": "npm run build-css && react-static build --staging",
+    "stage": "npm run build-css && react-static build",
     "build": "npm run build-css && react-static build",
     "serve": "serve dist -p 8080 -s",
     "publish": "gh-pages -d dist -t -r https://github.com/onepagehistory/onepagehistory.github.io.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\"",
