@@ -1,11 +1,11 @@
 import React from 'react';
 import './EventPage.css';
-import { Link } from '@reach/router';
+import { Link } from "react-router-dom";
 import { EventDescription }  from './Markdown/EventDescription'
 import { IPageData } from './IPageData';
 import { Head } from 'react-static';
 
-export const EventPage = (props: { pageData: IPageData })=> {
+export const EventPage = (props: { pageData: IPageData }) => {
     const { entry, content } = props.pageData;
 
     return (
