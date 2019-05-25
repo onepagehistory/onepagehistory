@@ -5,11 +5,10 @@ $card-size: 80px;
 .Card {
     &:hover, &-selected {
         .Card__Entry {
-            z-index: 999;
+            z-index: 99;
         }
 
         .Card__Range {
-            z-index: 999;
             opacity: 1;
         }
 
@@ -28,7 +27,7 @@ $card-size: 80px;
         position: absolute;
         min-width: 0.15rem;
         border-bottom: 2px solid #fff;
-        z-index: 100;
+        z-index: 99;
         box-sizing: border-box;
 
         &:before, &:after {
