@@ -12,7 +12,7 @@ export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: b
     return (
         <div
             id={entry.name}
-            className={ 'Card' + (isSelected ? ' Card-selected' : '' ) }
+            className={ 'Card' + (isSelected ? ' Card--selected' : '' ) }
         >
             <div className="Card__Range" style={
                 { left: rangePosition.x
@@ -41,12 +41,11 @@ export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: b
                             />
                     }</Link>
                     <div className="Card__Summary">
-                        <h2 className="Card__Title">
-                            <Link to={'/p/' + entry.name}>{
-                                entry.title
-                            }</Link>
-                        </h2>
-                        <p className="Card__Date">{entry.subtitle}</p>
+                        <Link className="Card__Head" to={'/p/' + entry.name}>
+                            <h3 className="Card__Title">{entry.title}</h3>
+                            <p className="Card__sub-title">{entry.subtitle}</p>
+                        </Link>
+
                         {
                             entry.short &&
                             <p className="Card__Description">{entry.short}</p>
