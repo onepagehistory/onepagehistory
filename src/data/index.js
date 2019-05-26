@@ -64,6 +64,9 @@ for (let entry of entries) {
 const toCentury = Math.floor(to / 100);
 const fromCentury = Math.ceil(from / 100);
 
+const toDecade = Math.floor(to / 10);
+const fromDecade = Math.ceil(from / 10);
+
 const centuries = 
     new Array(toCentury - fromCentury)
     .fill(undefined)
@@ -89,9 +92,36 @@ if (to % 100) {
     });
 }
 
+const decades =
+    new Array(toDecade - fromDecade)
+        .fill(undefined)
+        .map((_, i)=> ({
+            name: (toDecade - i) * 10,
+            century: toDecade - i,
+            years: 10,
+        }));
+
+if (from % 10) {
+    decades.push({
+        name: (fromDecade - 1) * 10,
+        century: fromDecade - 1,
+        years: from % 10
+    });
+}
+
+if (to % 10) {
+    decades.unshift({
+        name: to,
+        century: toDecade+ 1,
+        years: to % 10
+    });
+}
+
+
 module.exports.data = {
     entries,
     centuries,
+    decades,
     upperEntries,
     lowerEntries,
 }

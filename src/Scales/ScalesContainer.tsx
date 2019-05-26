@@ -8,6 +8,7 @@ export const ScalesContainer = ({ data, selectedId }) => {
             upperEntries={data.upperEntries} 
             lowerEntries={data.lowerEntries} 
             centuries={ data.centuries }
+            decades={ data.decades }
         ></Scales>
     )
 };

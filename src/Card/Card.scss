@@ -70,7 +70,7 @@ $card-size: 80px;
         color: #fff;
         text-decoration: none;
 
-        &:hover {
+        &:hover, .Card--selected & {
             text-decoration: underline;
             font-weight: 600;
         }

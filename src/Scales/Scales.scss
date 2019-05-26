@@ -3,7 +3,6 @@
     height: 100vh;
     padding: 1rem 0;
     box-sizing: border-box;
-    position: relative;
     display: flex;
     flex-direction: column;
 
@@ -35,6 +34,46 @@
             padding: .5rem;
             text-decoration: none;
             color: #fff;
+        }
+    }
+}
+
+.Scales-Decades {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 10rem;
+    grid-auto-rows: 1.5rem;
+    font-size: 1.2rem;
+    border-top: 1px solid #fff;
+    width: max-content;
+    color: #fff;
+    padding: 1rem 0;
+    text-indent: 1rem;
+
+    &__item {
+        p {
+            margin: 0;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 11px;
+            background-color: #fff;
+            margin-bottom: 5px;
+            margin-top: -16px;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 1px;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            opacity: .1;
         }
     }
 }
