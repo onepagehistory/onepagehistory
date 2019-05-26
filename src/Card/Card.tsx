@@ -46,10 +46,10 @@ export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: b
                                 entry.title
                             }</Link>
                         </h2>
-                        <div className="Card__Date">{entry.subtitle}</div>
+                        <p className="Card__Date">{entry.subtitle}</p>
                         {
                             entry.short &&
-                            <div className="Card__Description">{entry.short}</div>
+                            <p className="Card__Description">{entry.short}</p>
                         }
                     </div>
                 </div>

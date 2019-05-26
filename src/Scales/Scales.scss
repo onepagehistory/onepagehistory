@@ -26,18 +26,15 @@
         box-sizing: border-box;
         height: 100%;
         position: relative;
+        font-size: 1.2rem;
 
         & > a, & > a:link {
             position: absolute;
             bottom: 0;
             display: inline-block;
-            padding: 0.25rem;
+            padding: .5rem;
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.25);
-
-            &:hover{
-                color: white;
-            }
+            color: #fff;
         }
     }
 }

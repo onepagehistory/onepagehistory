@@ -13,13 +13,21 @@ $card-size: 80px;
         }
 
         .Card__Description {
-            opacity: 1;
+            opacity: .7;
         }
     }
 
     &-selected {
         .Card__Range {
-            background: red;
+            border-color: #FFBF10;
+            
+            &:before, &:after {
+                background-color: #FFBF10;
+            }
+        }
+
+        .Card__ImgWrapper {
+            border: 3px solid #FFBF10;
         }
     }
 
@@ -27,7 +35,7 @@ $card-size: 80px;
         position: absolute;
         min-width: 0.15rem;
         border-bottom: 2px solid #fff;
-        z-index: 99;
+        z-index: 100;
         box-sizing: border-box;
 
         &:before, &:after {
@@ -59,8 +67,8 @@ $card-size: 80px;
 
     &__Title {
         color: #fff;
-        margin: 0.25rem 0 0;
-        font-size: 0.9rem;
+        margin: 0;
+        font-size: 1.2rem;
         text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
         white-space: nowrap;
 
@@ -75,7 +83,8 @@ $card-size: 80px;
 
     &__Date {
         color: #eee;
-        font-size: 0.5rem;
+        font-size: 1.2rem;
+        margin: 0;
         white-space: nowrap;
     }
 
@@ -100,20 +109,22 @@ $card-size: 80px;
     &__Description {
         color: #fff;
         display: inline-block;
-        width: 10rem;
-        height: 2.5em;
+        width: 25rem;
+        height: 4.5rem;
+        padding-top: .3rem;
+        margin: 0;
         text-overflow: ellipsis;
         overflow: hidden;
         box-sizing: border-box;
         opacity: 0;
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
 
 
     &__Summary {
         overflow-y: visible;
         height: 100%;
-        padding-left: 0.3rem;
+        padding-left: 1rem;
         box-sizing: border-box;
         color: inherit;
         text-decoration: none;
