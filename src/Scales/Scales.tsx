@@ -10,9 +10,10 @@ export interface IScalesProps {
     lowerEntries: HistoryEntry[];
     centuries: any[];
     selectedId: string;
+    decades: any[];
 }
 
-export const Scales = ({ upperEntries, lowerEntries, centuries, selectedId }: IScalesProps) => {
+export const Scales = ({ upperEntries, lowerEntries, selectedId, decades }: IScalesProps) => {
 
     return (
         <div className="Scales">
@@ -26,17 +27,33 @@ export const Scales = ({ upperEntries, lowerEntries, centuries, selectedId }: IS
                 })
             }</div>
 
-            <div className="Scales__Centuries">{
-                centuries.map(entry => {
+            {/*<div className="Scales__Centuries">{*/}
+                {/*centuries.map(entry => {*/}
+                    {/*const centName = entry.name;*/}
+                    {/*const centId = '' + centName;*/}
+                    {/*return (*/}
+                        {/*<div*/}
+                            {/*key={'Century' + entry.century}*/}
+                            {/*id={ centId }*/}
+                            {/*className="Scales__Century"*/}
+                            {/*style={ { flexBasis: entry.years * YEAR_LENGTH } }*/}
+                        {/*><a href={ '#' + centId }>{ centName }</a></div>*/}
+                    {/*);*/}
+                {/*})*/}
+            {/*}</div>*/}
+
+            <div className="Scales-Decades">{
+                decades.map(entry => {
                     const centName = entry.name;
-                    const centId = '' + centName;
+
                     return (
                         <div
-                            key={'Century' + entry.century}
-                            id={ centId }
-                            className="Scales__Century"
-                            style={ { flexBasis: entry.years * YEAR_LENGTH } }
-                        ><a href={ '#' + centId }>{ centName }</a></div>
+                            className="Scales-Decades__item"
+                        >
+                            <p>
+                                { centName }
+                            </p>
+                        </div>
                     );
                 })
             }</div>
