@@ -21,3 +21,17 @@
         max-width: 30rem;
     }
 }
+
+.logo {
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    width: fit-content;
+    position: fixed;
+    top: 30px;
+    left: 40px;
+
+    &__name {
+        margin: 0 1rem;
+    }
+}
