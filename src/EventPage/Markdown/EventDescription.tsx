@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 export class EventDescription extends Component<{value: string}> {
     render() {
         return (
-            <ReactMarkdown source={this.props.value} />
+            <ReactMarkdown className="EventPage__description" source={this.props.value} />
         );
     };
 }
