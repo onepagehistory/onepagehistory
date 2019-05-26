@@ -1,14 +1,6 @@
 import React from 'react'
 import './newLayout.css'
 
-function Card(props) {
-    return (
-    <div className="Default" style={{position:'absolute', top: props.y, left: props.x}}>
-        card
-    </div>
-    )
-}
-
 function BackGround(){
     return (
         <div className="Decade-wrap">
@@ -40,11 +32,9 @@ function TimeLine(){
 }
 
 
-export default () => (
-    <div className="Layout">
-        <Card x={20} y={40}></Card>
-        <Card x={10} y={30}></Card>
+export const NewLayout = () => {
+    return (<div>
         <BackGround></BackGround>
-        <TimeLine></TimeLine>
-    </div>
-)
+    </div>)
+}
+
