@@ -4,4 +4,4 @@ export const DESCRIPTION_WIDTH = 250;
 export const DESCRIPTION_MARGIN = 7;
 export const CARD_WIDTH = IMAGE_SIZE + DESCRIPTION_WIDTH + DESCRIPTION_MARGIN;
 export const CARD_HEIGHT = IMAGE_SIZE;
-export const STEP_HEIGHT = 8;
+export const STEP_HEIGHT = 16;

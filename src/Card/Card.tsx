@@ -13,14 +13,18 @@ export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: b
         <div
             id={entry.name}
             className={ 'Card' + (isSelected ? ' Card--selected' : '' ) }
+            title={ entry.title}
         >
-            <div className="Card__Range" style={
-                { left: rangePosition.x
-                , bottom: rangePosition.y
-                , width: rangePosition.width
-                , height: rangePosition.height
-                }
-            }></div>
+            <Link
+                to={'/p/' + entry.name}
+                className="Card__Range"
+                style={
+                    { left: rangePosition.x
+                    , bottom: rangePosition.y
+                    , width: rangePosition.width
+                    , height: rangePosition.height
+                    }
+                }></Link>
 
             <div className="Card__Entry" style={
                 { left: cardPosition.x

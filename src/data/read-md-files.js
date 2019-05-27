@@ -30,4 +30,4 @@ function readMdFiles() {
         });
 }
 
-module.exports.readMdFiles = readMdFiles;
+export { readMdFiles }
