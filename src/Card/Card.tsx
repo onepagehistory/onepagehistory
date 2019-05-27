@@ -8,6 +8,7 @@ import './Card.css';
 export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: boolean }) => {
     const cardPosition: Rectangle = entry['cardPosition'];
     const rangePosition: Rectangle = entry['yearPosition'];
+    const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is canonical url
 
     return (
         <div
@@ -16,7 +17,7 @@ export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: b
             title={ entry.title}
         >
             <Link
-                to={'/p/' + entry.name}
+                to={SUBPAGE_URL}
                 className="Card__Range"
                 style={
                     { left: rangePosition.x
@@ -35,7 +36,7 @@ export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: b
             }>
                 <div className="Card__Box">
                     <Link
-                        to={'/p/' + entry.name}
+                        to={SUBPAGE_URL}
                         className="Card__ImgWrapper"
                     >{
                             <img
@@ -45,7 +46,7 @@ export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: b
                             />
                     }</Link>
                     <div className="Card__Summary">
-                        <Link className="Card__Head" to={'/p/' + entry.name}>
+                        <Link className="Card__Head" to={SUBPAGE_URL}>
                             <h3 className="Card__Title">{entry.title}</h3>
                             <p className="Card__sub-title">{entry.subtitle}</p>
                         </Link>
