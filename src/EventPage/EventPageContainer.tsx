@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouteData } from 'react-static'
 import { EventPage } from './EventPage';
 import { IPageData } from './IPageData';
-import { CARD_WIDTH, YEAR_LENGTH } from '../shared/const.js';
+import { CARD_WIDTH, YEAR_LENGTH, IMAGE_SIZE } from '../shared/const.js';
 
 
 export default ()=> {
@@ -24,18 +24,28 @@ export default ()=> {
         const xDiff = elementX - windowScrollX;
         // arbitrary margin from the left
         const LEFT_MARGIN = YEAR_LENGTH * 3;
+
         // 33% is the width of the sidepanel + a small margin
         const RIGHT_MARGIN = windowWidth * 0.333 + CARD_WIDTH + 30;
         if (xDiff > LEFT_MARGIN && xDiff < windowWidth - RIGHT_MARGIN) {
+            // card is inside of the screen center
             return;
         }
 
         let scrollLeft = 0;
 
-        if (xDiff <= LEFT_MARGIN) {
-            scrollLeft =  elementX - LEFT_MARGIN;
-        } else {
-            scrollLeft =  elementX - (windowWidth - RIGHT_MARGIN);
+        // is outside the screen completely
+        if (xDiff < -CARD_WIDTH || xDiff > windowWidth + CARD_WIDTH) {
+            // scroll to center of the screen
+            scrollLeft = elementX - windowWidth * 0.333 + IMAGE_SIZE / 2;
+        }
+        // is on the left, visible, just needs a bit of scroll
+        else if (xDiff <= LEFT_MARGIN) {
+            scrollLeft = elementX - LEFT_MARGIN;
+        }
+        // is on the right, visible, just needs a bit of scroll
+        else {
+            scrollLeft = elementX - (windowWidth - RIGHT_MARGIN);
         }
 
         window.scrollTo({ left: scrollLeft });
