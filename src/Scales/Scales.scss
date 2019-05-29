@@ -41,8 +41,9 @@
 .Scales-Decades {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 10rem;
-    grid-auto-rows: 1.5rem;
+    grid-auto-columns: 100px;
+    grid-auto-rows: 15px;
+    grid-template-columns: 90px; // stands for 2019 year
     font-size: 1.2rem;
     border-top: 1px solid #fff;
     width: max-content;
