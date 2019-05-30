@@ -1,0 +1,26 @@
+.CenturiesNavBar {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    &__Items {
+        height: 100%;
+        width: 100%;
+        background: #303030;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__Item {
+        color: white;
+        text-decoration: none;
+    }
+
+    &__ScrollPositionIndicator {
+        height: 1px;
+        background: white;
+        position: absolute;
+        top: 50px;
+    }
+}

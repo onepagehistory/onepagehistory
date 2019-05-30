@@ -1,5 +1,4 @@
-const { CARD_HEIGHT, CARD_WIDTH, STEP_HEIGHT, YEAR_LENGTH } = require('../shared/const');
-const { CURRENT_YEAR } = require('../shared/currentYear');
+const { CURRENT_YEAR, CARD_HEIGHT, CARD_WIDTH, STEP_HEIGHT, YEAR_LENGTH } = require('../shared/const');
 
 const PLACEMENT_STEP_CHECK = 1;
 const CARD_LENGTH_IN_YEARS = 34; // ~340px is the max width of the Card
