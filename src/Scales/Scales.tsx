@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '../Card/Card';
 import { HistoryEntry } from '../data/History';
-import { YEAR_LENGTH } from '../shared/const';
+import { CenturiesNavBarContainer } from '../CenturiesNavBar/CenturiesNavBarContainer';
 import './Scales.css';
 
 
@@ -64,6 +64,10 @@ export const Scales = ({ upperEntries, lowerEntries, selectedId, decades }: ISca
                         />
                 })
             }</div>
+
+            <div className="Scales__CenturiesNavBar">
+                <CenturiesNavBarContainer />
+            </div>
         </div>
     )
 };
