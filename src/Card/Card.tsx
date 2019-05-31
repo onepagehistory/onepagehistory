@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import { HistoryEntry } from '../data/History';
-import { Rectangle } from '../shared/types';
-import { IMAGE_SIZE, CARD_HEIGHT } from '../shared/const.js';
+import { Rectangle, ISizes } from '../shared/types';
 import './Card.css';
 
 
-export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: boolean }) => {
-    const cardPosition: Rectangle = entry['cardPosition'];
-    const rangePosition: Rectangle = entry['yearPosition'];
+export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes }: { entry: HistoryEntry; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes }) => {
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is canonical url
 
     return (
@@ -37,12 +34,12 @@ export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: b
             }>
                 <div
                     className="Card__Box"
-                    style={ { height: CARD_HEIGHT } }
+                    style={ { height: sizes.cardHeight } }
                 >
                     <Link
                         to={SUBPAGE_URL}
                         className="Card__ImgWrapper"
-                        style={ { height: IMAGE_SIZE, width: IMAGE_SIZE } }
+                        style={ { height: sizes.imageSize, width: sizes.imageSize } }
                     >{
                             <img
                                 className="Card__image"

@@ -1,4 +1,12 @@
-import { HistoryData } from './../data/History';
+export interface ISizes {
+    imageSize: number;
+    descriptionWidth: number;
+    descriptionMargin: number;
+    cardWidth: number;
+    cardHeight: number;
+    stepHeight: number;
+}
+
 export interface IPosition {
     x: number;
     y: number;
