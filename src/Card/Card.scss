@@ -1,7 +1,5 @@
 @import "../styles/mixins.scss";
 
-$card-size: 80px;
-
 .Card {
     &:hover, &--selected {
         .Card__Entry {
@@ -95,7 +93,6 @@ $card-size: 80px;
     }
 
     &__Box {
-        height: $card-size;
         display: flex;
         flex: 1 0 100%;
         z-index: 10;
@@ -106,8 +103,6 @@ $card-size: 80px;
     &__ImgWrapper {
         box-sizing: border-box;
         position: relative;
-        width: $card-size;
-        height: $card-size;
         overflow: hidden;
     }
 
