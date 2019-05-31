@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import { HistoryEntry } from '../data/History';
 import { Rectangle } from '../shared/types';
+import { IMAGE_SIZE, CARD_HEIGHT } from '../shared/const.js';
 import './Card.css';
 
 
@@ -34,10 +35,14 @@ export const Card = ({ entry, isSelected }: { entry: HistoryEntry, isSelected: b
                 , height: cardPosition.height
                 }
             }>
-                <div className="Card__Box">
+                <div
+                    className="Card__Box"
+                    style={ { height: CARD_HEIGHT } }
+                >
                     <Link
                         to={SUBPAGE_URL}
                         className="Card__ImgWrapper"
+                        style={ { height: IMAGE_SIZE, width: IMAGE_SIZE } }
                     >{
                             <img
                                 className="Card__image"
