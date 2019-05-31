@@ -1,9 +1,10 @@
-const { CURRENT_YEAR, CARD_HEIGHT, CARD_WIDTH, STEP_HEIGHT, YEAR_LENGTH } = require('../shared/const');
-
+const { CURRENT_YEAR, YEAR_LENGTH, SIZES } = require('../shared/const');
 const PLACEMENT_STEP_CHECK = 1;
-const CARD_LENGTH_IN_YEARS = 34; // ~340px is the max width of the Card
 
 function plotChart({ entries }) {
+    // TODO: calculate it
+    const CARD_LENGTH_IN_YEARS = 34; // ~340px is the max width of the Card
+
     entries.sort((a, b) => {
         let result = 0;
         const aLength = a.to - a.from;
@@ -26,104 +27,17 @@ function plotChart({ entries }) {
     const from = Math.min(...entries.map(e => e.to));
     const to = CURRENT_YEAR;
 
-    const upperVisualBlocks = [];   // RectanglesArray
-    const upperEntries = [];        // HistoryEntry[]
-    const lowerVisualBlocks = [];   // RectanglesArray
-    const lowerEntries = [];        // HistoryEntry[]
-
-    for (let entry of entries) {
-        const x = (to - entry.to) * YEAR_LENGTH;
-
-        const cardBlock = {
-            width: CARD_WIDTH,
-            height: CARD_HEIGHT,
-            x,
-            y: 0
-        };
-
-        const yearsBlock = {
-            width: (entry.to - entry.from) * YEAR_LENGTH,
-            height: 2,
-            x,
-            y: 0
-        };
-
-        while (true) {
-            if (!ifAnyBlockOverlaps(upperVisualBlocks, cardBlock, yearsBlock)) {
-                const _cardBlock = {
-                    ...cardBlock,
-                    y: cardBlock.y + STEP_HEIGHT
-                };
-
-                const _yearsBlock = {
-                    ...yearsBlock,
-                    y: yearsBlock.y + STEP_HEIGHT
-                };
-
-                if (!ifAnyBlockOverlaps(upperVisualBlocks, _cardBlock, _yearsBlock)) {
-                    upperVisualBlocks.push(_cardBlock);
-                    upperVisualBlocks.push(_yearsBlock);
-                    entry['cardPosition'] = _cardBlock;
-                    entry['yearPosition'] = _yearsBlock;
-                    upperEntries.push(entry);
-                    break;
-                }
-            }
-
-            if (!ifAnyBlockOverlaps(lowerVisualBlocks, cardBlock, yearsBlock)) {
-                const _cardBlock = {
-                    ...cardBlock,
-                    y: cardBlock.y + STEP_HEIGHT
-                };
-
-                const _yearsBlock = {
-                    ...yearsBlock,
-                    y: yearsBlock.y + STEP_HEIGHT
-                };
-
-                if (!ifAnyBlockOverlaps(lowerVisualBlocks, _cardBlock, _yearsBlock)) {
-                    lowerVisualBlocks.push(_cardBlock);
-                    lowerVisualBlocks.push(_yearsBlock);
-                    entry['cardPosition'] = _cardBlock;
-                    entry['yearPosition'] = _yearsBlock;
-                    lowerEntries.push(entry);
-                    break;
-                }
-            }
-
-            cardBlock.y  += PLACEMENT_STEP_CHECK;
-            yearsBlock.y += PLACEMENT_STEP_CHECK;
-        };
-    }
-
-    const toCentury = Math.floor(to / 100);
-    const fromCentury = Math.ceil(from / 100);
-
-    const centuries = 
-        new Array(toCentury - fromCentury)
-        .fill(undefined)
-        .map((_, i)=> ({
-            name: (toCentury - i) * 100,
-            century: toCentury - i,
-            years: 100,
-        }));
-
-    if (from % 100) {
-        centuries.push({
-            name: (fromCentury - 1) * 100,
-            century: fromCentury - 1,
-            years: from % 100
-        });
-    }
-
-    if (to % 100) {
-        centuries.unshift({
-            name: to,
-            century: toCentury + 1,
-            years: to % 100
-        });
-    }
-
+    const plot = Object.keys(SIZES)
+        .reduce((acc, sizeKey) => {
+            const sizes = SIZES[sizeKey];
+            const { upperEntries, lowerEntries } = plotChartBySizes({ entries, to, sizes });
+            acc[sizeKey] = {
+                sizes,
+                upperEntries,
+                lowerEntries,
+            };
+            return acc;
+        }, {});
 
     const toDecade = Math.floor(to / 10);
     const fromDecade = Math.ceil(from / 10);
@@ -154,9 +68,96 @@ function plotChart({ entries }) {
     }
 
     return {
-        entries,
-        centuries,
         decades,
+        entries,
+        plot,
+    };
+}
+
+function plotChartBySizes({ entries, to, sizes }) {
+    const 
+        { cardWidth
+        , cardHeight
+        , stepHeight
+        } = sizes;
+
+    const upperVisualBlocks = [];   // RectanglesArray
+    const upperEntries = [];        // HistoryEntry[]
+    const lowerVisualBlocks = [];   // RectanglesArray
+    const lowerEntries = [];        // HistoryEntry[]
+
+    for (let entry of entries) {
+        const x = (to - entry.to) * YEAR_LENGTH;
+
+        const cardBlock = {
+            width: cardWidth,
+            height: cardHeight,
+            x,
+            y: 0
+        };
+
+        const rangeBlock = {
+            width: (entry.to - entry.from) * YEAR_LENGTH,
+            height: 2,
+            x,
+            y: 0
+        };
+
+        while (true) {
+            if (!ifAnyBlockOverlaps(upperVisualBlocks, cardBlock, rangeBlock)) {
+                const _cardBlock = {
+                    ...cardBlock,
+                    y: cardBlock.y + stepHeight
+                };
+
+                const _rangeBlock = {
+                    ...rangeBlock,
+                    y: rangeBlock.y + stepHeight
+                };
+
+                if (!ifAnyBlockOverlaps(upperVisualBlocks, _cardBlock, _rangeBlock)) {
+                    upperVisualBlocks.push(_cardBlock);
+                    upperVisualBlocks.push(_rangeBlock);
+                    const card = {
+                        entryName: entry.name,
+                        cardPosition: _cardBlock,
+                        rangePosition: _rangeBlock
+                    }
+                    upperEntries.push(card);
+                    break;
+                }
+            }
+
+            if (!ifAnyBlockOverlaps(lowerVisualBlocks, cardBlock, rangeBlock)) {
+                const _cardBlock = {
+                    ...cardBlock,
+                    y: cardBlock.y + stepHeight
+                };
+
+                const _rangeBlock = {
+                    ...rangeBlock,
+                    y: rangeBlock.y + stepHeight
+                };
+
+                if (!ifAnyBlockOverlaps(lowerVisualBlocks, _cardBlock, _rangeBlock)) {
+                    lowerVisualBlocks.push(_cardBlock);
+                    lowerVisualBlocks.push(_rangeBlock);
+                    const card = {
+                        entryName: entry.name,
+                        cardPosition: _cardBlock,
+                        rangePosition: _rangeBlock
+                    }
+                    lowerEntries.push(card);
+                    break;
+                }
+            }
+
+            cardBlock.y  += PLACEMENT_STEP_CHECK;
+            rangeBlock.y += PLACEMENT_STEP_CHECK;
+        };
+    }
+
+    return {
         upperEntries,
         lowerEntries,
     };
