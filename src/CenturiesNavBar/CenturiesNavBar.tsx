@@ -16,7 +16,8 @@ export const CenturiesNavBar = (props)=> {
                     href="#"
                     className="CenturiesNavBar__Item"
                     onClick={ createScrollTo(year) }
-                    >{year} year</a>
+                    >{year} <span className="CenturiesNavBar__Item-text">year</span>
+                </a>
             ))
         }</div>
         <div
