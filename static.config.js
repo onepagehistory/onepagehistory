@@ -35,6 +35,7 @@ export default {
                     <link rel="icon" href="favicon.ico" type="image/x-icon" />
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
                     <base href="/" />
+                    
                     {/*
                       manifest.json provides metadata used when your web app is added to the
                       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -51,6 +52,7 @@ export default {
                         // !siteData.dev &&
                         <React.Fragment>
                             <script async={true} src='https://www.google-analytics.com/analytics.js'></script>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                             <script async={true} src="/autotrack.js" />
                             <script src="/GA.js" />
                         </React.Fragment>
