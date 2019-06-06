@@ -2,20 +2,29 @@
     height: 100%;
     width: 100%;
     position: relative;
+    box-sizing: border-box;
+    padding: 0 4rem;
+    background: #303030;
+
+    &__Contents {
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
 
     &__Items {
         height: 100%;
-        background: #303030;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 4rem;
     }
 
     &__Item {
         color: white;
         text-decoration: none;
         font-size: 1.8rem;
+        min-width: 80px;
+        text-align: center;
     }
 
     &__Item-text {
@@ -27,5 +36,10 @@
         background: white;
         position: absolute;
         top: 50px;
+    }
+
+    &__indicator {
+        position: absolute;
+        left: 0;
     }
 }

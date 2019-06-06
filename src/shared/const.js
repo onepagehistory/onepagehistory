@@ -24,7 +24,7 @@ const createSizes =
         });
 
 
-const S_SIZES = createSizes({ imageSize: 60, stepHeight: 10 });
+const S_SIZES = createSizes({ imageSize: 60, stepHeight: 10, descriptionWidth: 350 });
 const M_SIZES = createSizes({ });
 const L_SIZES = createSizes({ imageSize: 120 });
 
