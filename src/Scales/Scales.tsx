@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from '../Card/Card';
 import { HistoryEntry } from '../data/History';
 import { CenturiesNavBarContainer } from '../CenturiesNavBar/CenturiesNavBarContainer';
+import { CenturiesNavBar } from '../CenturiesNavBar/CenturiesNavBar';
 import { ISizes } from 'src/shared/types';
 import './Scales.css';
 
@@ -60,7 +61,8 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
             }</div>
 
             <div className="Scales__CenturiesNavBar">
-                <CenturiesNavBarContainer />
+
+                <CenturiesNavBar />
             </div>
         </div>
     )
