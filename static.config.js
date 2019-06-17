@@ -52,7 +52,7 @@ export default {
                         // !siteData.dev &&
                         <React.Fragment>
                             <script async={true} src='https://www.google-analytics.com/analytics.js'></script>
-                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
                             <script async={true} src="/autotrack.js" />
                             <script src="/GA.js" />
                         </React.Fragment>
