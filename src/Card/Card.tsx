@@ -61,7 +61,11 @@ export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes }: 
 
                         {
                             entry.short &&
-                            <p className="Card__Description">{entry.short}</p>
+                            <p className="Card__Description"
+                                style={{
+                                    width: sizes.descriptionWidth
+                                }}
+                            >{entry.short}</p>
                         }
                     </div>
                 </div>
