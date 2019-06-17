@@ -24,10 +24,12 @@ export class CenturiesNavBar extends Component {
     componentDidMount() {
         this.handleScroll();
         window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.handleScroll);
     }
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleScroll);
     }
 
     handleScroll() {
