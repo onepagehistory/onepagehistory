@@ -69,8 +69,10 @@
         text-decoration: none;
 
         &:hover, .Card--selected & {
-            text-decoration: underline;
-            font-weight: 600;
+            .Card__Title {
+                text-decoration: underline;
+                font-weight: 600;
+            }
         }
     }
 
