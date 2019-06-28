@@ -7,11 +7,7 @@ import './Card.css';
 
 export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes }: { entry: HistoryEntry; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes }) => {
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is canonical url
-    let localImageSrc;
-    // NOTE: temp, only available for albert-einstein
-    if (entry.name == 'albert-einstein') {
-        localImageSrc = require(`../data/entries/${entry.name}.png`);
-    }
+    let localImageSrc = require(`../data/entries/${entry.name}.png`);
 
 
     return (
