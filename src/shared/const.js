@@ -1,6 +1,6 @@
 export const CURRENT_YEAR = (new Date()).getFullYear() 
 export const YEAR_LENGTH = 10;
-
+export const TICK_YEARS = [2000, 1750, 1500, 1250, 1000, 750, 500, 250, 0];
 export const DEFAULT_IMAGE_SIZE = 80;
 export const DEFAULT_DESCRIPTION_WIDTH = 250;
 export const DEFAULT_DESCRIPTION_MARGIN = 7;
