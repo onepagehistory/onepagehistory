@@ -3,12 +3,8 @@ import { Card } from '../Card/Card';
 import { HistoryEntry } from '../data/History';
 import { CenturiesNavBar } from '../CenturiesNavBar/CenturiesNavBar';
 import { ISizes } from 'src/shared/types';
+import { TICK_YEARS, YEAR_LENGTH, CURRENT_YEAR } from '../shared/const.js'
 import './Scales.css';
-
-
-const anchors = [2000, 1750, 1500, 1250, 1000, 750, 500, 250, 0].map((year) =>
-    <p className="anchor-year" style={{ left: (2000 - year)*10+200, position: 'absolute'}}>{year}</p>
-);
 
 export interface IScalesProps {
     selectedId: string;
@@ -19,15 +15,19 @@ export interface IScalesProps {
     entries: HistoryEntry[];
     sizes: ISizes;
 }
-export class AnchorYears extends Component {
+function AnchorYears() {
+    const anchors = TICK_YEARS.map((year) =>
+        <p
+            key={year.toString()}
+            className="anchor-year"
+            style={{ left: (CURRENT_YEAR - year) * YEAR_LENGTH}}>
+            {year}
+        </p>
+    )
 
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return <div>{anchors}</div>
-    }
+    return (
+        <div>{anchors}</div>
+    )
 }
 
 export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries, decades, sizes }: IScalesProps) => {
