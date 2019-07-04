@@ -33,7 +33,7 @@ export class CenturiesNavBar extends Component {
     }
 
     handleScroll() {
-        const centerOfTheScreenOffset = window.scrollX + window.innerWidth / 2;
+        const centerOfTheScreenOffset = window.scrollX + 200;
         const yearsOffset = centerOfTheScreenOffset / YEAR_LENGTH - STARTING_TICK_OFFSET;
 
         // ignore time after 2000
@@ -62,7 +62,8 @@ export class CenturiesNavBar extends Component {
     }
 
     scrollTo(year: number) {
-        const scrollLeft = (CURRENT_YEAR - year) * YEAR_LENGTH - window.innerWidth / 2;
+        const DECADE_LENGTH = YEAR_LENGTH*10;
+        const scrollLeft = (CURRENT_YEAR - year) * YEAR_LENGTH - DECADE_LENGTH*2;
         window.scrollTo({ left: scrollLeft });
     }
 
