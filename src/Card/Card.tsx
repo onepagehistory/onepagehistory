@@ -5,15 +5,18 @@ import { Rectangle, ISizes } from '../shared/types';
 import './Card.css';
 
 
-export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes }: { entry: HistoryEntry; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes }) => {
+export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, sizeId }: { entry: HistoryEntry; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes; sizeId: string }) => {
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is canonical url
     let localImageSrc = require(`../data/entries/${entry.name}.png`);
-
 
     return (
         <div
             id={entry.name}
-            className={ 'Card' + (isSelected ? ' Card--selected' : '' ) }
+            className={
+                'Card'
+                + (isSelected ? ' Card--selected' : '' )
+                + ` Card-size-${sizeId}`
+            }
             title={ entry.title}
         >
             <Link
