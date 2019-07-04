@@ -15,7 +15,7 @@ export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, si
             className={
                 'Card'
                 + (isSelected ? ' Card--selected' : '' )
-                + ` Card-size-${sizeId}`
+                + ` Card--size-${sizeId}`
             }
             title={ entry.title}
         >
