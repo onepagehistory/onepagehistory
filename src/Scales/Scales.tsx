@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Card } from '../Card/Card';
 import { HistoryEntry } from '../data/History';
 import { CenturiesNavBar } from '../CenturiesNavBar/CenturiesNavBar';
 import { ISizes } from 'src/shared/types';
 import './Scales.css';
 
+
+const anchors = [2000, 1750, 1500, 1250, 1000, 750, 500, 250, 0].map((year) =>
+    <p className="anchor-year" style={{ left: (2000 - year)*10+200, position: 'absolute'}}>{year}</p>
+);
 
 export interface IScalesProps {
     selectedId: string;
@@ -14,6 +18,16 @@ export interface IScalesProps {
     lowerEntries: any[];
     entries: HistoryEntry[];
     sizes: ISizes;
+}
+export class AnchorYears extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return <div>{anchors}</div>
+    }
 }
 
 export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries, decades, sizes }: IScalesProps) => {
@@ -32,7 +46,9 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                         sizeId={sizeId}
                         />
                 })
-            }</div>
+            }
+                <AnchorYears />
+            </div>
 
             <div className="Scales-Decades">{
                 decades.map(entry =>
@@ -65,5 +81,7 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                 <CenturiesNavBar />
             </div>
         </div>
+
     )
 };
+
