@@ -121,6 +121,9 @@
         font-size: 1.2rem;
     }
 
+    &-size-s .Card__Description{
+        white-space: nowrap;
+    }
 
     &__Summary {
         overflow-y: visible;

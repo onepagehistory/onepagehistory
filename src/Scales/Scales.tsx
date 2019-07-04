@@ -29,6 +29,7 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                         cardPosition={card.cardPosition}
                         rangePosition={card.rangePosition}
                         sizes={sizes}
+                        sizeId={sizeId}
                         />
                 })
             }</div>
@@ -55,6 +56,7 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                         cardPosition={card.cardPosition}
                         rangePosition={card.rangePosition}
                         sizes={sizes}
+                        sizeId={sizeId}
                         />
                 })
             }</div>
