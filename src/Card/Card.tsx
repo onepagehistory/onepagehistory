@@ -7,7 +7,10 @@ import './Card.css';
 
 export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, sizeId }: { entry: HistoryEntry; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes; sizeId: string }) => {
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is canonical url
-    let localImageSrc = require(`../data/entries/${entry.name}.png`);
+    // NOTE: overall images size is about 10mb atm
+    // instead of loading them via base64 image data in html
+    // { limit: 0 } is forcing webpack loader to include images by a static url
+    let localImageSrc = require(`../data/entries/${entry.name}.png?{ limit:0 }`);
 
     return (
         <div
