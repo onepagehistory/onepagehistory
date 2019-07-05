@@ -24,7 +24,8 @@ function plotChart({ entries }) {
         }
     });
 
-    const from = Math.min(...entries.map(e => e.to));
+    const fromYear = Math.min(...entries.map(e => e.from));
+    const from = (Math.floor(fromYear / 10) - 1) * 10;
     const to = CURRENT_YEAR;
 
     const plot = Object.keys(SIZES)
