@@ -4,7 +4,6 @@ import { ScalesContainer } from '../Scales/ScalesContainer';
 import { Route } from 'react-router-dom'
 import { Routes } from 'react-static'
 import './RootPage.css'
-import { NewLayout } from '../pages/new-layout-page'
 
 
 export const RootPage = (props) => {

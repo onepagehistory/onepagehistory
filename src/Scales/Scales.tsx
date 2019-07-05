@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Card } from '../Card/Card';
 import { HistoryEntry } from '../data/History';
 import { CenturiesNavBar } from '../CenturiesNavBar/CenturiesNavBar';
