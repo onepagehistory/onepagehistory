@@ -3,30 +3,31 @@ import { Card } from '../Card/Card';
 import { HistoryEntry } from '../data/History';
 import { CenturiesNavBar } from '../CenturiesNavBar/CenturiesNavBar';
 import { ISizes } from 'src/shared/types';
-import { TICK_YEARS, YEAR_LENGTH, CURRENT_YEAR } from '../shared/const.js'
+import { YEAR_LENGTH, CURRENT_YEAR } from '../shared/const.js'
 import './Scales.css';
 
 export interface IScalesProps {
-    selectedId: string;
-    sizeId: string;
-    decades: any[];
-    upperEntries: any[];
-    lowerEntries: any[];
-    entries: HistoryEntry[];
-    sizes: ISizes;
+    selectedId?: string;
+    sizeId?: string;
+    decades?: any[];
+    upperEntries?: any[];
+    lowerEntries?: any[];
+    entries?: HistoryEntry[];
+    sizes?: ISizes;
 }
-function AnchorYears() {
-    const anchors = TICK_YEARS.map((year) =>
+
+function AnchorYears(props) {
+    const century = props.centuries.map( year =>
         <p
-            key={year.toString()}
+            key={year.name.toString()}
             className="anchor-year"
-            style={{ left: (CURRENT_YEAR - year) * YEAR_LENGTH}}>
-            {year}
+            style={{ left: (CURRENT_YEAR - year.name) * YEAR_LENGTH}}>
+            { year.name % 100 ? '' : year.name}
         </p>
     )
 
     return (
-        <div>{anchors}</div>
+        <div>{century}</div>
     )
 }
 
@@ -47,7 +48,7 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                         />
                 })
             }
-                <AnchorYears />
+                <AnchorYears centuries={decades} />
             </div>
 
             <div className="Scales-Decades">{
