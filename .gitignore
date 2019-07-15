@@ -9,8 +9,6 @@ artifacts
 
 # misc
 .DS_Store
-.idea
-.next
 .env.local
 .env.development.local
 .env.test.local

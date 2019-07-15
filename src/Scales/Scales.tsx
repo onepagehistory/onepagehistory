@@ -22,7 +22,7 @@ function BgCenturies(props) {
             return (
                 <p
                     key={ year.name.toString() }
-                    className="anchor-year"
+                    className="century-label"
                     style={{ left: (CURRENT_YEAR - year.name) * YEAR_LENGTH }}>
                     { year.name }
                 </p>
@@ -36,8 +36,8 @@ function BgCenturies(props) {
 export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries, decades, sizes }: IScalesProps) => {
 
     return (
-        <div className={ `Scales Scales-size-${sizeId}` }>
-            <div className="Scales__Events">{
+        <div className={ `scales scales--size-${sizeId}` }>
+            <div className="scales__events">{
                 upperEntries.map(card => {
                     return <Card
                         key={card.entryName}
@@ -53,11 +53,11 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                 <BgCenturies centuries={decades}/>
             </div>
 
-            <div className="Scales-Decades">{
+            <div className="scales__decades">{
                 decades.map(entry =>
                     <div
                         key={entry.name}
-                        className="Scales-Decades__item"
+                        className="scales-decades__item"
                     >
                         <p>
                             { entry.name }
@@ -66,7 +66,7 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                 )
             }</div>
 
-            <div className="Scales__Events">{
+            <div className="scales__events">{
                 lowerEntries.map(card => {
                     return <Card
                         key={card.entryName}
@@ -80,7 +80,7 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                 })
             }</div>
 
-            <div className="Scales__CenturiesNavBar">
+            <div className="scales__navigation-container">
                 <CenturiesNavBar />
             </div>
         </div>

@@ -68,24 +68,24 @@ export class CenturiesNavBar extends Component {
 
     render() {
         return (
-            <div className="CenturiesNavBar">
-                <div className="CenturiesNavBar__Contents" ref={this.elementRefWrapper}>
-                    <div className="CenturiesNavBar__Items">{
+            <div className="navigation">
+                <div className="navigation__bar" ref={this.elementRefWrapper}>
+                    {
                         TICK_YEARS.map(year => (
                             <a
                                 key={year}
                                 href="#"
-                                className="CenturiesNavBar__Item"
+                                className="navigation__item"
                                 onClick={(event) => {
                                     event.preventDefault();
                                     this.scrollTo(year);
                                 }}
-                            >{year} <span className="CenturiesNavBar__Item-text">year</span></a>
+                            >{year} <span className="navigation__item-text">year</span></a>
                         ))
-                    }</div>
+                    }
                     <div
                         ref={this.elementRef}
-                        className="CenturiesNavBar__ScrollPositionIndicator"
+                        className="navigation__indicator"
                         style={{ width: INDICATOR_WIDTH, marginLeft: -INDICATOR_WIDTH/2 }} 
                     ></div>
                 </div>
