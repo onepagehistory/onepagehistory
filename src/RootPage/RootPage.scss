@@ -1,20 +1,8 @@
-.RootPage {
-    &__Contents{
+.root-page {
+    &__contents {
         flex-grow: 1;
     }
-
-    &__Subpage {
-        width: 33%;
-        height: 100%;
-    }
-
-    &__Header {
-        text-align: center;
-        margin: 1rem;
-    }
-
-    &__Body {}
-
+    
     &__Disclaimer {
         color: white;
         margin: 0 auto;
@@ -30,6 +18,13 @@
     position: fixed;
     top: 30px;
     left: 40px;
+    z-index: 1005;
+    text-decoration: none;
+    transition: opacity 300ms ease;
+
+    &:hover {
+        opacity: .8;
+    }
 
     &__name {
         margin: 0 1rem;
