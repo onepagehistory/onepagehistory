@@ -1,4 +1,4 @@
-.CenturiesNavBar {
+.navigation {
     height: 100%;
     width: 100%;
     position: relative;
@@ -6,20 +6,16 @@
     padding: 0 4rem;
     background: #303030;
 
-    &__Contents {
+    &__bar {
         height: 100%;
         width: 100%;
         position: relative;
-    }
-
-    &__Items {
-        height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
+    }    
 
-    &__Item {
+    &__item {
         color: white;
         text-decoration: none;
         font-size: 1.8rem;
@@ -27,19 +23,15 @@
         text-align: center;
     }
 
-    &__Item-text {
+    &__item-text {
         font-size: 1.2rem;
     }
 
-    &__ScrollPositionIndicator {
+    &__indicator  {
         height: 1px;
         background: white;
         position: absolute;
         top: 50px;
-    }
-
-    &__indicator {
-        position: absolute;
         left: 0;
     }
 }
