@@ -16,19 +16,21 @@ export interface IScalesProps {
     sizes?: ISizes;
 }
 
-function AnchorYears(props) {
-    const century = props.centuries.map( year =>
-        <p
-            key={year.name.toString()}
-            className="anchor-year"
-            style={{ left: (CURRENT_YEAR - year.name) * YEAR_LENGTH}}>
-            { year.name % 100 ? '' : year.name}
-        </p>
+function BgCenturies(props) {
+    const century = props.centuries.map( year => {
+        if ( (year.name % 100) == 0 ) {
+            return (
+                <p
+                    key={ year.name.toString() }
+                    className="anchor-year"
+                    style={{ left: (CURRENT_YEAR - year.name) * YEAR_LENGTH }}>
+                    { year.name }
+                </p>
+                )
+            }
+        }
     )
-
-    return (
-        <div>{century}</div>
-    )
+    return <div>{century}</div>
 }
 
 export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries, decades, sizes }: IScalesProps) => {
@@ -48,7 +50,7 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                         />
                 })
             }
-                <AnchorYears centuries={decades} />
+                <BgCenturies centuries={decades}/>
             </div>
 
             <div className="Scales-Decades">{
