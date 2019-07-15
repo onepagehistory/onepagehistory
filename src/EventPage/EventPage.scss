@@ -1,18 +1,18 @@
 .EventPage {
-    padding: 4rem 3rem;
-    right: 1.5rem;
-    bottom: 87px; // bottom nav bar + some padding
-    top: 1.5rem;
+    padding: 5rem 4rem;
+    right: 0;
+    bottom: 0;
+    top: 0;
     width: 33%;
     position: fixed;
-    z-index: 2000;
+    z-index: 1000;
     overflow: auto;
     box-sizing: border-box;
     overscroll-behavior: contain;
-    background: #303030;
+    background: #2C2C2C;
     color: #fff;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+    // box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
 
     &__Edit {
         opacity: .7;
@@ -30,11 +30,11 @@
 
     &__Close {
         position: absolute;
-        top: 1.2rem;
-        left: 1.2rem;
+        top: 1.4rem;
+        left: 1.8rem;
         color: #fff;
         opacity: .3;
-        font-size: 2rem;
+        font-size: 2.2rem;
         font-weight: 600;
         line-height: 1;
         text-decoration: none;

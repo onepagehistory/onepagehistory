@@ -2,9 +2,9 @@ import React, { useRef, useEffect, Component } from 'react';
 import './CenturiesNavBar.css';
 import { CURRENT_YEAR, YEAR_LENGTH } from '../shared/const.js';
 
-const TICK_YEARS = [2000, 1500, 1000, 500, 0];
+const TICK_YEARS = [2000, 1500, 1000, 500, 0, -500];
 const MAX_YEAR_TICK = 2000;
-const MIN_YEAR_TICK = 0;
+const MIN_YEAR_TICK = -500;
 const TICK_LENGTH_IN_YEARS = MAX_YEAR_TICK - MIN_YEAR_TICK;
 const STARTING_TICK_OFFSET = CURRENT_YEAR - MAX_YEAR_TICK;
 
