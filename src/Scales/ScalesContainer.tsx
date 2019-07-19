@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import { Scales } from './Scales';
-import { plotChart } from '../data/plot-chart.js';
 
 const SCROLL_COEFF = 50;
 
@@ -20,10 +19,8 @@ function onWheel(event) {
     window.scroll(window.scrollX + event.deltaY * SCROLL_COEFF, 0);
 }
 
-export const ScalesContainer = ({ data: rawData, selectedId }) => {
+export const ScalesContainer = ({ data, selectedId }) => {
     // TODO: do client-side plotting only in dev mode
-    const data = plotChart(rawData);
-
     const [state, setState] = useState({ sizeId: 'm' });
 
     useLayoutEffect(()=>{
