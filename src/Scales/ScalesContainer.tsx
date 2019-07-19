@@ -1,23 +1,5 @@
-import React, { useLayoutEffect, useState, useEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Scales } from './Scales';
-
-const SCROLL_COEFF = 50;
-
-// TODO: try css horizontal scrolling which seem to behave nicely
-// https://css-tricks.com/pure-css-horizontal-scrolling/
-// or try again js approach, which is a bit bulky
-// https://css-tricks.com/pure-css-horizontal-scrolling/
-function onWheel(event) {
-    if (event.ctrlKey) {
-        return;
-    }
-
-    if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
-        return true;
-    }
-
-    window.scroll(window.scrollX + event.deltaY * SCROLL_COEFF, 0);
-}
 
 export const ScalesContainer = ({ data, selectedId }) => {
     // TODO: do client-side plotting only in dev mode
@@ -40,13 +22,6 @@ export const ScalesContainer = ({ data, selectedId }) => {
             setState({ sizeId });
         }
     });
-
-    useEffect(()=>{
-        window.addEventListener('wheel', onWheel);
-        return () => {
-            window.removeEventListener('wheel', onWheel);
-        }
-    })
 
     const { decades, entries } = data;
     const
