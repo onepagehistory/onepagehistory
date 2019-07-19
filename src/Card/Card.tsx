@@ -7,10 +7,12 @@ import './Card.css';
 
 export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, sizeId }: { entry: HistoryEntry; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes; sizeId: string }) => {
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is canonical url
-    // NOTE: overall images size is about 10mb atm
-    // instead of loading them via base64 image data in html
-    // { limit: 0 } is forcing webpack loader to include images by a static url
-    let localImageSrc = require(`../data/entries/${entry.name}.png?{ limit:0 }`);
+
+    // NOTE: file-loader is used here exclusively to force loader to use file
+    // urls instead of base64 data.
+    let localImageSrc1x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@1x.png`);
+    let localImageSrc2x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@2x.png`);
+    let localImageSrc3x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@3x.png`);
 
     return (
         <div
@@ -52,7 +54,8 @@ export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, si
                             <img
                                 className="Card__image"
                                 alt={entry.name + ' representation'}
-                                src={localImageSrc || entry.imageUrl}
+                                src={localImageSrc1x || entry.imageUrl}
+                                srcSet={`${localImageSrc1x} 1x, ${localImageSrc2x} 2x, ${localImageSrc3x} 3x,`}
                             />
                     }</Link>
                     <div className="Card__Summary">
