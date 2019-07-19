@@ -1,13 +1,14 @@
 import React from 'react';
 import path from 'path'
 import { data as historyData } from './src/data/index.js';
+import { plotChart } from './src/data/plot-chart.js';
 
 export default {
     entry: 'index.tsx',
 
     getSiteData: ()=>{
         return {
-            historyData
+            data: plotChart(historyData)
         }
     },
 
@@ -54,13 +55,14 @@ export default {
                             <script async={true} src='https://www.google-analytics.com/analytics.js'></script>
                             <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
                             <script async={true} src="/autotrack.js" />
-                            <script src="/GA.js" />
                         </React.Fragment>
                         /* GOOGLE ANALYTICS }}} */
                     }
-
                 </Head>
-                <Body>{children}</Body>
+                <Body>
+                    { children }
+                    <script src="/GA.js" />
+                </Body>
             </Html>
         )
     },

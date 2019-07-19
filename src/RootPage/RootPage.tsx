@@ -7,7 +7,7 @@ import './RootPage.css'
 
 
 export const RootPage = (props) => {
-    const { historyData } = useSiteData();
+    const { data } = useSiteData();
 
     // page id from the react-router url match
     const pageId = props.match.params.pageId;
@@ -18,9 +18,9 @@ export const RootPage = (props) => {
 
     return (
         <section className="root-page">
-            {/* <React.Suspense fallback={<em>Loading...</em>}> */}
+            <React.Suspense fallback={<em>Loading...</em>}>
                 <Route path="/p/:id" render={() => <Routes path="/p/*"/> } />
-            {/* </React.Suspense> */}
+            </React.Suspense>
 
             <div className="root-page__contents">
                 <section>
@@ -35,7 +35,7 @@ export const RootPage = (props) => {
                         </p>
                     </Link>
                     <ScalesContainer
-                            data={historyData}
+                            data={data}
                             selectedId={pageId}
                     />
 
