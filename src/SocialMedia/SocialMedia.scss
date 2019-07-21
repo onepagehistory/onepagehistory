@@ -1,0 +1,23 @@
+.Share-box {
+    display: flex;
+    align-items: center;
+
+    &__text {
+        font-size: 1.2rem;
+        margin: 0;
+        color: #fff;
+    }
+
+    &__icon {
+        opacity: .5;
+        margin-left: 1rem;
+        padding: .2rem;
+        cursor: pointer;
+        vertical-align: middle;
+        transition: opacity 300ms ease;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
