@@ -4,6 +4,7 @@ import { ScalesContainer } from '../Scales/ScalesContainer';
 import { Route, Link } from 'react-router-dom'
 import { Routes } from 'react-static'
 import './RootPage.css'
+import { SocialMedia } from '../SocialMedia/SocialMedia';
 
 
 export const RootPage = (props) => {
@@ -52,6 +53,9 @@ export const RootPage = (props) => {
                         </p>
                     </div> */}
                 </section>
+                <div className="social-media-box">
+                    <SocialMedia />
+                </div>
             </div>
         </section>
     )
