@@ -46,7 +46,7 @@ export const EventPage = (props: { pageData: IPageData }) => {
                     </svg>
                 </a>
             </div> */}
-            <SocialMedia />
+            <SocialMedia title="Share:" follow={false} />
 
             <EventDescription value={content}/>
             <a target="_blank" href={ entry.wikiUrl } className="wikilink">

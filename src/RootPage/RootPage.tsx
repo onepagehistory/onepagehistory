@@ -54,7 +54,7 @@ export const RootPage = (props) => {
                     </div> */}
                 </section>
                 <div className="social-media-box">
-                    <SocialMedia />
+                    <SocialMedia title="Follow us:" follow={true}/>
                 </div>
             </div>
         </section>
