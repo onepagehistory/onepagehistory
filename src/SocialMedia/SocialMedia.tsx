@@ -4,7 +4,7 @@ import './SocialMedia.css';
 export class SocialMedia extends React.Component<{title: string, follow: boolean}> {  
     urlToShare: string;
 
-    componentDidMount(){
+    componentWillMount (){
         this.urlToShare = location.href;
     }
 
