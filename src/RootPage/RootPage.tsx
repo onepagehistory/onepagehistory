@@ -13,10 +13,6 @@ export const RootPage = (props) => {
     // page id from the react-router url match
     const pageId = props.match.params.pageId;
     
-    // function logoClick(){
-    //     return window.scrollTo(0,0);
-    // }
-
     return (
         <section className="root-page">
             <React.Suspense fallback={<em>Loading...</em>}>
