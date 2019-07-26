@@ -1,13 +1,13 @@
 import React from 'react';
 import './SocialMedia.css';
 
-export class SocialMedia extends React.Component<{title: string, follow: boolean}> {  
+export class SocialMedia extends React.Component<{title: string, follow: boolean}> {
 
     render() {
         return(
             <div className="Share-box">
                 <p className="Share-box__text">{this.props.title}</p>
-                { this.props.follow ? 
+                    { this.props.follow ? 
                     <div>
                         <a target="_blank" href="https://www.facebook.com/rostkubinets">
                             <svg className="Share-box__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

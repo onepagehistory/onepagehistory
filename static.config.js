@@ -44,6 +44,7 @@ export default {
                     */}
                     <link rel="manifest" href="/manifest.json" />
                     <link rel="shortcut icon" href="/favicon.ico"></link>
+                    
 
                     { /** GOOGLE ANALYTICS {{{
                     * NOTE: [kos] adding google analitics only for production
@@ -56,6 +57,8 @@ export default {
                             <script async={true} src='https://www.google-analytics.com/analytics.js'></script>
                             <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
                             <script async={true} src="/autotrack.js" />
+                            <script src="/FB.js" />
+                            <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
                         </React.Fragment>
                         /* GOOGLE ANALYTICS }}} */
                     }
@@ -63,6 +66,7 @@ export default {
                 <Body>
                     { children }
                     <script src="/GA.js" />
+                    
                 </Body>
             </Html>
         )
