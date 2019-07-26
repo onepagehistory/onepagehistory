@@ -5,12 +5,4 @@ window.fbAsyncInit = function() {
     xfbml            : true,
     version          : 'v3.3'
     });
-
-    FB.ui({
-        method: 'share',
-        href: 'https://www.youtube.com/watch?v=P94hxfJEw-o'
-    }, function(response){});
 };
-
-
-      
