@@ -1,17 +1,17 @@
-import React from 'react'
-import { useSiteData } from 'react-static';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useRouteData, useSiteData, Head } from 'react-static';
 import { ScalesContainer } from '../Scales/ScalesContainer';
-import { Route, Link } from 'react-router-dom'
-import { Routes } from 'react-static'
-import './RootPage.css'
 import { SocialMedia } from '../SocialMedia/SocialMedia';
+import './RootPage.css';
 
 
 export const RootPage = (props) => {
     const { data } = useSiteData();
 
-    // page id from the react-router url match
-    const pageId = props.match.params.pageId;
+    // page id from the page data
+    const routeData = useRouteData();
+    const pageId = routeData && routeData.entry && routeData.entry.name || void 0;
 
     function logoClick(){
         return window.scrollTo(0,0);
@@ -19,9 +19,12 @@ export const RootPage = (props) => {
 
     return (
         <section className="root-page">
-            <React.Suspense fallback={<em>Loading...</em>}>
-                <Route path="/p/:id" render={() => <Routes path="/p/*"/> } />
-            </React.Suspense>
+            <Head>
+                <title>World History Page</title>
+                <meta name="description" content="See the most significant historic events on a single page: groundbreaking inventions, famous people, and matters that changed our culture" />
+            </Head>
+
+            { props.children }
 
             <div className="root-page__contents">
                 <section>
@@ -36,8 +39,8 @@ export const RootPage = (props) => {
                         </p>
                     </Link>
                     <ScalesContainer
-                            data={data}
-                            selectedId={pageId}
+                        data={data}
+                        selectedId={pageId}
                     />
 
                     {/* TODO: remove this when all rights will be resolved and before going public */}
@@ -54,7 +57,11 @@ export const RootPage = (props) => {
                     </div> */}
                 </section>
                 <div className="social-media-box">
-                    <SocialMedia title="Follow us:" follow={true}/>
+                    <SocialMedia
+                        title="Follow us:"
+                        follow={true}
+                        relativeUrl="/"
+                        />
                 </div>
             </div>
         </section>

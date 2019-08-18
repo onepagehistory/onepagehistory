@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { useRouteData } from 'react-static'
+import { useRouteData } from 'react-static';
+import { RootPage } from '../RootPage/RootPage';
+import { CURRENT_YEAR, DEFAULT_CARD_WIDTH, DEFAULT_IMAGE_SIZE, YEAR_LENGTH } from '../shared/const.js';
 import { EventPage } from './EventPage';
 import { IPageData } from './IPageData';
-import { CURRENT_YEAR, YEAR_LENGTH, DEFAULT_CARD_WIDTH, DEFAULT_IMAGE_SIZE } from '../shared/const.js';
 
 
 export default ()=> {
@@ -51,5 +52,5 @@ export default ()=> {
         window.scrollTo({ left: scrollLeft });
     });
 
-    return <EventPage pageData={pageData} />
+    return <RootPage><EventPage pageData={pageData} /></RootPage>
 }
