@@ -14,6 +14,7 @@
     "staging-publish": "npm run prepare-staging-publish && gh-pages -d dist -t -r https://github.com/onepagehistory/staging-1.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\""
   },
   "dependencies": {
+    "firebase": "^6.4.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-markdown": "4.0.8",

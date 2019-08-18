@@ -59,6 +59,9 @@ export default {
                             <script async={true} src="/autotrack.js" />
                             <script src="/FB.js" />
                             <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+                            <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+                            <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
+                            <script src="/firebase.js" />
                         </React.Fragment>
                         /* GOOGLE ANALYTICS }}} */
                     }
@@ -66,7 +69,6 @@ export default {
                 <Body>
                     { children }
                     <script src="/GA.js" />
-                    
                 </Body>
             </Html>
         )
