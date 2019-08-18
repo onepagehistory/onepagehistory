@@ -1,3 +1,5 @@
+export const ROOT_URL = 'https://worldhistory.page';
+
 export const CURRENT_YEAR = (new Date()).getFullYear() 
 export const YEAR_LENGTH = 10;
 export const DEFAULT_IMAGE_SIZE = 80;

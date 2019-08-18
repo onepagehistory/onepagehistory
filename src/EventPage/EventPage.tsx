@@ -1,10 +1,10 @@
 import React from 'react';
-import './EventPage.css';
 import { Link } from "react-router-dom";
-import { EventDescription }  from './Markdown/EventDescription'
-import { IPageData } from './IPageData';
 import { Head } from 'react-static';
-import { SocialMedia } from '../SocialMedia/SocialMedia'
+import { SocialMedia } from '../SocialMedia/SocialMedia';
+import { IPageData } from './IPageData';
+import { EventDescription } from './Markdown/EventDescription';
+import './EventPage.css';
 
 export const EventPage = (props: { pageData: IPageData }) => {
     const { entry, content } = props.pageData;
@@ -12,7 +12,7 @@ export const EventPage = (props: { pageData: IPageData }) => {
     return (
         <div className="EventPage">
             <Head>
-                <title>{entry.title}</title>
+                <title>{entry.title} on World History Page</title>
                 <meta name="description" content={ entry.short } />
             </Head>
             <Link className="EventPage__Close" to="/">&times;</Link>
@@ -46,7 +46,11 @@ export const EventPage = (props: { pageData: IPageData }) => {
                     </svg>
                 </a>
             </div> */}
-            <SocialMedia title="Share:" follow={false} />
+            <SocialMedia
+                title="Share:"
+                follow={false}
+                relativeUrl={ '/p/' + entry.name }
+                />
 
             <EventDescription value={content}/>
             <a target="_blank" href={ entry.wikiUrl } className="wikilink">
