@@ -15,7 +15,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "baseUrl": ".",
+    "baseUrl": "/",
     "paths": {
       "components/*": ["src-ex/components/*"],
       "containers/*": ["src-ex/containers/*"],
