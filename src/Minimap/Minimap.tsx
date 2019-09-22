@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './Minimap.css';
+import './Minimap.scss';
 
 export class Minimap extends React.Component<any, any> {
   render(){

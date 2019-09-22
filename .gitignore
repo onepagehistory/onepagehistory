@@ -1,11 +1,9 @@
-# tech
-dist
 node_modules
+
+# react-static
+dist
 tmp
 artifacts
-
-# CSS ignore
-**.css
 
 # misc
 .DS_Store

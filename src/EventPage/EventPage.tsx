@@ -5,7 +5,7 @@ import { SocialMedia } from '../SocialMedia/SocialMedia';
 import { IPageData } from './IPageData';
 import { EventDescription } from './Markdown/EventDescription';
 import { TIMELINE_PAGE_PATH } from '../shared/const.js';
-import './EventPage.css';
+import './EventPage.scss';
 
 export const EventPage = (props: { pageData: IPageData }) => {
     const { entry, content } = props.pageData;
