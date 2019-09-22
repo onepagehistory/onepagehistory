@@ -4,7 +4,7 @@ import './PrelaunchLanding.css';
 
 export const PrelaunchLanding = () => {
     return (
-        <div className="PrelaunchLanding">
+        <div className="prelaunch-landing">
             <header>
                 <b>Prelaunch</b> | <a style={{ color: 'white' }} href="/timeline">timeline</a>
             </header>
