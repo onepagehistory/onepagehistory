@@ -5,7 +5,7 @@ import { CenturiesNavBar } from '../CenturiesNavBar/CenturiesNavBar';
 import { ISizes } from '../shared/types';
 import { YEAR_LENGTH, CURRENT_YEAR } from '../shared/const.js'
 import { Minimap } from '../Minimap/Minimap';
-import './Scales.css';
+import './Scales.scss';
 
 
 export interface IScalesProps {
@@ -82,11 +82,8 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                 })
             }</div>
 
-            <div>
-                <Minimap />
-            </div>
-
             <div className="scales__navigation-container">
+                <Minimap />
                 <CenturiesNavBar />
             </div>
         </div>

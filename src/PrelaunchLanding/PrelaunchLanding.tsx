@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import './PrelaunchLanding.css';
+import './PrelaunchLanding.scss';
 
 export const PrelaunchLanding = () => {
     return (

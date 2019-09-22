@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useRouteData, useSiteData, Head } from 'react-static';
 import { ScalesContainer } from '../Scales/ScalesContainer';
 import { SocialMedia } from '../SocialMedia/SocialMedia';
-import './RootPage.css';
+import './RootPage.scss';
 
 
 export const RootPage = (props) => {

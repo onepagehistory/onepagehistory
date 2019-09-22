@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import { HistoryEntry } from '../data/History';
 import { Rectangle, ISizes } from '../shared/types';
-import './Card.css';
+import './Card.scss';
 
 
 export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, sizeId }: { entry: HistoryEntry; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes; sizeId: string }) => {

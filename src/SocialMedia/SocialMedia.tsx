@@ -1,6 +1,6 @@
 import React from 'react';
 import { ROOT_URL } from '../shared/const.js';
-import './SocialMedia.css';
+import './SocialMedia.scss';
 
 declare let FB: any;
 

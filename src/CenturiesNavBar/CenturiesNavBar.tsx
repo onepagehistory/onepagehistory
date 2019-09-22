@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, Component } from 'react';
-import './CenturiesNavBar.css';
+import './CenturiesNavBar.scss';
 import { CURRENT_YEAR, YEAR_LENGTH } from '../shared/const.js';
 
 const TICK_YEARS = [2000, 1500, 1000, 500, 0, -500];
