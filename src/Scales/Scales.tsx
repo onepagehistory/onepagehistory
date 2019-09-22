@@ -2,9 +2,11 @@ import React from 'react';
 import { Card } from '../Card/Card';
 import { HistoryEntry } from '../data/History';
 import { CenturiesNavBar } from '../CenturiesNavBar/CenturiesNavBar';
-import { ISizes } from 'src/shared/types';
+import { ISizes } from '../shared/types';
 import { YEAR_LENGTH, CURRENT_YEAR } from '../shared/const.js'
+import { Minimap } from '../Minimap/Minimap';
 import './Scales.css';
+
 
 export interface IScalesProps {
     selectedId?: string;
@@ -79,6 +81,10 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                         />
                 })
             }</div>
+
+            <div>
+                <Minimap />
+            </div>
 
             <div className="scales__navigation-container">
                 <CenturiesNavBar />

@@ -1,4 +1,4 @@
-import { HistoryEntry } from 'src/data/History';
+import { HistoryEntry } from '../data/History';
 
 export interface IPageData {
     entry: HistoryEntry,
