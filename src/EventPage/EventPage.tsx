@@ -4,6 +4,7 @@ import { Head } from 'react-static';
 import { SocialMedia } from '../SocialMedia/SocialMedia';
 import { IPageData } from './IPageData';
 import { EventDescription } from './Markdown/EventDescription';
+import { TIMELINE_PAGE_PATH } from '../shared/const.js';
 import './EventPage.css';
 
 export const EventPage = (props: { pageData: IPageData }) => {
@@ -15,7 +16,7 @@ export const EventPage = (props: { pageData: IPageData }) => {
                 <title>{entry.title} on World History Page</title>
                 <meta name="description" content={ entry.short } />
             </Head>
-            <Link className="EventPage__Close" to="/">&times;</Link>
+            <Link className="EventPage__Close" to={ TIMELINE_PAGE_PATH }>&times;</Link>
             <div className="EventPage__head">
                 <h1 className="EventPage__title">
                     { entry.title }

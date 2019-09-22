@@ -1,5 +1,5 @@
 import React from 'react';
-import { RootPage } from '../RootPage/RootPage';
+import { PrelaunchLanding } from '../PrelaunchLanding/PrelaunchLanding';
 
 export default () =>
-    <RootPage />
+    <PrelaunchLanding />
