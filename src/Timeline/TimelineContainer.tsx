@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { Scales } from './Scales';
+import { Timeline } from './Timeline';
 
-export const ScalesContainer = ({ data, selectedId }) => {
+export const TimelineContainer = ({ data, selectedId }) => {
     // TODO: do client-side plotting only in dev mode
     const [state, setState] = useState({ sizeId: 'm' });
 
@@ -31,7 +31,7 @@ export const ScalesContainer = ({ data, selectedId }) => {
         } = data.plot[state.sizeId];
 
     return (
-        <Scales
+        <Timeline
             sizeId={state.sizeId}
             selectedId={selectedId}
             sizes={sizes}
@@ -39,6 +39,6 @@ export const ScalesContainer = ({ data, selectedId }) => {
             entries={entries}
             upperEntries={upperEntries}
             lowerEntries={lowerEntries}
-        ></Scales>
+        ></Timeline>
     )
 };

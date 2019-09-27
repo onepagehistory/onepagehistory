@@ -3,9 +3,8 @@ import { Card } from '../Card/Card';
 import { HistoryEntry } from '../data/History';
 import { CenturiesNavBar } from '../CenturiesNavBar/CenturiesNavBar';
 import { ISizes } from '../shared/types';
-import { YEAR_LENGTH, CURRENT_YEAR } from '../shared/const.js'
 import { Minimap } from '../Minimap/Minimap';
-import './Scales.scss';
+import './Timeline.scss';
 
 
 export interface IScalesProps {
@@ -18,28 +17,11 @@ export interface IScalesProps {
     sizes?: ISizes;
 }
 
-function BgCenturies(props) {
-    const century = props.centuries.map( year => {
-        if ( (year.name % 100) == 0 ) {
-            return (
-                <p
-                    key={ year.name.toString() }
-                    className="century-label"
-                    style={{ left: (CURRENT_YEAR - year.name) * YEAR_LENGTH }}>
-                    { year.name }
-                </p>
-                )
-            }
-        }
-    )
-    return <div>{century}</div>
-}
-
-export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries, decades, sizes }: IScalesProps) => {
+export const Timeline = ({ selectedId, sizeId, entries, upperEntries, lowerEntries, decades, sizes }: IScalesProps) => {
 
     return (
-        <div className={ `scales scales--size-${sizeId}` }>
-            <div className="scales__events">{
+        <div className={ `timeline timeline--size-${sizeId}` }>
+            <div className="timeline__events">{
                 upperEntries.map(card => {
                     return <Card
                         key={card.entryName}
@@ -52,14 +34,14 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                         />
                 })
             }
-                <BgCenturies centuries={decades}/>
+                {/* <BgCenturies centuries={decades}/> */}
             </div>
 
-            <div className="scales__decades">{
+            <div className="timeline__decades">{
                 decades.map(entry =>
                     <div
                         key={entry.name}
-                        className="scales-decades__item"
+                        className="timeline-decades__item"
                     >
                         <p>
                             { entry.name }
@@ -68,7 +50,7 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                 )
             }</div>
 
-            <div className="scales__events">{
+            <div className="timeline__events">{
                 lowerEntries.map(card => {
                     return <Card
                         key={card.entryName}
@@ -82,7 +64,7 @@ export const Scales = ({ selectedId, sizeId, entries, upperEntries, lowerEntries
                 })
             }</div>
 
-            <div className="scales__navigation-container">
+            <div className="timeline__navigation-container">
                 <Minimap />
                 <CenturiesNavBar />
             </div>

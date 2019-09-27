@@ -1,0 +1,39 @@
+.root-page {
+    &__contents {
+        flex-grow: 1;
+    }
+    
+    &__Disclaimer {
+        color: white;
+        margin: 0 auto;
+        max-width: 30rem;
+    }
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    width: fit-content;
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    z-index: 1005;
+    text-decoration: none;
+    transition: opacity 300ms ease;
+
+    &:hover {
+        opacity: .8;
+    }
+
+    &__name {
+        margin: 0 1rem;
+    }
+}
+
+.social-media-box {
+    position: fixed;
+    z-index: 105;
+    top: 2rem;
+    right: 4rem;
+}

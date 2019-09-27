@@ -1,5 +1,4 @@
 export const ROOT_URL = 'https://worldhistory.page';
-export const TIMELINE_PAGE_PATH = '/timeline'; // TODO: remove this for the launch
 
 export const CURRENT_YEAR = (new Date()).getFullYear() 
 export const YEAR_LENGTH = 10;
