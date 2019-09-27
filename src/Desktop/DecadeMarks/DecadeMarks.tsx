@@ -1,19 +1,18 @@
 import React from 'react';
-import { CURRENT_YEAR, YEAR_LENGTH } from '../../shared/const';
 
-export const BgCenturies = (props) => {
-    const century = props.centuries.map(year => {
-        if ((year.name % 100) == 0) {
-            return (
-                <p
-                    key={year.name.toString()}
-                    className="century-label"
-                    style={{ left: (CURRENT_YEAR - year.name) * YEAR_LENGTH }}>
-                    {year.name}
+export const DecadeMarks = (props) => {
+    const { decades } = props;
+
+    return <div className="timeline__decades">{
+        decades.map(entry =>
+            <div
+                key={entry.name}
+                className="timeline-decades__item"
+            >
+                <p>
+                    {entry.name}
                 </p>
-            )
-        }
-    })
-
-    return <div>{century}</div>
+            </div>
+        )
+    }</div>
 }

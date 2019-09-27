@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useRouteData, useSiteData, Head } from 'react-static';
-import { TimelineContainer } from '../Timeline/TimelineContainer';
+import { TimelineContainer } from './Timeline/TimelineContainer';
 import { SocialMedia } from '../SocialMedia/SocialMedia';
 import './DesktopPageComponent.scss';
 

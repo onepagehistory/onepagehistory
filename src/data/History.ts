@@ -12,3 +12,11 @@ export interface HistoryEntry {
 export interface HistoryData {
     entries: HistoryEntry[]
 };
+
+export interface ICardData {
+    name: string;
+}
+
+export interface IPlotData {
+    rows: ICardData[][];
+}
