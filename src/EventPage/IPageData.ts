@@ -1,6 +1,6 @@
-import { HistoryEntry } from '../data/History';
+import { IHistoryEvent } from "../data/HistoryEvent";
 
 export interface IPageData {
-    entry: HistoryEntry,
+    entry: IHistoryEvent,
     content: string
 }

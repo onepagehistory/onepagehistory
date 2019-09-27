@@ -1,26 +1,23 @@
 import React from 'react';
 import path from 'path'
-import { data as historyData } from './src/data/index.js';
-import { plotChart } from './src/data/plot-chart.js';
+import { data } from './src/data/';
 
 export default {
     entry: 'index.tsx',
 
     getSiteData: ()=>{
-        return {
-            data: plotChart(historyData)
-        }
+        return { data }
     },
 
     getRoutes: () => {
         return [
-            ...historyData.entries
-                .map(entry => ({
-                    path: `/p/${entry.name}`,
+            ...Object.keys(data.events)
+                .map(eventId => ({
+                    path: `/p/${eventId}`,
                     template: 'src/EventPage/EventPageContainer',
                     getData: () => ({ // () => IPageData
-                        entry,
-                        content: entry.content
+                        entry: data.events[eventId],
+                        content: data.events[eventId].content
                     }),
                 }))
         ];

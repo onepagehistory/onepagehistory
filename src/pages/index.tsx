@@ -1,5 +1,3 @@
-import React from 'react';
-import { PrelaunchLanding } from '../PrelaunchLanding/PrelaunchLanding';
+import { RootPage } from '../RootPage/RootPage';
 
-export default () =>
-    <PrelaunchLanding />
+export default RootPage;

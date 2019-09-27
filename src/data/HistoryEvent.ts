@@ -1,4 +1,4 @@
-export interface HistoryEntry {
+export interface IHistoryEvent {
     name: string;
     title: string;
     subtitle: string;
@@ -7,8 +7,4 @@ export interface HistoryEntry {
     short: string;
     imageUrl: string;
     wikiUrl: string;
-};
-
-export interface HistoryData {
-    entries: HistoryEntry[]
-};
+}
