@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useRouteData, useSiteData, Head } from 'react-static';
+import { Link, Switch, Router, Route } from 'react-router-dom';
+import { useRouteData, useSiteData, Head, Routes } from 'react-static';
 import { TimelineContainer } from './Timeline/TimelineContainer';
 import { SocialMedia } from '../SocialMedia/SocialMedia';
 import './DesktopPageComponent.scss';
@@ -24,7 +24,9 @@ export const DesktopPageComponent = (props) => {
                 <meta name="description" content="See the most significant historic events on a single page: groundbreaking inventions, famous people, and matters that changed our culture" />
             </Head>
 
-            {/* { props.children } */}
+            <Switch>
+    <Route exact path="/p/:pageId" component={ ()=> <Routes path="/p/*" /> } />
+            </Switch>
 
             <div className="root-page__contents">
                 <section>

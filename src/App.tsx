@@ -13,9 +13,8 @@ function App() {
         <Root>
             <React.Suspense fallback={<em>Loading...</em>}>
                 <Switch>
-                    <Route exact path="/" component={TheRoutes} />
-                    <Route exact path="/p/:pageId" component={TheRoutes} />
                     <Route default component={ TheRoutes } />
+                    <Route path="/" component={TheRoutes} />
                 </Switch>
             </React.Suspense>
         </Root>
