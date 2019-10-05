@@ -9,6 +9,7 @@ import { CardLine } from '../../CardLine/CardLine';
 import { CenturyLabels } from '../CenturyLabels/CenturyLabels';
 import { DecadeMarks } from '../DecadeMarks/DecadeMarks';
 import { IChartCard } from '../../data/plot-chart';
+import { useSiteData } from 'react-static';
 
 
 
@@ -29,27 +30,19 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
     return (
         <div className={ `timeline` }>
             <div className="timeline__events">
-                {/* <CardLine
-                    cards={upperEntries}
-                    entries={entries}
+                <CardLine
+                    cards={cards.filter(card => card.row > 5)}
                     selectedId={selectedId}
-
-                    sizeId={sizeId}
-                    sizes={sizes}
-                    /> */}
+                    />
             </div>
             <div>
-                {/* <DecadeMarks decades={ decades } /> */}
+                {/* <DecadeMarks /> */}
             </div>
             <div className="timeline__events">
-                {/* <CardLine
-                    cards={lowerEntries}
-                    entries={entries}
+                <CardLine
+                    cards={cards.filter(card => card.row < 6)}
                     selectedId={selectedId}
-
-                    sizeId={sizeId}
-                    sizes={sizes}
-                    /> */}
+                    />
             </div>
             <div className="timeline__navigation-container">
                 <Minimap
