@@ -52,5 +52,5 @@ export default ()=> {
         window.scrollTo({ left: scrollLeft });
     });
 
-    return <RootPage><EventPage pageData={pageData} /></RootPage>
+    return null; // <RootPage><EventPage pageData={pageData} /></RootPage>
 }

@@ -18,7 +18,12 @@ function readMdFiles() {
                 .split(/\n/)
                 .reduce((acc, curr) => {
                     const [, key, value] = /^(.*?)\s*:\s*(.*)\s*$/.exec(curr);
-                    acc[key] = value;
+                    // parse from, to
+                    if (['from', 'to'].includes(key)) {
+                        acc[key] = Number.parseInt(value, 10);
+                    } else {
+                        acc[key] = value;
+                    }
                     return acc;
                 }, {});
 

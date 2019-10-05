@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import React from 'react';
-import { HistoryEntry } from '../data/History';
+import { IHistoryEvent } from "../data/HistoryEvent";
 import { Rectangle, ISizes } from '../shared/types';
 import './Card.scss';
 
 
-export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, sizeId }: { entry: HistoryEntry; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes; sizeId: string }) => {
+export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, sizeId }: { entry: IHistoryEvent; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes; sizeId: string }) => {
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is canonical url
 
     // NOTE: file-loader is used here exclusively to force loader to use file

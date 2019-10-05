@@ -1,59 +1,64 @@
 import React from 'react';
 import { Card } from '../../Card/Card';
-import { HistoryEntry } from '../../data/History';
+import { IHistoryEvent } from "../../data/HistoryEvent";
 import { CenturiesNavBar } from '../../CenturiesNavBar/CenturiesNavBar';
 import { ISizes } from '../../shared/types';
-import { Minimap } from '../../Minimap/Minimap';
+import { Minimap } from '../Minimap/Minimap';
 import './Timeline.scss';
 import { CardLine } from '../../CardLine/CardLine';
 import { CenturyLabels } from '../CenturyLabels/CenturyLabels';
 import { DecadeMarks } from '../DecadeMarks/DecadeMarks';
+import { IChartCard } from '../../data/plot-chart';
 
 
 
 export interface IScalesProps {
     selectedId?: string;
-    sizeId?: string;
-    decades?: any[];
-    upperEntries?: any[];
-    lowerEntries?: any[];
-    entries?: HistoryEntry[];
-    sizes?: ISizes;
+    cards: IChartCard[];
+
+    // sizeId?: string;
+    // decades?: any[];
+    // upperEntries?: any[];
+    // lowerEntries?: any[];
+    // entries?: IHistoryEvent[];
+    // sizes?: ISizes;
 }
 
-export const Timeline = ({ selectedId, sizeId, entries, upperEntries, lowerEntries, decades, sizes }: IScalesProps) => {
+export const Timeline = ({ selectedId, cards }: IScalesProps) => {
 
     return (
-        <div className={ `timeline timeline--size-${sizeId}` }>
+        <div className={ `timeline` }>
             <div className="timeline__events">
-                <CardLine
+                {/* <CardLine
                     cards={upperEntries}
                     entries={entries}
                     selectedId={selectedId}
 
                     sizeId={sizeId}
                     sizes={sizes}
-                    />
+                    /> */}
             </div>
             <div>
-                <DecadeMarks decades={ decades } />
+                {/* <DecadeMarks decades={ decades } /> */}
             </div>
             <div className="timeline__events">
-                <CardLine
+                {/* <CardLine
                     cards={lowerEntries}
                     entries={entries}
                     selectedId={selectedId}
 
                     sizeId={sizeId}
                     sizes={sizes}
-                    />
+                    /> */}
             </div>
             <div className="timeline__navigation-container">
-                <Minimap />
+                <Minimap
+                    cards={cards}
+                    />
                 <CenturiesNavBar />
             </div>
             <div>
-                <CenturyLabels decades={ decades } />
+                {/* <CenturyLabels decades={ decades } /> */}
             </div>
         </div>
 

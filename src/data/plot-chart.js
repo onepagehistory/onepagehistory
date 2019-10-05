@@ -1,11 +1,12 @@
 const { CURRENT_YEAR, YEAR_LENGTH, SIZES } = require('../shared/const');
 const PLACEMENT_STEP_CHECK = 1;
 
-function plotChart({ entries }) {
+function plotChart(eventsArray) {
     // TODO: calculate it
     const CARD_LENGTH_IN_YEARS = 34; // ~340px is the max width of the Card
+    const CARD_HEIGHT_IN_ROWS = 4;
 
-    entries.sort((a, b) => {
+    eventsArray.sort((a, b) => {
         let result = 0;
         const aLength = a.to - a.from;
         const bLength = b.to - b.from;
@@ -24,131 +25,55 @@ function plotChart({ entries }) {
         }
     });
 
-    const fromYear = Math.min(...entries.map(e => e.from));
+    const fromYear = Math.min(...eventsArray.map(e => e.from));
     const from = (Math.floor(fromYear / 10) - 1) * 10;
     const to = CURRENT_YEAR;
 
-    const plot = Object.keys(SIZES)
-        .reduce((acc, sizeKey) => {
-            const sizes = SIZES[sizeKey];
-            const { upperEntries, lowerEntries } = plotChartBySizes({ entries, to, sizes });
-            acc[sizeKey] = {
-                sizes,
-                upperEntries,
-                lowerEntries,
-            };
-            return acc;
-        }, {});
+    // TODO: refactor
+    const visualBlocks = [];   // RectanglesArray
+    const cards = [];
 
-    const toDecade = Math.floor(to / 10);
-    const fromDecade = Math.ceil(from / 10);
-
-    const decades =
-        new Array(toDecade - fromDecade)
-            .fill(undefined)
-            .map((_, i)=> ({
-                name: (toDecade - i) * 10,
-                century: toDecade - i,
-                years: 10,
-            }));
-
-    if (from % 10) {
-        decades.push({
-            name: (fromDecade - 1) * 10,
-            century: fromDecade - 1,
-            years: from % 10
-        });
-    }
-
-    if (to % 10) {
-        decades.unshift({
-            name: to,
-            century: toDecade+ 1,
-            years: to % 10
-        });
-    }
-
-    return {
-        decades,
-        entries,
-        plot,
-    };
-}
-
-function plotChartBySizes({ entries, to, sizes }) {
-    const 
-        { cardWidth
-        , cardHeight
-        , stepHeight
-        } = sizes;
-
-    const upperVisualBlocks = [];   // RectanglesArray
-    const upperEntries = [];        // HistoryEntry[]
-    const lowerVisualBlocks = [];   // RectanglesArray
-    const lowerEntries = [];        // HistoryEntry[]
-
-    for (let entry of entries) {
-        const x = (to - entry.to) * YEAR_LENGTH;
+    for (let event of eventsArray) {
+        const x = (to - event.to) * YEAR_LENGTH;
 
         const cardBlock = {
-            width: cardWidth,
-            height: cardHeight,
+            width: CARD_LENGTH_IN_YEARS,
+            height: CARD_HEIGHT_IN_ROWS,
             x,
             y: 0
         };
 
         const rangeBlock = {
-            width: (entry.to - entry.from) * YEAR_LENGTH,
-            height: 2,
+            width: (event.to - event.from) * YEAR_LENGTH,
+            height: 1,
             x,
             y: 0
         };
 
         while (true) {
-            if (!ifAnyBlockOverlaps(upperVisualBlocks, cardBlock, rangeBlock)) {
+            if (!ifAnyBlockOverlaps(visualBlocks, cardBlock, rangeBlock)) {
                 const _cardBlock = {
                     ...cardBlock,
-                    y: cardBlock.y + stepHeight
+                    y: cardBlock.y
                 };
 
                 const _rangeBlock = {
                     ...rangeBlock,
-                    y: rangeBlock.y + stepHeight
+                    y: rangeBlock.y
                 };
 
-                if (!ifAnyBlockOverlaps(upperVisualBlocks, _cardBlock, _rangeBlock)) {
-                    upperVisualBlocks.push(_cardBlock);
-                    upperVisualBlocks.push(_rangeBlock);
+                if (!ifAnyBlockOverlaps(visualBlocks, _cardBlock, _rangeBlock)) {
+                    visualBlocks.push(_cardBlock);
+                    visualBlocks.push(_rangeBlock);
+
                     const card = {
-                        entryName: entry.name,
-                        cardPosition: _cardBlock,
-                        rangePosition: _rangeBlock
+                        eventId: event.name,
+                        from: event.from,
+                        to: event.to,
+                        row: _rangeBlock.y, // TODO: use common y
                     }
-                    upperEntries.push(card);
-                    break;
-                }
-            }
 
-            if (!ifAnyBlockOverlaps(lowerVisualBlocks, cardBlock, rangeBlock)) {
-                const _cardBlock = {
-                    ...cardBlock,
-                    y: cardBlock.y + stepHeight
-                };
-
-                const _rangeBlock = {
-                    ...rangeBlock,
-                    y: rangeBlock.y + stepHeight
-                };
-
-                if (!ifAnyBlockOverlaps(lowerVisualBlocks, _cardBlock, _rangeBlock)) {
-                    lowerVisualBlocks.push(_cardBlock);
-                    lowerVisualBlocks.push(_rangeBlock);
-                    const card = {
-                        entryName: entry.name,
-                        cardPosition: _cardBlock,
-                        rangePosition: _rangeBlock
-                    }
-                    lowerEntries.push(card);
+                    cards.push(card);
                     break;
                 }
             }
@@ -158,10 +83,7 @@ function plotChartBySizes({ entries, to, sizes }) {
         };
     }
 
-    return {
-        upperEntries,
-        lowerEntries,
-    };
+    return cards;
 }
 
 // ifAnyBlockOverlaps(blocks: RectanglesArray, a: Rectangle, b: Rectangle): boolean

@@ -1,5 +1,4 @@
-import React, { useLayoutEffect } from 'react';
-import { ICardData, HistoryEntry } from '../data/History';
+import React from 'react';
 import { Card } from '../Card/Card';
 
 export const CardLine = (props) => {
