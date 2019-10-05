@@ -3,9 +3,14 @@ import React from 'react';
 import { IHistoryEvent } from "../data/HistoryEvent";
 import { Rectangle, ISizes } from '../shared/types';
 import './Card.scss';
+import { IChartCard } from "../data/plot-chart";
+import { useSiteData } from "react-static";
+import { YEAR_LENGTH, DEFAULT_DESCRIPTION_WIDTH } from '../shared/const.js'
 
 
-export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, sizeId }: { entry: IHistoryEvent; cardPosition: Rectangle, rangePosition: Rectangle, isSelected: boolean; sizes: ISizes; sizeId: string }) => {
+export const Card = ({ entry, isSelected, card }: { entry: IHistoryEvent; isSelected: boolean; card: IChartCard; }) => {
+    const { data } = useSiteData();
+
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is canonical url
 
     // NOTE: file-loader is used here exclusively to force loader to use file
@@ -14,13 +19,20 @@ export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, si
     let localImageSrc2x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@2x.png`);
     let localImageSrc3x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@3x.png`);
 
+    const { from, to, cards } = data;
+    const length = to - from;
+    let rowHeight = 10;
+    let x = (to - card.to) * YEAR_LENGTH;
+    let y = card.row * rowHeight;
+    let width = (card.to - card.from) * YEAR_LENGTH;
+    let height = 4 * rowHeight; // 4 is a magic from plotter, refactor
+
     return (
         <div
             id={entry.name}
             className={
                 'Card'
                 + (isSelected ? ' Card--selected' : '' )
-                + ` Card--size-${sizeId}`
             }
             title={ entry.title}
         >
@@ -28,28 +40,28 @@ export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, si
                 to={SUBPAGE_URL}
                 className="Card__Range"
                 style={
-                    { left: rangePosition.x
-                    , bottom: rangePosition.y
-                    , width: rangePosition.width
-                    , height: rangePosition.height
+                    { left: x
+                    , bottom: y
+                    , width: width
+                    , height: rowHeight
                     }
                 }></Link>
 
             <div className="Card__Entry" style={
-                { left: cardPosition.x
-                , bottom: cardPosition.y
-                , width: cardPosition.width
-                , height: cardPosition.height
+                { left: x
+                , bottom: y
+                , width: width
+                , height: height
                 }
             }>
                 <div
                     className="Card__Box"
-                    style={ { height: sizes.cardHeight } }
+                    style={ { height } }
                 >
                     <Link
                         to={SUBPAGE_URL}
                         className="Card__ImgWrapper"
-                        style={ { height: sizes.imageSize, width: sizes.imageSize } }
+                        style={ { height, width: height } }
                     >{
                             <img
                                 className="Card__image"
@@ -68,7 +80,7 @@ export const Card = ({ entry, cardPosition, rangePosition, isSelected, sizes, si
                             entry.short &&
                             <p className="Card__Description"
                                 style={{
-                                    width: sizes.descriptionWidth
+                                    width: DEFAULT_DESCRIPTION_WIDTH
                                 }}
                             >{entry.short}</p>
                         }
