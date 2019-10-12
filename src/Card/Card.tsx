@@ -11,7 +11,7 @@ import { YEAR_LENGTH, DEFAULT_DESCRIPTION_WIDTH } from '../shared/const.js'
 export const Card = ({ entry, isSelected, card }: { entry: IHistoryEvent; isSelected: boolean; card: IChartCard; }) => {
     const { data } = useSiteData();
 
-    const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is canonical url
+    const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is a canonical url
 
     // NOTE: file-loader is used here exclusively to force loader to use file
     // urls instead of base64 data.
@@ -34,6 +34,11 @@ export const Card = ({ entry, isSelected, card }: { entry: IHistoryEvent; isSele
                 'Card'
                 + (isSelected ? ' Card--selected' : '' )
             }
+            style={
+                { left: x
+                , bottom: y
+                }
+            }
             title={ entry.title}
         >
             <Link
@@ -42,7 +47,7 @@ export const Card = ({ entry, isSelected, card }: { entry: IHistoryEvent; isSele
                 style={
                     { left: x
                     , bottom: y
-                    , width: width
+                    , width
                     , height: rowHeight
                     }
                 }></Link>
@@ -50,8 +55,8 @@ export const Card = ({ entry, isSelected, card }: { entry: IHistoryEvent; isSele
             <div className="Card__Entry" style={
                 { left: x
                 , bottom: y
-                , width: width
-                , height: height
+                , width
+                , height
                 }
             }>
                 <div

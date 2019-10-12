@@ -11,7 +11,7 @@ const events = eventsArray.reduce((acc, curr) => {
 }, Object.create(null));
 
 const data = {
-    from: -500,
+    from: -600,
     to: CURRENT_YEAR,
     events,
     cards

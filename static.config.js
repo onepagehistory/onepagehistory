@@ -13,7 +13,7 @@ export default {
         return [
             ...Object.keys(data.events)
                 .map(eventId => ({
-                    path: `/p/${eventId}`,
+                    path: `/p/${eventId}/`,
                     template: 'src/EventPage/EventPageContainer',
                     getData: () => ({ // () => IPageData
                         entry: data.events[eventId],
@@ -31,8 +31,10 @@ export default {
                     <title>World History Page</title>
                     <meta name="description" content="See the most significant historic events on a single page: groundbreaking inventions, famous people, and matters that changed our culture" />
                     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
                     <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+
                     <base href="/" />
                     
                     {/*

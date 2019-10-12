@@ -6,10 +6,10 @@ export const RootPage = (props) => {
     const [isDesktop, setDesktop] = useState(true);
 
     useLayoutEffect(()=>{
-        if (window.innerWidth < 420) { // POOR MAN'S MOBILE CHECK
+        if (window.innerWidth <= 420) { // POOR MAN'S MOBILE CHECK
             setDesktop(false);
         }
     })
 
-    return isDesktop ? <DesktopPageComponent /> : <MobilePageComponent  />
+    return isDesktop ? <DesktopPageComponent /> : <MobilePageComponent />
 }

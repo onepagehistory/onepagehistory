@@ -1,0 +1,20 @@
+.mobile-page {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 72px;
+
+    &__card-line {
+        position: relative;
+    }
+
+    &__minimap {
+        &-wrapper {
+            position: fixed;
+            height: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+}

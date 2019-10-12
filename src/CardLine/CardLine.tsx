@@ -7,18 +7,15 @@ export const CardLine = (props) => {
     const { cards, selectedId } = props;
     const { data } = useSiteData();
     const { events } = data;
-    const { sizeId, sizes } = props; // TODO: refactor this
 
-    return <div>{
-        cards.map((card:IChartCard) => {
-
-            return <Card
+    return <div className="card-line">{
+        cards.map((card:IChartCard) =>
+            <Card
                 key={card.eventId}
-
                 entry={events[card.eventId]}
                 isSelected={selectedId == card.eventId}
                 card={card}
                 />
-        })
+        )
     }</div>
 }
