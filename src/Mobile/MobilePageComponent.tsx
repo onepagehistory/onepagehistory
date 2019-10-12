@@ -1,17 +1,23 @@
 import * as React from 'react';
 import { CardLine } from '../CardLine/CardLine';
 import { useSiteData } from 'react-static';
-import { Minimap } from '../Desktop/Minimap/Minimap';
+import { MobileMinimap } from './Minimap/MobileMinimap';
+import './MobilePageComponent.scss';
 
 export const MobilePageComponent = (props: any) => {
     const { data } = useSiteData();
     const { cards } = data;
 
-    return <div>
-        <CardLine
-        cards={cards}
-        />
-        {/* NOTE: this is a desktop minimap */}
-        <Minimap cards={cards} />
+    return <div className="mobile-page">
+        <div className="mobile-page__card-line">
+            <CardLine
+                cards={cards}
+                />
+        </div>
+        <div className="mobile-page__minimap">
+            <div className="mobile-page__minimap-wrapper">
+                <MobileMinimap cards={cards} />
+            </div>
+        </div>
     </div>
 }

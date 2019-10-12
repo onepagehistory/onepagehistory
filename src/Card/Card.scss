@@ -1,6 +1,7 @@
 @import "../styles/mixins.scss";
 
 .Card {
+
     &:hover, &--selected {
         .Card__Entry {
             z-index: 99;
