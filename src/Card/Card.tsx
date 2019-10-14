@@ -7,11 +7,20 @@ import { IChartCard } from "../data/plot-chart";
 import { useSiteData } from "react-static";
 import { YEAR_LENGTH, DEFAULT_DESCRIPTION_WIDTH } from '../shared/const.js'
 
+interface IProps {
+    entry: IHistoryEvent;
+    isSelected: boolean;
+    card: IChartCard;
+    minRow: number;
+    maxRow: number;
+}
 
-export const Card = ({ entry, isSelected, card }: { entry: IHistoryEvent; isSelected: boolean; card: IChartCard; }) => {
-    const { data } = useSiteData();
-
+export const Card = (props: IProps) => {
+    const { entry, isSelected, card, minRow, maxRow  } = props;
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is a canonical url
+
+    // NOTE: 4 is a magic from plotter, refactor
+    const CARD_HEIGHT_IN_ROWS = 16;
 
     // NOTE: file-loader is used here exclusively to force loader to use file
     // urls instead of base64 data.
@@ -19,13 +28,14 @@ export const Card = ({ entry, isSelected, card }: { entry: IHistoryEvent; isSele
     let localImageSrc2x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@2x.png`);
     let localImageSrc3x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@3x.png`);
 
-    const { from, to, cards } = data;
-    const length = to - from;
-    let rowHeight = 10;
-    let x = (to - card.to) * YEAR_LENGTH;
-    let y = card.row * rowHeight;
-    let width = (card.to - card.from) * YEAR_LENGTH;
-    let height = 4 * rowHeight; // 4 is a magic from plotter, refactor
+    const { data } = useSiteData();
+    const { to } = data;
+    const rowHeight = 100 / (maxRow - minRow);
+    const left = (to - card.to) * YEAR_LENGTH;
+    const bottom = (card.row - minRow) * rowHeight + '%';
+    const cardWidth = 34 * YEAR_LENGTH;
+    const rangeWidth = (card.to - card.from) * YEAR_LENGTH;
+    const height = CARD_HEIGHT_IN_ROWS * rowHeight + '%';
 
     return (
         <div
@@ -35,8 +45,10 @@ export const Card = ({ entry, isSelected, card }: { entry: IHistoryEvent; isSele
                 + (isSelected ? ' Card--selected' : '' )
             }
             style={
-                { left: x
-                , bottom: y
+                { left: left
+                , bottom
+                , width: rangeWidth
+                , height
                 }
             }
             title={ entry.title}
@@ -44,52 +56,36 @@ export const Card = ({ entry, isSelected, card }: { entry: IHistoryEvent; isSele
             <Link
                 to={SUBPAGE_URL}
                 className="Card__Range"
-                style={
-                    { left: x
-                    , bottom: y
-                    , width
-                    , height: rowHeight
+                style={ { width: rangeWidth } }></Link>
+
+            <div className="Card__Entry"
+                style={ { width: cardWidth } }
+            >
+                <Link
+                    to={SUBPAGE_URL}
+                    className="Card__ImgWrapper"
+                >{
+                        <img
+                            className="Card__image"
+                            alt={entry.name + ' representation'}
+                            src={localImageSrc1x || entry.imageUrl}
+                            srcSet={`${localImageSrc1x} 1x, ${localImageSrc2x} 2x, ${localImageSrc3x} 3x,`}
+                        />
+                }</Link>
+                <div className="Card__Summary">
+                    <Link className="Card__Head" to={SUBPAGE_URL}>
+                        <h3 className="Card__Title">{entry.title}</h3>
+                        <p className="Card__sub-title">{entry.subtitle}</p>
+                    </Link>
+
+                    {
+                        entry.short &&
+                        <p className="Card__Description"
+                            style={{
+                                width: DEFAULT_DESCRIPTION_WIDTH
+                            }}
+                        >{entry.short}</p>
                     }
-                }></Link>
-
-            <div className="Card__Entry" style={
-                { left: x
-                , bottom: y
-                , width
-                , height
-                }
-            }>
-                <div
-                    className="Card__Box"
-                    style={ { height } }
-                >
-                    <Link
-                        to={SUBPAGE_URL}
-                        className="Card__ImgWrapper"
-                        style={ { height, width: height } }
-                    >{
-                            <img
-                                className="Card__image"
-                                alt={entry.name + ' representation'}
-                                src={localImageSrc1x || entry.imageUrl}
-                                srcSet={`${localImageSrc1x} 1x, ${localImageSrc2x} 2x, ${localImageSrc3x} 3x,`}
-                            />
-                    }</Link>
-                    <div className="Card__Summary">
-                        <Link className="Card__Head" to={SUBPAGE_URL}>
-                            <h3 className="Card__Title">{entry.title}</h3>
-                            <p className="Card__sub-title">{entry.subtitle}</p>
-                        </Link>
-
-                        {
-                            entry.short &&
-                            <p className="Card__Description"
-                                style={{
-                                    width: DEFAULT_DESCRIPTION_WIDTH
-                                }}
-                            >{entry.short}</p>
-                        }
-                    </div>
                 </div>
             </div>
         </div>

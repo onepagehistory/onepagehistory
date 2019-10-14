@@ -1,10 +1,8 @@
-const { CURRENT_YEAR, YEAR_LENGTH, SIZES } = require('../shared/const');
+const { CURRENT_YEAR } = require('../shared/const');
 const PLACEMENT_STEP_CHECK = 1;
+const CARD_LENGTH_IN_YEARS = 34; // ~340px is the max width of the Card
 
-function plotChart(eventsArray) {
-    // TODO: calculate it
-    const CARD_LENGTH_IN_YEARS = 34; // ~340px is the max width of the Card
-    const CARD_HEIGHT_IN_ROWS = 4;
+function plotChart({ eventsArray, cardHeight }) {
 
     eventsArray.sort((a, b) => {
         let result = 0;
@@ -25,8 +23,6 @@ function plotChart(eventsArray) {
         }
     });
 
-    const fromYear = Math.min(...eventsArray.map(e => e.from));
-    const from = (Math.floor(fromYear / 10) - 1) * 10;
     const to = CURRENT_YEAR;
 
     // TODO: refactor
@@ -34,52 +30,41 @@ function plotChart(eventsArray) {
     const cards = [];
 
     for (let event of eventsArray) {
-        const x = (to - event.to) * YEAR_LENGTH;
+        const x = to - event.to;
 
         const cardBlock = {
             width: CARD_LENGTH_IN_YEARS,
-            height: CARD_HEIGHT_IN_ROWS,
+            height: cardHeight,
             x,
             y: 0
         };
 
         const rangeBlock = {
-            width: (event.to - event.from) * YEAR_LENGTH,
+            width: event.to - event.from,
             height: 1,
             x,
             y: 0
         };
 
         while (true) {
-            if (!ifAnyBlockOverlaps(visualBlocks, cardBlock, rangeBlock)) {
-                const _cardBlock = {
-                    ...cardBlock,
-                    y: cardBlock.y
-                };
-
-                const _rangeBlock = {
-                    ...rangeBlock,
-                    y: rangeBlock.y
-                };
-
-                if (!ifAnyBlockOverlaps(visualBlocks, _cardBlock, _rangeBlock)) {
-                    visualBlocks.push(_cardBlock);
-                    visualBlocks.push(_rangeBlock);
-
-                    const card = {
-                        eventId: event.name,
-                        from: event.from,
-                        to: event.to,
-                        row: _rangeBlock.y, // TODO: use common y
-                    }
-
-                    cards.push(card);
-                    break;
-                }
+            if (ifAnyBlockOverlaps(visualBlocks, cardBlock, rangeBlock)) {
+                cardBlock.y  += PLACEMENT_STEP_CHECK;
+                rangeBlock.y += PLACEMENT_STEP_CHECK;
+                continue;
             }
 
-            cardBlock.y  += PLACEMENT_STEP_CHECK;
-            rangeBlock.y += PLACEMENT_STEP_CHECK;
+            visualBlocks.push(cardBlock);
+            visualBlocks.push(rangeBlock);
+
+            const card = {
+                eventId: event.name,
+                from: event.from,
+                to: event.to,
+                row: rangeBlock.y, // y is the same for card and range
+            }
+
+            cards.push(card);
+            break;
         };
     }
 

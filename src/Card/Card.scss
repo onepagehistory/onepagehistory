@@ -1,6 +1,8 @@
 @import "../styles/mixins.scss";
 
 .Card {
+    position: absolute;
+    max-height: 120px;
 
     &:hover, &--selected {
         .Card__Entry {
@@ -31,35 +33,8 @@
         }
     }
 
-    &__Range {
-        position: absolute;
-        min-width: 0.15rem;
-        border-bottom: 2px solid #fff;
-        z-index: 100;
-        box-sizing: border-box;
-
-        &:before, &:after {
-            content: '';
-            display: block;
-            width: 6px;
-            height: 6px;
-            top: -2px;
-            position: absolute;
-            background: #fff;
-            border-radius: 100%;
-        }
-
-        &:before {
-            left: -2px;
-        }
-
-        &:after {
-            right: -2px;
-        }
-    }
-
     &__Entry {
-        position: absolute;
+        height: 100%;
         display: flex;
         text-align: left;
         box-sizing: border-box;
@@ -95,18 +70,15 @@
         white-space: nowrap;
     }
 
-    &__Box {
-        display: flex;
-        flex: 1 0 100%;
-        z-index: 10;
-        box-sizing: border-box;
-        border-radius: 0.25rem;
-    }
-
     &__ImgWrapper {
         box-sizing: border-box;
-        position: relative;
-        overflow: hidden;
+    }
+
+    &__image {
+        max-height: 100%;
+        object-fit: cover;
+        object-position: left 25%;
+        display: block;
     }
 
     &__Description {
@@ -135,11 +107,35 @@
         text-decoration: none;
     }
 
-    &__image {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: left 25%;
-        display: block;
+    &__Range {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        min-width: 0.15rem;
+        border-bottom: 2px solid #62B56F;
+        z-index: 100;
+        box-sizing: border-box;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            top: -2px;
+            position: absolute;
+            background: #62B56F;
+            border-radius: 100%;
+        }
+
+        &:before {
+            left: -2px;
+        }
+
+        &:after {
+            right: -2px;
+        }
     }
+
 }
