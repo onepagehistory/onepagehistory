@@ -9,7 +9,9 @@ export const CardLine = (props) => {
     const { data } = useSiteData();
     const { events } = data;
 
-    console.log(cards);
+    const rowIds = cards.map(card => card.row);
+    const minRow = Math.min(...rowIds);
+    const maxRow = Math.max(...rowIds);
 
     return <div className="card-line">{
         cards.map((card:IChartCard) =>
@@ -19,8 +21,8 @@ export const CardLine = (props) => {
                 entry={events[card.eventId]}
                 isSelected={selectedId == card.eventId}
                 card={card}
-                rowMin={0}
-                rowMax={17 + 4}
+                minRow={ minRow }
+                maxRow={ maxRow + 16 }
                 />
         )
     }</div>

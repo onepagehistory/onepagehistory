@@ -31,7 +31,7 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
         <div className={ `timeline` }>
             <div className="timeline__events">
                 <CardLine
-                    cards={cards.filter(card => card.row > 5)}
+                    cards={cards.filter(card => card.row > 40)}
                     selectedId={selectedId}
                     />
             </div>
@@ -40,7 +40,7 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
             </div>
             <div className="timeline__events">
                 <CardLine
-                    cards={cards.filter(card => card.row < 6)}
+                    cards={cards.filter(card => card.row < 41)}
                     selectedId={selectedId}
                     />
             </div>

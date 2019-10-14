@@ -7,11 +7,11 @@ const EVENT_HEIGHT = 3;
 
 export const MinimapEvents = () => {
     const { data } = useSiteData();
-    const { from, to, cards } = data;
+    const { from, to, bars } = data;
     const length = to - from;
 
     return (
-    <div className="minimap-events">{cards.map((card: IChartCard) =>
+    <div className="minimap-events">{bars.map((card: IChartCard) =>
         <div
             className="minimap-events__event"
             style={

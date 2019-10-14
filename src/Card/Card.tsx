@@ -11,16 +11,16 @@ interface IProps {
     entry: IHistoryEvent;
     isSelected: boolean;
     card: IChartCard;
-    rowMin: number;
-    rowMax: number;
+    minRow: number;
+    maxRow: number;
 }
 
 export const Card = (props: IProps) => {
-    const { entry, isSelected, card, rowMin, rowMax  } = props;
+    const { entry, isSelected, card, minRow, maxRow  } = props;
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is a canonical url
 
     // NOTE: 4 is a magic from plotter, refactor
-    const CARD_HEIGHT_IN_ROWS = 4;
+    const CARD_HEIGHT_IN_ROWS = 16;
 
     // NOTE: file-loader is used here exclusively to force loader to use file
     // urls instead of base64 data.
@@ -30,11 +30,12 @@ export const Card = (props: IProps) => {
 
     const { data } = useSiteData();
     const { to } = data;
-    const rowHeight = 100 / (rowMax - rowMin);
-    let left = (to - card.to) * YEAR_LENGTH;
-    let bottom = (card.row - rowMin) * rowHeight + '%';
-    let width = (card.to - card.from) * YEAR_LENGTH;
-    let height = CARD_HEIGHT_IN_ROWS * rowHeight + '%';
+    const rowHeight = 100 / (maxRow - minRow);
+    const left = (to - card.to) * YEAR_LENGTH;
+    const bottom = (card.row - minRow) * rowHeight + '%';
+    const cardWidth = 34 * YEAR_LENGTH;
+    const rangeWidth = (card.to - card.from) * YEAR_LENGTH;
+    const height = CARD_HEIGHT_IN_ROWS * rowHeight + '%';
 
     return (
         <div
@@ -46,8 +47,7 @@ export const Card = (props: IProps) => {
             style={
                 { left: left
                 , bottom
-                , width
-                , minWidth: '340px'
+                , width: rangeWidth
                 , height
                 }
             }
@@ -56,9 +56,11 @@ export const Card = (props: IProps) => {
             <Link
                 to={SUBPAGE_URL}
                 className="Card__Range"
-                style={ { width } }></Link>
+                style={ { width: rangeWidth } }></Link>
 
-            <div className="Card__Entry">
+            <div className="Card__Entry"
+                style={ { width: cardWidth } }
+            >
                 <Link
                     to={SUBPAGE_URL}
                     className="Card__ImgWrapper"

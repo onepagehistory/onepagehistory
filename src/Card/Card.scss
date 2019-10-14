@@ -71,15 +71,11 @@
     }
 
     &__ImgWrapper {
-        height: 100%;
         box-sizing: border-box;
-        position: relative;
-        overflow: hidden;
     }
 
     &__image {
-        height: 100%;
-        width: 100%;
+        max-height: 100%;
         object-fit: cover;
         object-position: left 25%;
         display: block;
@@ -118,7 +114,7 @@
         right: 0;
 
         min-width: 0.15rem;
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid #62B56F;
         z-index: 100;
         box-sizing: border-box;
 
@@ -129,7 +125,7 @@
             height: 6px;
             top: -2px;
             position: absolute;
-            background: #fff;
+            background: #62B56F;
             border-radius: 100%;
         }
 

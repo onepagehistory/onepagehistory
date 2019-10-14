@@ -14,7 +14,6 @@ export const Minimap = (props: IProps) => {
     const { from, to } = data;
     const length = to - from;
 
-
     const highlightWidth = (highlightSpan / length) * 100;
     const hightlightOffset = (1 - (highlightYear / length)) * 100;
     const hightLightLeft = hightlightOffset - highlightWidth / 2

@@ -27,7 +27,7 @@ export const DesktopPageComponent = (props) => {
             </Head>
 
             <Switch>
-    <Route exact path="/p/:pageId" component={ ()=> <Routes path="/p/*" /> } />
+                <Route exact path="/p/:pageId" component={() => <Routes path="/p/*" />} />
             </Switch>
 
             <div className="root-page__contents">
