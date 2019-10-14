@@ -3,8 +3,16 @@
     display: grid;
     grid-template-rows: auto 72px;
 
+    &__decades {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+
     &__card-line {
         position: relative;
+        padding: 48px 0 14px 0;
     }
 
     &__minimap {
