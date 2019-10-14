@@ -25,8 +25,6 @@ function plotChart(eventsArray) {
         }
     });
 
-    const fromYear = Math.min(...eventsArray.map(e => e.from));
-    const from = (Math.floor(fromYear / 10) - 1) * 10;
     const to = CURRENT_YEAR;
 
     // TODO: refactor
