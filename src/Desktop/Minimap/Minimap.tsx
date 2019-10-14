@@ -1,26 +1,51 @@
 import * as React from 'react';
-import { IChartCard } from '../../data/plot-chart';
+import { MinimapEvents } from './MinimapEvents';
 import { useSiteData } from 'react-static';
 import './Minimap.scss';
 
-// TODO: pass the visible range
+interface IProps {
+    highlightYear: number;
+    highlightSpan: number;
+}
 
-export const Minimap = (props: { cards: IChartCard[] }) => {
+export const Minimap = (props: IProps) => {
+    const { highlightYear, highlightSpan } = props;
     const { data } = useSiteData();
-    const { from, to, cards } = data;
+    const { from, to } = data;
     const length = to - from;
+
+
+    const highlightWidth = (highlightSpan / length) * 100;
+    const hightlightOffset = (1 - (highlightYear / length)) * 100;
+    const hightLightLeft = hightlightOffset - highlightWidth / 2
+    const hightLightRight = 100 - (hightlightOffset + highlightWidth / 2)
 
     return (
         <div className="minimap">
-            { cards.map((card: IChartCard) =>
+            <div className="minimap__events">
+                <MinimapEvents />
+            </div>
+            <div
+                className="minimap__hightlighted-wrapper"
+                style={
+                    {
+                        left: hightLightLeft + '%',
+                        right: hightLightRight + '%'
+                    }
+                }
+            >
                 <div
-                    className="minimap__eventbar"
+                    className="minimap__hightlighted"
                     style={
-                        { left: ((to - card.to) / length) * 100 + '%'
-                        , bottom: card.row * 3 + 6
-                        , width: (card.to - card.from) / length * 100 + '%'
-                        } }></div>
-            ) }
+                        {
+                            left:  ('-' + hightLightLeft * (100 / highlightWidth)  + '%'),
+                            right: ('-' + hightLightRight * (100 / highlightWidth) + '%')
+                        }
+                    }
+                >
+                    <MinimapEvents />
+                </div>
+            </div>
         </div>
     )
 }

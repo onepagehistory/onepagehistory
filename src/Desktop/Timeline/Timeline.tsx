@@ -3,7 +3,7 @@ import { Card } from '../../Card/Card';
 import { IHistoryEvent } from "../../data/HistoryEvent";
 import { CenturiesNavBar } from '../../CenturiesNavBar/CenturiesNavBar';
 import { ISizes } from '../../shared/types';
-import { Minimap } from '../Minimap/Minimap';
+import { Minimap } from '../Minimap/';
 import './Timeline.scss';
 import { CardLine } from '../../CardLine/CardLine';
 import { CenturyLabels } from '../CenturyLabels/CenturyLabels';
@@ -45,9 +45,7 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
                     />
             </div>
             <div className="timeline__navigation-container">
-                <Minimap
-                    cards={cards}
-                    />
+                <Minimap />
                 <CenturiesNavBar />
             </div>
             <div>
