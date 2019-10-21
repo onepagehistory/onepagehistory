@@ -1,7 +1,7 @@
 const fs = require('fs');
-const { data } = require('../src/data/index.js');
+const { readMdFiles } = require('../src/data/read-md-files');
 
-const csv = data.entries.map(entry =>
+const csv = readMdFiles().map(entry =>
     // title  |  wiki link | img_url   | dates                         | description    
     //        |            |           | text    year from    year to  | short    long
     [ entry.name,

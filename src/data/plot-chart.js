@@ -95,4 +95,4 @@ function blocksOverlap(a, b) {
 }
 
 
-export { plotChart }
+module.exports = { plotChart }
