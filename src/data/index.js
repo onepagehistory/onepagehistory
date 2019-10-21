@@ -1,9 +1,7 @@
-import { CURRENT_YEAR } from '../shared/const';
-
-const CARD_HEIGHT_IN_ROWS = 16;
-
+const { CURRENT_YEAR } = require('../shared/const');
 const { readMdFiles } = require('./read-md-files');
 const { plotChart } = require('./plot-chart');
+const CARD_HEIGHT_IN_ROWS = 16;
 
 const eventsArray = readMdFiles();
 const cards = plotChart({ eventsArray, cardHeight: CARD_HEIGHT_IN_ROWS });
@@ -21,4 +19,4 @@ const data = {
     bars,
 };
 
-export { data }
+module.exports = { data };
