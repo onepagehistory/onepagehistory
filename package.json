@@ -11,10 +11,10 @@
     "staging-publish": "npm run prepare-staging-publish && gh-pages -d dist -t -r https://github.com/onepagehistory/staging-1.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\""
   },
   "dependencies": {
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
     "react-markdown": "4.2.2",
-    "react-router-dom": "5.0.1",
+    "react-router-dom": "5.1.2",
     "react-static": "7.2.2",
     "react-static-plugin-react-router": "7.2.2",
     "react-static-plugin-sass": "7.2.2",
@@ -23,18 +23,18 @@
     "react-static-plugin-typescript": "7.2.2"
   },
   "devDependencies": {
-    "@types/node": "12.7.5",
-    "@types/react": "16.9.2",
-    "@types/react-dom": "16.9.0",
+    "@types/node": "12.11.7",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.3",
     "@types/react-hot-loader": "4.1.0",
-    "@types/react-router-dom": "4.3.5",
-    "@types/webpack-env": "1.14.0",
-    "chokidar": "3.1.1",
+    "@types/react-router-dom": "5.1.0",
+    "@types/webpack-env": "1.14.1",
+    "chokidar": "3.2.2",
     "gh-pages": "2.1.1",
-    "jimp": "0.8.4",
+    "jimp": "0.8.5",
     "node-sass-chokidar": "1.3.5",
     "npm-run-all": "4.1.5",
-    "serve": "11.1.0",
-    "typescript": "3.6.3"
+    "serve": "11.2.0",
+    "typescript": "3.6.4"
   }
 }
