@@ -1,7 +1,7 @@
 .timeline {
     position: relative;
     height: 100vh;
-    padding: 1rem 0 72px 0;
+    padding: 64px 0 111px 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,17 @@
         bottom: 0;
         right: 0;
         left: 0;
+        height: 111px;
+    }
+
+
+    &__minimap {
         height: 72px;
+    }
+
+    &__navbar {
+        height: 39px;
+        line-height: 39px;
     }
 
     &__decades {

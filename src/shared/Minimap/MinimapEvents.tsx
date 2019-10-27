@@ -13,6 +13,7 @@ export const MinimapEvents = () => {
     return (
     <div className="minimap-events">{bars.map((card: IChartCard) =>
         <div
+            key={card.eventId}
             className="minimap-events__event"
             style={
                 {

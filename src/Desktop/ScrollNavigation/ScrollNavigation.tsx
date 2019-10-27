@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, Component } from 'react';
-import './CenturiesNavBar.scss';
-import { CURRENT_YEAR, YEAR_LENGTH } from '../shared/const.js';
+import { CURRENT_YEAR, YEAR_LENGTH } from '../../shared/const.js';
+import './ScrollNavigation.scss';
+
+// TODO: clean up, remove indicator related stuff
 
 const TICK_YEARS = [2000, 1500, 1000, 500, 0, -500];
 const MAX_YEAR_TICK = 2000;
@@ -11,7 +13,7 @@ const STARTING_TICK_OFFSET = CURRENT_YEAR - MAX_YEAR_TICK;
 const TICK_LABEL_WIDTH = 80;
 const INDICATOR_WIDTH = 100;
 
-export class CenturiesNavBar extends Component {
+export class ScrollNavigation extends Component {
     elementRefWrapper = React.createRef<HTMLDivElement>();
     elementRef = React.createRef<HTMLDivElement>();
 

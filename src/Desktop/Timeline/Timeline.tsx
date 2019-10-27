@@ -1,5 +1,5 @@
 import React from 'react';
-import { CenturiesNavBar } from '../../CenturiesNavBar/CenturiesNavBar';
+import { ScrollNavigation as DesktopNavBar } from '../ScrollNavigation/ScrollNavigation';
 import { CardLine } from '../../CardLine/CardLine';
 import { IChartCard } from '../../data/plot-chart';
 import { DesktopMinimap } from '../Minimap/DesktopMinimap';
@@ -14,14 +14,14 @@ export interface IScalesProps {
 export const Timeline = ({ selectedId, cards }: IScalesProps) => {
 
     return (
-        <div className={ `timeline` }>
+        <div className="timeline">
             <div className="timeline__events">
                 <CardLine
                     cards={cards.filter(card => card.row > 40)}
                     selectedId={selectedId}
                     />
             </div>
-            <div>
+            <div className="timeline__decades">
                 {/* <DecadeMarks /> */}
             </div>
             <div className="timeline__events">
@@ -31,10 +31,14 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
                     />
             </div>
             <div className="timeline__navigation-container">
-                <DesktopMinimap />
-                <CenturiesNavBar />
+                <div className="timeline__minimap">
+                    <DesktopMinimap />
+                </div>
+                <div className="timeline__navbar">
+                    <DesktopNavBar />
+                </div>
             </div>
-            <div>
+            <div className="timeline__century-labels">
                 {/* <CenturyLabels decades={ decades } /> */}
             </div>
         </div>

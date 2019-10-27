@@ -3,8 +3,10 @@
     width: 100%;
     position: relative;
     box-sizing: border-box;
-    padding: 0 4rem;
-    background: #303030;
+    padding: 0 1rem;
+    background: #232A4A;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.1);
+
 
     &__bar {
         height: 100%;
