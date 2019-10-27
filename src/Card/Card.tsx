@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import { IHistoryEvent } from "../data/HistoryEvent";
-import { Rectangle, ISizes } from '../shared/types';
-import './Card.scss';
 import { IChartCard } from "../data/plot-chart";
 import { useSiteData } from "react-static";
 import { YEAR_LENGTH, DEFAULT_DESCRIPTION_WIDTH } from '../shared/const.js'
+import './Card.scss';
 
 interface IProps {
     entry: IHistoryEvent;

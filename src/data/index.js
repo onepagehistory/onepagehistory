@@ -12,7 +12,7 @@ const events = eventsArray.reduce((acc, curr) => {
 }, Object.create(null));
 
 const data = {
-    from: -600,
+    from: -Math.min(...eventsArray.map(e => e.from)),
     to: CURRENT_YEAR,
     events,
     cards,

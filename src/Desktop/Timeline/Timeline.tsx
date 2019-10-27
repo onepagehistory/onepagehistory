@@ -1,28 +1,14 @@
 import React from 'react';
-import { Card } from '../../Card/Card';
-import { IHistoryEvent } from "../../data/HistoryEvent";
 import { CenturiesNavBar } from '../../CenturiesNavBar/CenturiesNavBar';
-import { ISizes } from '../../shared/types';
-import { Minimap } from '../Minimap/';
-import './Timeline.scss';
 import { CardLine } from '../../CardLine/CardLine';
-import { CenturyLabels } from '../CenturyLabels/CenturyLabels';
-import { DecadeMarks } from '../DecadeMarks/DecadeMarks';
 import { IChartCard } from '../../data/plot-chart';
-import { useSiteData } from 'react-static';
-
+import { DesktopMinimap } from '../Minimap/DesktopMinimap';
+import './Timeline.scss';
 
 
 export interface IScalesProps {
     selectedId?: string;
     cards: IChartCard[];
-
-    // sizeId?: string;
-    // decades?: any[];
-    // upperEntries?: any[];
-    // lowerEntries?: any[];
-    // entries?: IHistoryEvent[];
-    // sizes?: ISizes;
 }
 
 export const Timeline = ({ selectedId, cards }: IScalesProps) => {
@@ -45,7 +31,7 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
                     />
             </div>
             <div className="timeline__navigation-container">
-                <Minimap />
+                <DesktopMinimap />
                 <CenturiesNavBar />
             </div>
             <div>
