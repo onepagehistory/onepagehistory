@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRouteData } from 'react-static';
-import { RootPage } from '../RootPage/RootPage';
 import { CURRENT_YEAR, DEFAULT_CARD_WIDTH, DEFAULT_IMAGE_SIZE, YEAR_LENGTH } from '../shared/const.js';
-import { EventPage } from './EventPage';
 import { IPageData } from './IPageData';
 
 

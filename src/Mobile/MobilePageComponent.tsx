@@ -20,7 +20,7 @@ export const MobilePageComponent = (props: any) => {
         </div>
         <div className="mobile-page__minimap">
             <div className="mobile-page__minimap-wrapper">
-                <MobileMinimap cards={cards} />
+                <MobileMinimap  />
             </div>
         </div>
     </div>
