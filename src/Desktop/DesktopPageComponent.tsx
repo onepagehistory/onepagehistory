@@ -9,8 +9,6 @@ import './DesktopPageComponent.scss';
 export const DesktopPageComponent = (props) => {
     const { data } = useSiteData();
 
-    console.log(data);
-
     // page id from the page data
     const routeData = useRouteData();
     const pageId = routeData && routeData.entry && routeData.entry.name || void 0;

@@ -25,9 +25,10 @@ export const DesktopMinimap = () => {
         window.addEventListener('scroll', onScroll);
 
         setSpan(defaultSpan); // TODO: calculate it from inner width?
+        onScroll();
 
         return () => window.removeEventListener('scroll', onScroll);
-    });
+    }, []);
 
     return (
         <Minimap
