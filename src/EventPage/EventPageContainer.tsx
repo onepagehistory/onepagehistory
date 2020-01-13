@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouteData } from 'react-static';
 import { CURRENT_YEAR, DEFAULT_CARD_WIDTH, DEFAULT_IMAGE_SIZE, YEAR_LENGTH } from '../shared/const.js';
 import { IPageData } from './IPageData';
+import { EventPage } from './EventPage';
 
 
 export default ()=> {
@@ -50,5 +51,5 @@ export default ()=> {
         window.scrollTo({ left: scrollLeft });
     });
 
-    return null; // <RootPage><EventPage pageData={pageData} /></RootPage>
+    return <EventPage pageData={pageData} />
 }

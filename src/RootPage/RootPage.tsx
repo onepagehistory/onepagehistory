@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { DesktopPageComponent } from '../Desktop/DesktopPageComponent';
 import { MobilePageComponent } from '../Mobile/MobilePageComponent';
 
-export const RootPage = (props) => {
+export const RootPage = () => {
     const [isDesktop, setDesktop] = useState(true);
 
     useLayoutEffect(()=>{
@@ -13,3 +13,5 @@ export const RootPage = (props) => {
 
     return isDesktop ? <DesktopPageComponent /> : <MobilePageComponent />
 }
+
+export default RootPage;

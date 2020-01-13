@@ -14,7 +14,7 @@ export default {
             ...Object.keys(data.events)
                 .map(eventId => ({
                     path: `/p/${eventId}/`,
-                    template: 'src/EventPage/EventPageContainer',
+                    template: 'src/RootPage/RootPage',
                     getData: () => ({ // () => IPageData
                         entry: data.events[eventId],
                         content: data.events[eventId].content

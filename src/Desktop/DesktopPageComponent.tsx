@@ -3,10 +3,11 @@ import { Link, Switch, Router, Route } from 'react-router-dom';
 import { useRouteData, useSiteData, Head, Routes } from 'react-static';
 import { TimelineContainer } from './Timeline/TimelineContainer';
 import { SocialMedia } from '../SocialMedia/SocialMedia';
+import EventPageContainer from '../EventPage/EventPageContainer';
 import './DesktopPageComponent.scss';
 
 
-export const DesktopPageComponent = (props) => {
+export const DesktopPageComponent = () => {
     const { data } = useSiteData();
 
     // page id from the page data
@@ -24,9 +25,10 @@ export const DesktopPageComponent = (props) => {
                 <meta name="description" content="See the most significant historic events on a single page: groundbreaking inventions, famous people, and matters that changed our culture" />
             </Head>
 
-            <Switch>
-                <Route exact path="/p/:pageId" component={() => <Routes path="/p/*" />} />
-            </Switch>
+            { pageId
+            ? <EventPageContainer />
+            : null
+            }
 
             <div className="root-page__contents">
                 <section>
