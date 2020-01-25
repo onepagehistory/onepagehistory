@@ -26,7 +26,7 @@ export const DesktopPageComponent = () => {
             </Head>
 
             { pageId
-            ? <EventPageContainer />
+            ? <div className="root-page__subpage"><EventPageContainer /></div>
             : null
             }
 

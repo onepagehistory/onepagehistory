@@ -1,18 +1,16 @@
 .EventPage {
     padding: 5rem 4rem;
+    left: 0;
     right: 0;
     bottom: 0;
     top: 0;
-    width: 33%;
-    position: fixed;
-    z-index: 1000;
+    position: absolute;
     overflow: auto;
     box-sizing: border-box;
     overscroll-behavior: contain;
     background: #2C2C2C;
     color: #fff;
     border-radius: 5px;
-    // box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
 
     &__Edit {
         opacity: .7;
