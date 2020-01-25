@@ -1,3 +1,11 @@
 .mobile-minimap {
+    position: relative;
     width: 100%;
+
+    &__wrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
 }

@@ -5,7 +5,7 @@ import { useSiteData } from 'react-static';
 import './MobileMinimap.scss';
 
 const defaultYear = CURRENT_YEAR;
-const defaultSpan = 100;
+const defaultSpan = 30;
 
 export const MobileMinimap = (props: { scrollElementRef: MutableRefObject<HTMLElement> }) => {
     const { scrollElementRef } = props;
@@ -37,10 +37,18 @@ export const MobileMinimap = (props: { scrollElementRef: MutableRefObject<HTMLEl
 
     return (
         <div className="mobile-minimap">
-            <Minimap
-                highlightYear={year}
-                highlightSpan={span}
+            <div
+                className="mobile-minimap__wrapper"
+                style={{
+                    width: 1000 + '%',
+                    left: (50 - ((to - year + span / 2) / length) * 1000) + '%'
+                }}
+            >
+                <Minimap
+                    highlightYear={year}
+                    highlightSpan={span}
                 />
+            </div>
         </div>
     )
 }
