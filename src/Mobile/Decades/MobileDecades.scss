@@ -10,6 +10,19 @@
         position: absolute;
         top: 32px;
         height: 100%;
+        display: inline-block;
         border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+        span {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            width: 100%;
+            position: absolute;
+            top: -32px;
+            margin-left: -50%;
+            display: inline-block;
+            scroll-snap-align: center;
+        }
     }
 }

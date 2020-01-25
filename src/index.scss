@@ -5,10 +5,10 @@ html {
     min-height: 100%;
     background:  #313A61;
     background: linear-gradient(180deg, #4F4365 0%, #313A61 100%);
-    scroll-behavior: smooth;
     font-size: 62.5%;
-    overscroll-behavior-y: none;
-    overscroll-behavior-x: none;
+    // scroll-behavior: smooth;
+    // overscroll-behavior-y: none;
+    // overscroll-behavior-x: none;
 }
 
 body {
@@ -19,8 +19,8 @@ body {
     font-family: Muli, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overscroll-behavior-y: none;
-    overscroll-behavior-x: none;
+    // overscroll-behavior-y: none;
+    // overscroll-behavior-x: none;
     overflow-y: hidden;
     overflow-x: auto;
 }

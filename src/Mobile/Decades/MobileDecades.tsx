@@ -8,11 +8,12 @@ export const MobileDecades = () => {
     const { from, to } = data;
 
     const decades = useMemo(()=>{
-        const toDecade = 10 * Math.ceil(to / 10);
-        const fromDecade   = 10 * Math.floor(from / 10);
+        const toDecade = Math.ceil(to / 10);
+        const fromDecade = Math.floor(from / 10);
+
         const array = new Array(toDecade - fromDecade)
                 .fill(undefined)
-                .map((_, i) => toDecade - i * 10);
+                .map((_, i) => to - i * 10);
 
         return array;
     }, [ from, to ]);
@@ -33,7 +34,7 @@ export const MobileDecades = () => {
                             , width: 10 * YEAR_LENGTH
                             }
                         }
-                        >{d}</div>
+                    ><span>{d}</span></div>
                 )
             }</div>
         </div>
