@@ -4,13 +4,13 @@ export const DecadeMarks = (props) => {
     const { decades } = props;
 
     return <div className="timeline__decades">{
-        decades.map(entry =>
+        decades.map((entry, index) =>
             <div
-                key={entry.name}
-                className="timeline-decades__item"
+                key={index}
+                className="timeline__decades-item"
             >
                 <p>
-                    {entry.name}
+                    {entry}
                 </p>
             </div>
         )
