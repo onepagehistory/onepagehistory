@@ -1,16 +1,16 @@
 import React, { useState, useEffect, Ref, MutableRefObject } from 'react';
 import { Minimap } from '../../shared/Minimap';
-import { CURRENT_YEAR } from '../../shared/const';
+import { CURRENT_YEAR, YEAR_LENGTH } from '../../shared/const';
 import { useSiteData } from 'react-static';
 import './MobileMinimap.scss';
 
-const defaultYear = CURRENT_YEAR;
-const defaultSpan = 30;
+const DEFAULT_YEAR = CURRENT_YEAR;
+const DEFAULT_SPAN = 30;
 
 export const MobileMinimap = (props: { scrollElementRef: MutableRefObject<HTMLElement> }) => {
     const { scrollElementRef } = props;
-    const [year, setYear] = useState(defaultYear);
-    const [span, setSpan] = useState(defaultSpan);
+    const [year, setYear] = useState(DEFAULT_YEAR);
+    const [span, setSpan] = useState(DEFAULT_SPAN);
     const { data } = useSiteData();
     const { from, to } = data;
     const length = to - from;
@@ -22,17 +22,26 @@ export const MobileMinimap = (props: { scrollElementRef: MutableRefObject<HTMLEl
         const scrollWidth = scrollElement.scrollWidth;
 
         // TODO: use a throttle to limit scroll reactions
-        const onScroll = () => {
+        function onScroll() {
             const yearOffset = to - (length * scrollElement.scrollLeft / scrollWidth);
             setYear(yearOffset);
         }
 
+        function onResize () {
+            const yearSpan = Math.floor(window.innerWidth / YEAR_LENGTH);
+            setSpan(yearSpan);
+        }
+
         scrollElement.addEventListener('scroll', onScroll);
+        window.addEventListener('resize', onResize)
 
-        setSpan(defaultSpan); // TODO: calculate it from inner width?
         onScroll();
+        onResize();
 
-        return () => scrollElement.removeEventListener('scroll', onScroll);
+        return () => {
+            scrollElement.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onResize);
+        }
     }, [ scrollElementRef.current ]);
 
     return (
