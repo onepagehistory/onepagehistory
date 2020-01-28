@@ -4,7 +4,8 @@ import { CardLine } from '../../CardLine/CardLine';
 import { IChartCard } from '../../data/plot-chart';
 import { DesktopMinimap } from '../Minimap/DesktopMinimap';
 import { DecadeMarks } from '../DecadeMarks/DecadeMarks';
-import { CURRENT_YEAR } from '../../shared/const.js'
+import { CenturyLabels } from '../CenturyLabels/CenturyLabels';
+import { CURRENT_YEAR } from '../../shared/const.js';
 
 import './Timeline.scss';
 
@@ -12,7 +13,8 @@ import './Timeline.scss';
 const START_YEAR = -570;
 const ENTIRE_TIMELINE = CURRENT_YEAR + Math.abs(START_YEAR);
 const DECADE = 10;
-const testDec = () => {
+
+const arrayDecades = () => {
     let arrDecs = [];
     for (let i = 0; i < ENTIRE_TIMELINE/DECADE; i++){
         arrDecs.push(CURRENT_YEAR - DECADE*i);
@@ -34,7 +36,7 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
                     selectedId={selectedId}
                     />
             </div>
-            <DecadeMarks decades={testDec()}/>
+            <DecadeMarks decades={ arrayDecades() }/>
             <div className="timeline__events">
                 <CardLine
                     cards={cards.filter(card => card.row < 41)}
@@ -50,7 +52,7 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
                 </div>
             </div>
             <div className="timeline__century-labels">
-                {/* <CenturyLabels decades={ decades } /> */}
+                <CenturyLabels decades={ arrayDecades() } />
             </div>
         </div>
 

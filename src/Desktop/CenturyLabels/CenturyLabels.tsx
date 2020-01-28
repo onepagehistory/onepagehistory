@@ -3,13 +3,13 @@ import { CURRENT_YEAR, YEAR_LENGTH } from '../../shared/const';
 
 export const CenturyLabels = (props) => {
     const centuries = props.decades.map(year => {
-        if ((year.name % 100) == 0) {
+        if ((year % 100) == 0) {
             return (
                 <p
-                    key={year.name.toString()}
+                    key={year.toString()}
                     className="century-label"
-                    style={{ left: (CURRENT_YEAR - year.name) * YEAR_LENGTH }}>
-                    {year.name}
+                    style={{ left: (CURRENT_YEAR - year) * YEAR_LENGTH }}>
+                    {year}
                 </p>
             )
         }
