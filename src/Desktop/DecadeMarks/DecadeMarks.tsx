@@ -1,10 +1,19 @@
 import React from 'react';
+import { CURRENT_YEAR } from '../../shared/const.js';
 
-export const DecadeMarks = (props) => {
-    const { decades } = props;
+// TEMP: TODO - to use more efficient way of showing decades
+const START_YEAR = -570;
+const ENTIRE_TIMELINE = CURRENT_YEAR + Math.abs(START_YEAR);
+const DECADE = 10;
+
+export const DecadeMarks = () => {
+    let arrDecs = [];
+    for (let i = 0; i < ENTIRE_TIMELINE/DECADE; i++){
+        arrDecs.push(CURRENT_YEAR - DECADE*i);
+    }
 
     return <div className="timeline__decades">{
-        decades.map((entry, index) =>
+        arrDecs.map((entry, index) =>
             <div
                 key={index}
                 className="timeline__decades-item"
