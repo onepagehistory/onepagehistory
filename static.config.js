@@ -33,7 +33,8 @@ export default {
                     <link rel="icon" href="favicon.ico" type="image/x-icon" />
                     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-                    <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+                    { /* TODO: use prod url */}
+                    <meta property="og:image" content="https://stg1.worldhistory.page/ogimage.jpg" />
 
                     <base href="/" />
                     
