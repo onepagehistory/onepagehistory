@@ -19,6 +19,10 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
         return <DecadeMarks></DecadeMarks>
     }, []);
 
+    const memoCenturies = useMemo(() => {
+        return <CenturyLabels/>
+    },[]);
+
     return (
         <div className="timeline">
             <div className="timeline__events">
@@ -43,7 +47,7 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
                 </div>
             </div>
             <div className="timeline__century-labels">
-                {/* <CenturyLabels decades={ arrayDecades() } /> */}
+                {memoCenturies}
             </div>
         </div>
 

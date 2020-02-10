@@ -71,7 +71,7 @@ export const Card = (props: IProps) => {
                             srcSet={`${localImageSrc1x} 1x, ${localImageSrc2x} 2x, ${localImageSrc3x} 3x,`}
                         />
                 }</Link>
-                <div className="Card__Summary">
+                <div className={'Card__Summary'}>
                     <Link className="Card__Head" to={SUBPAGE_URL}>
                         <h3 className="Card__Title">{entry.title}</h3>
                         <p className="Card__sub-title">{entry.subtitle}</p>
