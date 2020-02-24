@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Minimap } from '../../shared/Minimap/Minimap';
 import { CURRENT_YEAR, YEAR_LENGTH } from '../../shared/const';
 import { useSiteData } from 'react-static';
+import './DesktopMinimap.scss';
 
 const DEFAULT_YEAR = CURRENT_YEAR;
 const DEFAULT_SPAN = 100;
@@ -39,10 +40,10 @@ export const DesktopMinimap = () => {
         }
     }, []);
 
-    return (
+    return <div className="desktop-minimap">
         <Minimap
             highlightYear={year}
             highlightSpan={span}
             />
-    )
+    </div>
 }

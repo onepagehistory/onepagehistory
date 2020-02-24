@@ -44,13 +44,16 @@ export const MobileMinimap = (props: { scrollElementRef: MutableRefObject<HTMLEl
         }
     }, [ scrollElementRef.current ]);
 
+    const wrapperWidth = 1000 + '%';
+    const wrapperLeft  = (50 - ((to - year + span / 2) / length) * 1000) + '%';
+
     return (
         <div className="mobile-minimap">
             <div
                 className="mobile-minimap__wrapper"
                 style={{
-                    width: 1000 + '%',
-                    left: (50 - ((to - year + span / 2) / length) * 1000) + '%'
+                    width: wrapperWidth,
+                    left: wrapperLeft
                 }}
             >
                 <Minimap
