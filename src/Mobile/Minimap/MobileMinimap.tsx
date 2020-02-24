@@ -1,7 +1,5 @@
 import React, { MutableRefObject, useEffect, useState } from 'react';
 import { useSiteData } from 'react-static';
-import { fromEventPattern, scheduled, animationFrameScheduler, asyncScheduler } from 'rxjs';
-import { throttleTime } from 'rxjs/operators';
 import { CURRENT_YEAR, YEAR_LENGTH } from '../../shared/const';
 import { Minimap } from '../../shared/Minimap';
 import './MobileMinimap.scss';
