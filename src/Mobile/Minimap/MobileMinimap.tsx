@@ -1,7 +1,9 @@
-import React, { useState, useEffect, Ref, MutableRefObject } from 'react';
-import { Minimap } from '../../shared/Minimap';
-import { CURRENT_YEAR, YEAR_LENGTH } from '../../shared/const';
+import React, { MutableRefObject, useEffect, useState } from 'react';
 import { useSiteData } from 'react-static';
+import { fromEventPattern, scheduled, animationFrameScheduler, asyncScheduler } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
+import { CURRENT_YEAR, YEAR_LENGTH } from '../../shared/const';
+import { Minimap } from '../../shared/Minimap';
 import './MobileMinimap.scss';
 
 const DEFAULT_YEAR = CURRENT_YEAR;
@@ -44,7 +46,7 @@ export const MobileMinimap = (props: { scrollElementRef: MutableRefObject<HTMLEl
         }
     }, [ scrollElementRef.current ]);
 
-    const wrapperWidth = 1000 + '%';
+    const wrapperWidth = '1000%';
     const wrapperLeft  = (50 - ((to - year + span / 2) / length) * 1000) + '%';
 
     return (
