@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useRouteData } from 'react-static';
-import { CURRENT_YEAR, DEFAULT_CARD_WIDTH, DEFAULT_IMAGE_SIZE, YEAR_LENGTH } from '../shared/const.js';
+import { CURRENT_YEAR, DEFAULT_CARD_WIDTH, YEAR_LENGTH } from '../shared/const.js';
 import { IPageData } from './IPageData';
 import { EventPage } from './EventPage';
-
 
 export default ()=> {
     const pageData: IPageData = useRouteData();
@@ -37,7 +36,7 @@ export default ()=> {
         // is outside the screen completely
         if (xDiff < -DEFAULT_CARD_WIDTH || xDiff > windowWidth + DEFAULT_CARD_WIDTH) {
             // scroll to center of the screen
-            scrollLeft = elementX - windowWidth * 0.333 + DEFAULT_IMAGE_SIZE / 2;
+            scrollLeft = elementX - windowWidth * 0.333;
         }
         // is on the left, visible, just needs a bit of scroll
         else if (xDiff <= LEFT_MARGIN) {

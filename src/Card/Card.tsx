@@ -3,7 +3,7 @@ import React from 'react';
 import { IHistoryEvent } from "../data/HistoryEvent";
 import { IChartCard } from "../data/plot-chart";
 import { useSiteData } from "react-static";
-import { YEAR_LENGTH, DEFAULT_DESCRIPTION_WIDTH } from '../shared/const.js'
+import { YEAR_LENGTH, DEFAULT_CARD_WIDTH } from '../shared/const.js'
 import './Card.scss';
 
 interface IProps {
@@ -32,7 +32,7 @@ export const Card = (props: IProps) => {
     const rowHeight = 100 / (maxRow - minRow);
     const left = (to - card.to) * YEAR_LENGTH;
     const bottom = (card.row - minRow) * rowHeight + '%';
-    const cardWidth = 34 * YEAR_LENGTH;
+    const cardWidth = DEFAULT_CARD_WIDTH;
     const rangeWidth = (card.to - card.from) * YEAR_LENGTH;
     const height = CARD_HEIGHT_IN_ROWS * rowHeight + '%';
 
@@ -79,11 +79,7 @@ export const Card = (props: IProps) => {
 
                     {
                         entry.short &&
-                        <p className="Card__Description"
-                            style={{
-                                width: DEFAULT_DESCRIPTION_WIDTH
-                            }}
-                        >{entry.short}</p>
+                        <p className="Card__Description">{entry.short}</p>
                     }
                 </div>
             </div>
