@@ -1,11 +1,9 @@
-import React from 'react'
-import { Root, Routes } from 'react-static'
-import { Switch, Route } from 'react-router-dom'
-import { RootPage } from './RootPage/RootPage';
-import './index.scss'
-import EventPageContainer from './EventPage/EventPageContainer';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { Root, Routes } from 'react-static';
+import './index.scss';
 
-const TheRoutes = ()=> <Routes path="*" />;
+const TheRoutes = () => <Routes path="*" />;
 
 function App() {
 
@@ -13,7 +11,7 @@ function App() {
         <Root>
             <React.Suspense fallback={<em>Loading...</em>}>
                 <Switch>
-                    <Route default component={ TheRoutes } />
+                    <Route default  component={TheRoutes} />
                     <Route path="/" component={TheRoutes} />
                 </Switch>
             </React.Suspense>
