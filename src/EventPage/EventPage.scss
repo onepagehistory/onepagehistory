@@ -1,16 +1,18 @@
 .EventPage {
+    display: flex;
+    flex-direction: column;
     padding: 5rem 4rem;
     left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
+    right: 8px;
+    bottom: 122px;
+    top: 8px;
     position: absolute;
     overflow: auto;
     box-sizing: border-box;
     overscroll-behavior: contain;
     background: #232A4A;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 12px;
 
     &__Edit {
         opacity: .7;
@@ -71,11 +73,12 @@
     color: #fff;
     opacity: .7;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1;
     align-items: center;
     display: flex;
-    margin: 1rem 0;
+    margin-top: auto;
+    margin-left: auto;
     text-decoration: none;
     transition: opacity 300ms ease;
 
