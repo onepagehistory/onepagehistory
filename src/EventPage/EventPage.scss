@@ -1,11 +1,23 @@
+@mixin mobile {
+    @media screen and (max-width: 768px) {
+       @content;
+    }
+}
+
 .EventPage {
     display: flex;
     flex-direction: column;
     padding: 5rem 4rem;
     left: 0;
     right: 8px;
-    bottom: 122px;
+    bottom: 118px;
     top: 8px;
+
+    @include mobile {
+        bottom: 72px;
+        right: 0;
+    }
+
     position: absolute;
     overflow: auto;
     box-sizing: border-box;
@@ -66,12 +78,21 @@
 
     &__description {
         font-size: 1.4rem;
+
+        // CONCEPT: not approved by design team
+        a {
+            color: #fff;
+
+            &:hover {
+                opacity: .7;
+            }
+        }
     }
 }
 
 .wikilink {
     color: #fff;
-    opacity: .7;
+    opacity: .5;
     cursor: pointer;
     font-size: 1.4rem;
     line-height: 1;
