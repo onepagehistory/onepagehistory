@@ -57,20 +57,16 @@ export const Card = (props: IProps) => {
                 className="Card__Range"
                 style={ { width: rangeWidth } }></Link>
 
-            <div className="Card__Entry"
+            <Link className="Card__Entry"
+                to={SUBPAGE_URL}
                 style={ { width: cardWidth } }
             >
-                <Link
-                    to={SUBPAGE_URL}
-                    className="Card__ImgWrapper"
-                >{
-                        <img
-                            className="Card__image"
-                            alt={entry.name + ' representation'}
-                            src={localImageSrc1x || entry.imageUrl}
-                            srcSet={`${localImageSrc1x} 1x, ${localImageSrc2x} 2x, ${localImageSrc3x} 3x,`}
-                        />
-                }</Link>
+                <img
+                    className="Card__image"
+                    alt={entry.name + ' representation'}
+                    src={localImageSrc1x || entry.imageUrl}
+                    srcSet={`${localImageSrc1x} 1x, ${localImageSrc2x} 2x, ${localImageSrc3x} 3x,`}
+                />
                 <div className={'Card__Summary'}>
                     <Link className="Card__Head" to={SUBPAGE_URL}>
                         <h3 className="Card__Title">{entry.title}</h3>
@@ -82,7 +78,7 @@ export const Card = (props: IProps) => {
                         <p className="Card__Description">{entry.short}</p>
                     }
                 </div>
-            </div>
+            </Link>
         </div>
     );
 }

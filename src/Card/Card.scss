@@ -27,7 +27,7 @@
             }
         }
 
-        .Card__ImgWrapper {
+        .Card__image {
             outline: 3px solid #FFBF10;
             outline-offset: -3px;
         }
@@ -68,10 +68,6 @@
         font-size: 1.2rem;
         margin: 0;
         white-space: nowrap;
-    }
-
-    &__ImgWrapper {
-        box-sizing: border-box;
     }
 
     &__image {
