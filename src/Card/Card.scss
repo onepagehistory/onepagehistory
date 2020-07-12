@@ -16,6 +16,11 @@
         .Card__Description {
             opacity: .7;
         }
+
+        .Card__Title {
+            text-decoration: underline;
+            font-weight: 600;
+        }
     }
 
     &--selected {
@@ -38,18 +43,13 @@
         display: flex;
         text-align: left;
         box-sizing: border-box;
+        text-decoration: none;
+        color: white;
     }
 
     &__Head {
         color: #fff;
         text-decoration: none;
-
-        &:hover, .Card--selected & {
-            .Card__Title {
-                text-decoration: underline;
-                font-weight: 600;
-            }
-        }
     }
 
     &__Title {
