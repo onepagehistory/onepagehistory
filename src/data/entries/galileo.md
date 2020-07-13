@@ -4,7 +4,7 @@ subtitle:    15 February 1564 – 8 January 1642
 from:        1564
 to:          1642 
 short:       Galileo Galilei was an Italian astronomer, physicist and engineer, sometimes described as a polymath.
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg/440px-Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg
+imageUrl:    
 wikiUrl:     https://en.wikipedia.org/wiki/Galileo_Galilei
 -->
 

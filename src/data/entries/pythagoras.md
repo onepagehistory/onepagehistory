@@ -4,7 +4,7 @@ subtitle:    570 – 495 BCE
 from:        -570
 to:          -495
 short:       Pythagoras of Samos was an ancient Ionian Greek philosopher and the eponymous founder of Pythagoreanism
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/1/1a/Kapitolinischer_Pythagoras_adjusted.jpg
+imageUrl:    
 wikiUrl:     https://en.wikipedia.org/wiki/Pythagoras
 -->
 

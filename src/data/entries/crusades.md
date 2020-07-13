@@ -4,7 +4,7 @@ subtitle:    1095 – 1492
 from:        1095
 to:          1492
 short:       The Crusades were a series of religious wars sanctioned by the Latin Church in the medieval period.
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/f/f5/Combat_deuxi%C3%A8me_croisade.jpg
+imageUrl:    
 wikiUrl:     https://en.wikipedia.org/wiki/Crusades
 -->
 

@@ -4,7 +4,7 @@ subtitle:    August 6, 9 1945
 from:        1945
 to:          1945
 short:       A nuclear weapon ( also called an atom bomb, nuke, atomic bomb, nuclear warhead, A-bomb, or nuclear bomb) is an explosive device that derives its destructive force from nuclear reactions.
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Nagasakibomb.jpg/440px-Nagasakibomb.jpg
+imageUrl:    
 wikiUrl:     https://en.wikipedia.org/wiki/Nuclear_weapon
 -->
 

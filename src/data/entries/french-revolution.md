@@ -4,7 +4,7 @@ subtitle:    5 May 1789 – 9 November 1799
 from:        1789
 to:          1799 
 short:       The French Revolution was a period of far-reaching social and political upheaval in France and its colonies beginning in 1789.
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Anonymous_-_Prise_de_la_Bastille.jpg/480px-Anonymous_-_Prise_de_la_Bastille.jpg
+imageUrl:    
 wikiUrl:     https://en.wikipedia.org/wiki/French_Revolution
 -->
 

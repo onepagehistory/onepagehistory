@@ -4,7 +4,7 @@ subtitle:    1st century
 from:        0
 to:          0
 short:       Christianity is an Abrahamic religion based on the life and teachings of Jesus of Nazareth, as described in the New Testament.
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Christian_cross.svg/150px-Christian_cross.svg.png
+imageUrl:    
 wikiUrl:     https://en.wikipedia.org/wiki/Christianity
 -->
 

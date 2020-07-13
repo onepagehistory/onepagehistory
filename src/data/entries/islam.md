@@ -4,7 +4,7 @@ subtitle:    ~700
 from:        700
 to:          700 
 short:       Islam is an Abrahamic monotheistic religion teaching that there is only one God (Arabic: Allah), and that Muhammad is the messenger of God.
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Allah3.svg/220px-Allah3.svg.png
+imageUrl:    
 wikiUrl:     https://en.wikipedia.org/wiki/Islam
 -->
 

@@ -4,7 +4,7 @@ subtitle:    April 12, 1961
 from:        1961
 to:          1961 
 short:       On 12 April 1961, 6:07 am UTC, the Vostok 3KA-3 (Vostok 1) spacecraft with Gagarin aboard was launched from Baikonur Cosmodrome.
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Yuri-Gagarin-1961-Helsinki-crop.jpg/440px-Yuri-Gagarin-1961-Helsinki-crop.jpg
+imageUrl:    
 wikiUrl:     https://en.wikipedia.org/wiki/Yuri_Gagarin
 -->
 

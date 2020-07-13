@@ -4,7 +4,7 @@ subtitle:    1922 – 1991
 from:        1922
 to:          1991
 short:       
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_Soviet_Union.svg
+imageUrl:    
 wikiUrl:     https://wikipedia.org/wiki/Soviet_Union
 -->
 

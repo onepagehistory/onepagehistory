@@ -21,11 +21,21 @@ export const Card = (props: IProps) => {
     // NOTE: 4 is a magic from plotter, refactor
     const CARD_HEIGHT_IN_ROWS = 16;
 
-    // NOTE: file-loader is used here exclusively to force loader to use file
-    // urls instead of base64 data.
-    let localImageSrc1x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@1x.png`);
-    let localImageSrc2x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@2x.png`);
-    let localImageSrc3x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@3x.png`);
+    let imageUrl;
+    let srcSet;
+    if (entry.imageUrl) {
+        imageUrl = entry.imageUrl;
+        srcSet = null;
+    } else {
+        // NOTE: file-loader is used here exclusively to force loader to use file
+        // urls instead of base64 data.
+        const localImageSrc1x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@1x.png`);
+        const localImageSrc2x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@2x.png`);
+        const localImageSrc3x = require(`!file-loader?{ outputPath: 'static' }!./../data/entries/img/${entry.name}@3x.png`);
+
+        imageUrl = localImageSrc1x;
+        srcSet = `${localImageSrc1x} 1x, ${localImageSrc2x} 2x, ${localImageSrc3x} 3x`;
+    }
 
     const { data } = useSiteData();
     const { to } = data;
@@ -65,8 +75,8 @@ export const Card = (props: IProps) => {
                     className="Card__image"
                     alt={entry.name + ' representation'}
                     loading="lazy"
-                    src={localImageSrc1x || entry.imageUrl}
-                    srcSet={`${localImageSrc1x} 1x, ${localImageSrc2x} 2x, ${localImageSrc3x} 3x,`}
+                    src={imageUrl}
+                    srcSet={srcSet}
                 />
                 <div className={'Card__Summary'}>
                     <div className="Card__Head">

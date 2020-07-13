@@ -1,10 +1,10 @@
 <!--
 title:       Capitalism
-subtitle:    ?
+subtitle:    ~ XVIII
 from:        1700
 to:          1700 
 short:       Capitalism is an economic system based on the private ownership of the means of production and their operation for profit
-imageUrl:    https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/McKinley_Prosperity.jpg/340px-McKinley_Prosperity.jpg
+imageUrl:    
 wikiUrl:     https://en.wikipedia.org/wiki/Capitalism
 -->
 

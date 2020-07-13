@@ -1,10 +1,10 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import { Link } from "react-router-dom";
 import { Head } from 'react-static';
 import { ShareBox } from '../SocialMedia/ShareBox';
 import './EventPage.scss';
 import { IPageData } from './IPageData';
-import { EventDescription } from './Markdown/EventDescription';
 
 export const EventPage = (props: { pageData: IPageData }) => {
     const { entry, content } = props.pageData;
@@ -38,7 +38,10 @@ export const EventPage = (props: { pageData: IPageData }) => {
                 relativeUrl={'/p/' + entry.name}
                 />
 
-            <EventDescription value={content}/>
+            <div className="EventPage__description" >
+                <ReactMarkdown source={content} />
+            </div>
+
             <a target="_blank" href={ entry.wikiUrl } className="wikilink">
                 Read full article on Wikipedia
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px" height="18px" fill="#fff">
