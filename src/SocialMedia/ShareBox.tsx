@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { ROOT_URL } from '../shared/const.js';
+import { ExternalLink } from '../shared/ExternalLink';
 import { FacebookIcon, TwitterIcon } from './icons';
 import './SocialMedia.scss';
 
@@ -23,9 +24,9 @@ export function ShareBox(props: { pageTitle: string, relativeUrl: string }) {
                     <FacebookIcon className="Share-box__icon" />
                 </span>
 
-                <a target="_blank" rel="nofollow" href={'https://twitter.com/intent/tweet?text=' + twitterShareText}>
+                <ExternalLink target="_blank" rel="nofollow" href={'https://twitter.com/intent/tweet?text=' + twitterShareText}>
                     <TwitterIcon className="Share-box__icon" />
-                </a>
+                </ExternalLink>
             </div>
         </div>
     )
