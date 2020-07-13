@@ -1,0 +1,38 @@
+.decade-marks {
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(259, 100px);
+    font-size: 1.2rem;
+    border-top: 1px solid #fff;
+    width: max-content;
+    color: #fff;
+    padding: 1rem 0;
+    text-indent: 1rem;
+
+    &__item {
+        p {
+            margin: 0;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 11px;
+            background-color: #fff;
+            margin-bottom: 5px;
+            margin-top: -16px;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 1px;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            opacity: .1;
+        }
+    }
+}

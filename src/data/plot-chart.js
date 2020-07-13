@@ -28,6 +28,7 @@ function plotChart({ eventsArray, cardHeight }) {
     // TODO: refactor
     const visualBlocks = [];   // RectanglesArray
     const cards = [];
+    let maxRow = 0;
 
     for (let event of eventsArray) {
         const x = to - event.to;
@@ -63,12 +64,19 @@ function plotChart({ eventsArray, cardHeight }) {
                 row: rangeBlock.y, // y is the same for card and range
             }
 
+            if (maxRow < card.row + cardHeight) {
+                maxRow = card.row + cardHeight;
+            }
+
             cards.push(card);
             break;
         };
     }
 
-    return cards;
+    return {
+        maxRow,
+        cards
+    };
 }
 
 // ifAnyBlockOverlaps(blocks: RectanglesArray, a: Rectangle, b: Rectangle): boolean

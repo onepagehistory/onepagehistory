@@ -10,7 +10,7 @@
     padding: 5rem 4rem;
     left: 0;
     right: 8px;
-    bottom: 118px;
+    bottom: 103px; // magic number, refactor
     top: 8px;
 
     @include mobile {

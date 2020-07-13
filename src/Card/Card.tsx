@@ -3,7 +3,7 @@ import React from 'react';
 import { IHistoryEvent } from "../data/HistoryEvent";
 import { IChartCard } from "../data/plot-chart";
 import { useSiteData } from "react-static";
-import { YEAR_LENGTH, DEFAULT_CARD_WIDTH } from '../shared/const.js'
+import { YEAR_LENGTH, DEFAULT_CARD_WIDTH, CARD_HEIGHT_IN_ROWS } from '../shared/const.js'
 import './Card.scss';
 
 interface IProps {
@@ -17,9 +17,6 @@ interface IProps {
 export const Card = (props: IProps) => {
     const { entry, isSelected, card, minRow, maxRow  } = props;
     const SUBPAGE_URL = '/p/' + entry.name + '/'; // trailing / is a canonical url
-
-    // NOTE: 4 is a magic from plotter, refactor
-    const CARD_HEIGHT_IN_ROWS = 16;
 
     let imageUrl;
     let srcSet;

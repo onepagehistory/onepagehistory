@@ -19,12 +19,6 @@
         bottom: 0;
         right: 0;
         left: 0;
-        height: 111px;
-    }
-
-
-    &__minimap {
-        height: 72px;
     }
 
     &__navbar {
@@ -32,50 +26,4 @@
         line-height: 39px;
     }
 
-    &__decades {
-        display: grid;
-        grid-template-columns: repeat(259, 100px);
-        font-size: 1.2rem;
-        border-top: 1px solid #fff;
-        width: max-content;
-        color: #fff;
-        padding: 1rem 0;
-        text-indent: 1rem;
-
-        &-item {
-            p {
-                margin: 0;
-            }
-
-            &:before {
-                content: '';
-                display: block;
-                width: 1px;
-                height: 11px;
-                background-color: #fff;
-                margin-bottom: 5px;
-                margin-top: -16px;
-            }
-
-            &:after {
-                content: '';
-                display: block;
-                width: 1px;
-                background: #fff;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                opacity: .1;
-            }
-        }
-    }
-}
-
-.century-label {
-    position: absolute;
-    top: 10%;
-    font-size: 100px;
-    color: #fff;
-    opacity: 0.05;
-    font-weight: 800;
 }

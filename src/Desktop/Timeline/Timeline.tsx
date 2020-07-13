@@ -1,43 +1,63 @@
-import React, { useState, useMemo} from 'react';
-import { ScrollNavigation as DesktopNavBar } from '../ScrollNavigation/ScrollNavigation';
+import React, { useMemo } from 'react';
 import { CardLine } from '../../CardLine/CardLine';
 import { IChartCard } from '../../data/plot-chart';
-import { DesktopMinimap } from '../Minimap/DesktopMinimap';
-import { DecadeMarks } from '../DecadeMarks/DecadeMarks';
 import { CenturyLabels } from '../CenturyLabels/CenturyLabels';
-
+import { DecadeMarks } from '../DecadeMarks/DecadeMarks';
+import { DesktopMinimap } from '../Minimap/DesktopMinimap';
+import { ScrollNavigation as DesktopNavBar } from '../ScrollNavigation/ScrollNavigation';
 import './Timeline.scss';
+import { CARD_HEIGHT_IN_ROWS } from '../../shared/const';
+
 
 export interface IScalesProps {
     selectedId?: string;
-    cards: IChartCard[];
+    cardChart: {
+        cards: IChartCard[];
+        maxRow: number;
+    }
 }
 
-export const Timeline = ({ selectedId, cards }: IScalesProps) => {
+export function Timeline ({ selectedId, cardChart }: IScalesProps) {
 
-    const memoDecs = useMemo(() => {
-        return <DecadeMarks></DecadeMarks>
-    }, []);
+    const { upperCards, uppperBasis, lowerCards, lowerBasis } = useMemo(() => {
+        const rowCount = cardChart.maxRow;
+        const halfRows = Math.floor(rowCount / 2);
 
-    const memoCenturies = useMemo(() => {
-        return <CenturyLabels/>
-    },[]);
+        const { upperCards, lowerCards } = cardChart.cards.reduce((acc, card) => {
+            if (card.row + CARD_HEIGHT_IN_ROWS > halfRows) {
+                acc.upperCards.push(card);
+            } else {
+                acc.lowerCards.push(card);
+            }
+            return acc;
+        }, { upperCards: [], lowerCards: [] });
+
+        return {
+            upperCards,
+            uppperBasis: rowCount - halfRows + CARD_HEIGHT_IN_ROWS,
+            lowerCards,
+            lowerBasis: halfRows + 1,
+        };
+    }, [cardChart]);
 
     return (
         <div className="timeline">
-            <div className="timeline__events">
+            <div className="timeline__events" style={{ flexGrow: uppperBasis }}>
                 <CardLine
-                    cards={cards.filter(card => card.row > 40)}
+                    cards={upperCards}
                     selectedId={selectedId}
                     />
             </div>
-            {memoDecs}
-            <div className="timeline__events">
+
+            <DecadeMarks />
+
+            <div className="timeline__events" style={{ flexGrow: lowerBasis }}>
                 <CardLine
-                    cards={cards.filter(card => card.row < 41)}
+                    cards={lowerCards}
                     selectedId={selectedId}
                     />
-            </div>            
+            </div>
+
             <div className="timeline__navigation-container">
                 <div className="timeline__minimap">
                     <DesktopMinimap />
@@ -47,7 +67,7 @@ export const Timeline = ({ selectedId, cards }: IScalesProps) => {
                 </div>
             </div>
             <div className="timeline__century-labels">
-                {memoCenturies}
+                <CenturyLabels />
             </div>
         </div>
 

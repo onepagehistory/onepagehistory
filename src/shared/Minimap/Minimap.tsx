@@ -2,6 +2,7 @@ import * as React from 'react';
 import { MinimapEvents } from './MinimapEvents';
 import { useSiteData } from 'react-static';
 import './Minimap.scss';
+import { PADDING, EVENT_HEIGHT } from './const';
 
 interface IProps {
     highlightYear: number;
@@ -11,7 +12,7 @@ interface IProps {
 export const Minimap = (props: IProps) => {
     const { highlightYear, highlightSpan } = props;
     const { data } = useSiteData();
-    const { from, to } = data;
+    const { from, to, barChart } = data;
     const length = to - from;
 
     const highlightWidth   = highlightSpan / (length / 100);
@@ -20,7 +21,7 @@ export const Minimap = (props: IProps) => {
     const hightLightRight  = 100 - (hightlightOffset + highlightWidth);
 
     return (
-        <div className="minimap">
+        <div className="minimap" style={{ height: barChart.maxRow * EVENT_HEIGHT + PADDING * 2 }}>
             <div className="minimap__events">
                 <MinimapEvents />
             </div>

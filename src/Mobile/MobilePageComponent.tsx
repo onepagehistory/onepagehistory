@@ -14,7 +14,7 @@ export const MobilePageComponent = (props: any) => {
     const pageId = routeData && routeData.entry && routeData.entry.name || void 0;
 
     const ref = useRef(null);
-    const { cards } = data;
+    const { cards } = data.cardChart;
 
     return <div ref={ ref } className="mobile-page">
 

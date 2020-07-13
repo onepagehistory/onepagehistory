@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { IChartCard } from '../../data/plot-chart';
 import { useSiteData } from 'react-static';
+import { IChartCard } from '../../data/plot-chart';
+import { EVENT_HEIGHT, PADDING } from './const';
 import './MinimapEvents.scss';
-
-const EVENT_HEIGHT = 3;
 
 export const MinimapEvents = () => {
     const { data } = useSiteData();
 
     const output = React.useMemo(() => {
-        const { from, to, bars } = data;
+        const { from, to, barChart } = data;
         const length = to - from;
+        const bars = barChart.cards;
 
         return (
             <div className="minimap-events">{bars.map((card: IChartCard) =>
@@ -20,7 +20,7 @@ export const MinimapEvents = () => {
                     style={
                         {
                             left: ((to - card.to) / length) * 100 + '%'
-                            , bottom: card.row * EVENT_HEIGHT + 6
+                            , bottom: card.row * EVENT_HEIGHT + PADDING
                             , width: (card.to - card.from) / length * 100 + '%'
                         }
                     }></div>
