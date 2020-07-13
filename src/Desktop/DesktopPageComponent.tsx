@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Switch, Router, Route } from 'react-router-dom';
 import { useRouteData, useSiteData, Head, Routes } from 'react-static';
 import { TimelineContainer } from './Timeline/TimelineContainer';
-import { SocialMedia } from '../SocialMedia/SocialMedia';
+import { FollowBox } from '../SocialMedia/FollowBox';
 import EventPageContainer from '../EventPage/EventPageContainer';
 import './DesktopPageComponent.scss';
 
@@ -60,11 +60,7 @@ export const DesktopPageComponent = () => {
                     </div> */}
                 </section>
                 <div className="social-media-box">
-                    <SocialMedia
-                        title="Follow us:"
-                        follow={true}
-                        relativeUrl="/"
-                        />
+                    <FollowBox />
                 </div>
             </div>
         </section>
