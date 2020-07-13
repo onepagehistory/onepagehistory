@@ -9,3 +9,4 @@ wikiUrl:     https://en.wikipedia.org/wiki/History_of_the_automobile
 -->
 
 
+First steam-powered automobile capable of human transportation was built by Nicolas-Joseph Cugnot
