@@ -76,7 +76,9 @@ export const Card = (props: IProps) => {
 
                     {
                         entry.short &&
-                        <p className="Card__Description">{entry.short}</p>
+                        <div className="Card__DescriptionWrapper">
+                            <p className="Card__Description">{entry.short}</p>
+                        </div>
                     }
                 </div>
             </Link>
