@@ -23,6 +23,10 @@
         font-size: 1.8rem;
         min-width: 80px;
         text-align: center;
+
+        &:hover {
+            color: #FFA419;
+        }
     }
 
     &__item-text {
