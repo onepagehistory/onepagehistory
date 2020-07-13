@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { MinimapEvents } from './MinimapEvents';
 import { useSiteData } from 'react-static';
+import { YEAR_LENGTH } from '../const';
+import { EVENT_HEIGHT, PADDING } from './const';
 import './Minimap.scss';
-import { PADDING, EVENT_HEIGHT } from './const';
+import { MinimapEvents } from './MinimapEvents';
 
 interface IProps {
     highlightYear: number;
@@ -20,8 +21,15 @@ export const Minimap = (props: IProps) => {
     const hightLightLeft   = hightlightOffset;
     const hightLightRight  = 100 - (hightlightOffset + highlightWidth);
 
+    // scroll to click
+    const onClick = React.useCallback((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        const scrollX = event.clientX / window.innerWidth * ((length - highlightSpan) * YEAR_LENGTH);
+        window.scrollTo({ left: scrollX });
+        return void 0;
+    }, []);
+
     return (
-        <div className="minimap" style={{ height: barChart.maxRow * EVENT_HEIGHT + PADDING * 2 }}>
+        <div onClick={onClick} className="minimap" style={{ height: barChart.maxRow * EVENT_HEIGHT + PADDING * 2 }}>
             <div className="minimap__events">
                 <MinimapEvents />
             </div>
